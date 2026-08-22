@@ -1,0 +1,36 @@
+.history-detail-page {
+    background-color: var(--color-bg-light);
+    min-height: 100vh;
+    padding: 2rem;
+    position: relative;
+}
+
+/* Add a premium background accent */
+.history-detail-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 300px;
+    background: linear-gradient(to bottom, rgba(26, 62, 92, 0.03) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+@media (max-width: 1023px) {
+    .history-detail-page {
+        /* Push content below the fixed mobile topbar */
+        padding-top: calc(var(--navbar-height) + 1rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .history-detail-page {
+        padding: 0;
+        background-color: transparent;
+    }
+
+    .history-detail-page::before {
+        display: none;
+    }
+}

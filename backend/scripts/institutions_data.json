@@ -1,0 +1,3994 @@
+[
+  {
+    "code": "ABERDARE TTC",
+    "name": "ABERDARE TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYANDARUA COUNTY"
+  },
+  {
+    "code": "AIU",
+    "name": "AFRICA INTERNATIONAL UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "ANU",
+    "name": "AFRICA NAZARENE UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "KAJIADO COUNTY"
+  },
+  {
+    "code": "ASM TTI",
+    "name": "AHMED SHAHAME MWIDANI TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MOMBASA COUNTY"
+  },
+  {
+    "code": "ALDAITTI",
+    "name": "ALDAI TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NANDI COUNTY"
+  },
+  {
+    "code": "AU",
+    "name": "ALUPE UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUSIA COUNTY"
+  },
+  {
+    "code": "ALUPE UNIVERSITY TVET INSTITUTE",
+    "name": "ALUPE UNIVERSITY TVET INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "BUSIA COUNTY"
+  },
+  {
+    "code": "AMIU",
+    "name": "AMREF INTERNATIONAL UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "ASUMBI TTC",
+    "name": "ASUMBI TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "HOMA BAY COUNTY"
+  },
+  {
+    "code": "BAHATI IBAS",
+    "name": "BAHATI INSTITUTE OF BUSINESS AND ADMINISTRATION STUDIES",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAKURU COUNTY"
+  },
+  {
+    "code": "BALAMBALA TVC",
+    "name": "BALAMBALA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "GARISSA COUNTY"
+  },
+  {
+    "code": "BMA",
+    "name": "BANDARI MARITIME ACADEMY",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "MOMBASA COUNTY"
+  },
+  {
+    "code": "BARINGO POLY",
+    "name": "BARINGO NATIONAL POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BARINGO COUNTY"
+  },
+  {
+    "code": "BELGUT TVC",
+    "name": "BELGUT TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KERICHO COUNTY"
+  },
+  {
+    "code": "BISHOP MAHON TTC",
+    "name": "BISHOP MAHON TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "TURKANA COUNTY"
+  },
+  {
+    "code": "BOMET TVC",
+    "name": "BOMET TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BOMET COUNTY"
+  },
+  {
+    "code": "BUC",
+    "name": "BOMET UNIVERSITY COLLEGE",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "BOMET COUNTY"
+  },
+  {
+    "code": "BONDO TTC",
+    "name": "BONDO TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "SIAYA COUNTY"
+  },
+  {
+    "code": "BONDO TTI",
+    "name": "BONDO TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "SIAYA COUNTY"
+  },
+  {
+    "code": "BORABU TTC",
+    "name": "BORABU TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYAMIRA COUNTY"
+  },
+  {
+    "code": "BORABU TVC",
+    "name": "BORABU TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYAMIRA COUNTY"
+  },
+  {
+    "code": "BAC",
+    "name": "BUKURA AGRICULTURAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "BUMBE TTI",
+    "name": "BUMBE TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUSIA COUNTY"
+  },
+  {
+    "code": "BUNGOMA NORTH TVC",
+    "name": "BUNGOMA NORTH TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUNGOMA COUNTY"
+  },
+  {
+    "code": "BUNYALA TVC",
+    "name": "BUNYALA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUSIA COUNTY"
+  },
+  {
+    "code": "BUNYORE TTC",
+    "name": "BUNYORE TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "VIHIGA COUNTY"
+  },
+  {
+    "code": "BURETI TTI",
+    "name": "BURETI TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KERICHO COUNTY"
+  },
+  {
+    "code": "BUSHIANGALA TTI",
+    "name": "BUSHIANGALA TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "BUTERE TVC",
+    "name": "BUTERE TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "BUTULA TVC",
+    "name": "BUTULA TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUSIA COUNTY"
+  },
+  {
+    "code": "CARDINAL MAURICE OTUNGA TVC",
+    "name": "CARDINAL MAURICE OTUNGA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUNGOMA COUNTY"
+  },
+  {
+    "code": "CUEA",
+    "name": "CATHOLIC UNIVERSITY OF EASTERN  AFRICA",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "CTTR",
+    "name": "CENTRE FOR TOURISM TRAINING AND RESEARCH",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "CHAMASIRI TVC",
+    "name": "CHAMASIRI TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUSIA COUNTY"
+  },
+  {
+    "code": "CHANZEYWE TVC",
+    "name": "CHANZEYWE TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "VIHIGA COUNTY"
+  },
+  {
+    "code": "CHEPALUNGU TTI",
+    "name": "CHEPALUNGU TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BOMET COUNTY"
+  },
+  {
+    "code": "CHEPSIREI TVC",
+    "name": "CHEPSIREI TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "ELGEYO MARAKWET COUNTY"
+  },
+  {
+    "code": "CHERANGANY TVC",
+    "name": "CHERANGANY TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "TRANSNZOIA COUNTY"
+  },
+  {
+    "code": "CHESTA TTC",
+    "name": "CHESTA TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "WEST POKOT COUNTY"
+  },
+  {
+    "code": "CHEVAYWA TVC",
+    "name": "CHEVAYWA  TECHCHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "CHUKA TVC",
+    "name": "CHUKA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "CU",
+    "name": "CHUKA UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "THARAKA NITHI COUNTY"
+  },
+  {
+    "code": "CU TVET - IGEMBE",
+    "name": "CHUKA UNIVERSITY TVET - IGEMBE CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "COPUK",
+    "name": "CO-OPERATIVE UNIVERSITY OF KENYA",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "DAVID M WAMBULI TVC",
+    "name": "DAVID M WAMBULI TECHNICAL VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MAKUENI COUNTY"
+  },
+  {
+    "code": "DAYSTAR",
+    "name": "DAYSTAR UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "MACHAKOS COUNTY"
+  },
+  {
+    "code": "DKUT",
+    "name": "DEDAN KIMATHI UNIVERSITY OF TECHNOLOGY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYERI COUNTY"
+  },
+  {
+    "code": "DR. DANIEL WAKO MURENDE TVC",
+    "name": "DR. DANIEL WAKO MURENDE TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUSIA COUNTY"
+  },
+  {
+    "code": "EASA",
+    "name": "EAST AFRICAN SCHOOL OF AVIATION",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "EBUKANGA TVC",
+    "name": "EBUKANGA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "VIHIGA COUNTY"
+  },
+  {
+    "code": "EU",
+    "name": "EGERTON UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAKURU COUNTY"
+  },
+  {
+    "code": "EGOJI TTC",
+    "name": "EGOJI TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "ELDAMA RAVINE TVC",
+    "name": "ELDAMA RAVINE TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BARINGO COUNTY"
+  },
+  {
+    "code": "ELDAS TTC",
+    "name": "ELDAS TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "WAJIR COUNTY"
+  },
+  {
+    "code": "ELDO POLY",
+    "name": "ELDORET POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "UASIN GISHU COUNTY"
+  },
+  {
+    "code": "ELWAK TVC",
+    "name": "ELWAK TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MANDERA COUNTY"
+  },
+  {
+    "code": "EMGWEN TVC",
+    "name": "EMGWEN TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NANDI COUNTY"
+  },
+  {
+    "code": "EMINING TTI",
+    "name": "EMINING TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BARINGO COUNTY"
+  },
+  {
+    "code": "EMSOS TVC",
+    "name": "EMSOS TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "UASIN GISHU COUNTY"
+  },
+  {
+    "code": "EMURUA DIKIRR TTI",
+    "name": "EMURUA DIKIRR TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAROK COUNTY"
+  },
+  {
+    "code": "ENDEBESS TTI",
+    "name": "ENDEBESS TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "TRANSNZOIA COUNTY"
+  },
+  {
+    "code": "FAYYA TVC",
+    "name": "FAYYA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "TANA RIVER COUNTY"
+  },
+  {
+    "code": "FCK",
+    "name": "FRIENDS COLLEGE KAIMOSI",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "VIHIGA COUNTY"
+  },
+  {
+    "code": "GALANA TTC",
+    "name": "GALANA TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KILIFI COUNTY"
+  },
+  {
+    "code": "GARISSA TTC",
+    "name": "GARISSA TEACHERS TRAINING  COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "GARISSA COUNTY"
+  },
+  {
+    "code": "GU",
+    "name": "GARISSA UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "GARISSA COUNTY"
+  },
+  {
+    "code": "GARISSA UNIVERSITY TVET",
+    "name": "GARISSA UNIVERSITY TVET INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "GARISSA COUNTY"
+  },
+  {
+    "code": "GARSEN TVC",
+    "name": "GARSEN TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "TANA RIVER COUNTY"
+  },
+  {
+    "code": "GATANGA TVC",
+    "name": "GATANGA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MURANG'A COUNTY"
+  },
+  {
+    "code": "GATUNDU SOUTH TVC",
+    "name": "GATUNDU SOUTH TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "GICHUGU TVC",
+    "name": "GICHUGU TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KIRINYAGA COUNTY"
+  },
+  {
+    "code": "GILGIL TVC",
+    "name": "GILGIL TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAKURU COUNTY"
+  },
+  {
+    "code": "GITHUNGURI TVC",
+    "name": "GITHUNGURI TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "GITWEBE TTI",
+    "name": "GITWEBE TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYAMIRA COUNTY"
+  },
+  {
+    "code": "GODOMA TTI",
+    "name": "GODOMA TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KILIFI COUNTY"
+  },
+  {
+    "code": "GOT RAMOGI TVC",
+    "name": "GOT RAMOGI TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "SIAYA COUNTY"
+  },
+  {
+    "code": "GLUK",
+    "name": "GREAT LAKES UNIVERSITY OF KISUMU",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "KISUMU COUNTY"
+  },
+  {
+    "code": "GRETSA",
+    "name": "GRETSA UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "HEROES TVC",
+    "name": "HEROES TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAKURU COUNTY"
+  },
+  {
+    "code": "IJARA TVC",
+    "name": "IJARA TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "GARISSA COUNTY"
+  },
+  {
+    "code": "IKUTHA TVC",
+    "name": "IKUTHA TECHNICAL  AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KITUI COUNTY"
+  },
+  {
+    "code": "ILU",
+    "name": "INTERNATIONAL LEADERSHIP UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "IUK",
+    "name": "ISLAMIC UNIVERSITY OF KENYA",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "JOOUST",
+    "name": "JARAMOGI OGINGA ODINGA UNIVERSITY OF SCIENCE AND TECHNOLOGY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "SIAYA COUNTY"
+  },
+  {
+    "code": "JEREMIAH NYAGAH TI",
+    "name": "JEREMIAH NYAGAH TECHNICAL INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "EMBU COUNTY"
+  },
+  {
+    "code": "JKUAT",
+    "name": "JOMO KENYATTA UNIVERSITY OF AGRICULTURE AND TECHNOLOGY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "JKUAT TI",
+    "name": "JOMO KENYATTA UNIVERSITY OF AGRICULTURE AND TECHNOLOGY TVET INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "JOOUST TVET",
+    "name": "JOOUST CENTRE OF TECHNICAL VOCATIONAL AND EDUCATION TRAINING",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "SIAYA COUNTY"
+  },
+  {
+    "code": "KABU",
+    "name": "KABARAK UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "NAKURU COUNTY"
+  },
+  {
+    "code": "KABARNET UNIVERSITY COLLEGE",
+    "name": "KABARNET UNIVERSITY COLLEGE",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "BARINGO COUNTY"
+  },
+  {
+    "code": "KABETE POLY",
+    "name": "KABETE NATIONAL POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KAELO TTI",
+    "name": "KAELO TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "KAGUMO TTC",
+    "name": "KAGUMO TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYERI COUNTY"
+  },
+  {
+    "code": "KAIBOI POLY",
+    "name": "KAIBOI NATIONAL POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "UASIN GISHU COUNTY"
+  },
+  {
+    "code": "KAFU",
+    "name": "KAIMOSI FRIENDS UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "VIHIGA COUNTY"
+  },
+  {
+    "code": "KAIMOSI TTC",
+    "name": "KAIMOSI TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "VIHIGA COUNTY"
+  },
+  {
+    "code": "KAJIADO EAST TVC",
+    "name": "KAJIADO EAST TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KAJIADO COUNTY"
+  },
+  {
+    "code": "KAJIADO WEST TVC",
+    "name": "KAJIADO WEST TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KAJIADO COUNTY"
+  },
+  {
+    "code": "KAKRAO TVC",
+    "name": "KAKRAO TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MIGORI COUNTY"
+  },
+  {
+    "code": "KALOLENI TVC",
+    "name": "KALOLENI TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KILIFI COUNTY"
+  },
+  {
+    "code": "KAMUKUNJI TVC",
+    "name": "KAMUKUNJI TECHNICAL VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KAMWENJA TTC",
+    "name": "KAMWENJA TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYERI COUNTY"
+  },
+  {
+    "code": "KANDARA TVC",
+    "name": "KANDARA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MURANG'A COUNTY"
+  },
+  {
+    "code": "KAPCHEPKOR TTI",
+    "name": "KAPCHEPKOR TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BARINGO COUNTY"
+  },
+  {
+    "code": "KAPCHEROP TVC",
+    "name": "KAPCHEROP TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "ELGEYO MARAKWET COUNTY"
+  },
+  {
+    "code": "KARU",
+    "name": "KARATINA UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYERI COUNTY"
+  },
+  {
+    "code": "KAREN TTI",
+    "name": "KAREN TECHNICAL TRAINING INSTITUTE FOR THE DEAF",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KARUMO TTI",
+    "name": "KARUMO TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "KASARANI TVC",
+    "name": "KASARANI TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KASNEB",
+    "name": "KASNEB",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KATINE",
+    "name": "KATINE TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MACHAKOS COUNTY"
+  },
+  {
+    "code": "KCA",
+    "name": "KCA UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KENDEGE",
+    "name": "KENDEGE TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MIGORI COUNTY"
+  },
+  {
+    "code": "KENGEN GEOTHERMAL TC",
+    "name": "KENGEN GEOTHERMAL TRAINING CENTRE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "NAKURU COUNTY"
+  },
+  {
+    "code": "KAGEU",
+    "name": "KENYA ASSEMBLIES OF GOD EAST UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KCNP",
+    "name": "KENYA COAST POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MOMBASA COUNTY"
+  },
+  {
+    "code": "KFC",
+    "name": "KENYA FORESTRY COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "KERICHO COUNTY"
+  },
+  {
+    "code": "KHEU",
+    "name": "KENYA HIGHLANDS EVANGELICAL UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "KERICHO COUNTY"
+  },
+  {
+    "code": "KITI",
+    "name": "KENYA INDUSTRIAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "NAKURU COUNTY"
+  },
+  {
+    "code": "KIHBT",
+    "name": "KENYA INSTITUTE OF HIGHWAYS AND BUILDING TECHNOLOGY",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KIMC",
+    "name": "KENYA INSTITUTE OF MASS COMMUNICATION",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KISM",
+    "name": "KENYA INSTITUTE OF SURVEYING AND MAPPING",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KMTC - AWENDO",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - AWENDO CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MIGORI COUNTY"
+  },
+  {
+    "code": "KMTC - BOMET",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - BOMET CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "BOMET COUNTY"
+  },
+  {
+    "code": "KMTC - BONDO",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - BONDO CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "SIAYA COUNTY"
+  },
+  {
+    "code": "KMTC - BUNGOMA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - BUNGOMA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "BUNGOMA COUNTY"
+  },
+  {
+    "code": "KMTC - BURNT FOREST",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - BURNT FOREST CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "UASIN GISHU COUNTY"
+  },
+  {
+    "code": "KMTC - BUSIA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - BUSIA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "BUSIA COUNTY"
+  },
+  {
+    "code": "KMTC - BUTULA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - BUTULA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "BUSIA COUNTY"
+  },
+  {
+    "code": "KMTC - CHEMOLINGOT",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - CHEMOLINGOT CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "BARINGO COUNTY"
+  },
+  {
+    "code": "KMTC - CHUKA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - CHUKA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "EMBU COUNTY"
+  },
+  {
+    "code": "KMTC - CHWELE",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - CHWELE CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "BUNGOMA COUNTY"
+  },
+  {
+    "code": "KMTC - ELDORET",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - ELDORET CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "UASIN GISHU COUNTY"
+  },
+  {
+    "code": "KMTC - EMBU",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - EMBU CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "EMBU COUNTY"
+  },
+  {
+    "code": "KMTC - GARISSA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - GARISSA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "GARISSA COUNTY"
+  },
+  {
+    "code": "KMTC - GATUNDU - MUTUNGURU SATELLITE",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - GATUNDU - MUTUNGURU SATELLITE CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "KMTC - GATUNDU",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - GATUNDU CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "KMTC - HOMA BAY - MBITA SATELLITE",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - HOMA BAY - MBITA SATELLITE CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "HOMA BAY COUNTY"
+  },
+  {
+    "code": "KMTC - HOMA BAY",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - HOMA BAY CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "HOMA BAY COUNTY"
+  },
+  {
+    "code": "KMTC - IMENTI",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - IMENTI CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "KMTC - ISIOLO",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - ISIOLO CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "ISIOLO COUNTY"
+  },
+  {
+    "code": "KMTC - ITEN",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - ITEN CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "ELGEYO MARAKWET COUNTY"
+  },
+  {
+    "code": "KMTC - KABARNET",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KABARNET CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "BARINGO COUNTY"
+  },
+  {
+    "code": "KMTC - KAKAMEGA - IKOLOMANI SATELLITE",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KAKAMEGA - IKOLOMANI CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "KMTC - KAKAMEGA - MALABA SATELLITE",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KAKAMEGA - MALABA SATELLITE",
+    "category": "",
+    "institution_type": "TVET",
+    "parent_ministry": "",
+    "location": "COUNTY"
+  },
+  {
+    "code": "KMTC - KAKAMEGA - NAVAKHOLO",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KAKAMEGA - NAVAKHOLO CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "KMTC - KAKAMEGA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KAKAMEGA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "KMTC - KANGEMA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KANGEMA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MURANG'A COUNTY"
+  },
+  {
+    "code": "KMTC - KANGUNDO",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KANGUNDO CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MACHAKOS COUNTY"
+  },
+  {
+    "code": "KMTC - KAPENGURIA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KAPENGURIA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "WEST POKOT COUNTY"
+  },
+  {
+    "code": "KMTC - KAPKATET",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KAPKATET CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KERICHO COUNTY"
+  },
+  {
+    "code": "KMTC - KAPTUMO",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KAPTUMO CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "NANDI COUNTY"
+  },
+  {
+    "code": "KMTC - KAREN - NAIROBI",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KAREN - NAIROBI CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KMTC - KARURI",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KARURI CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "KMTC - KERIO VALLEY",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KERIO VALLEY CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "ELGEYO MARAKWET COUNTY"
+  },
+  {
+    "code": "KMTC - KILIFI",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KILIFI CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KILIFI COUNTY"
+  },
+  {
+    "code": "KMTC - KINANGOP",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KINANGOP CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "NYANDARUA COUNTY"
+  },
+  {
+    "code": "KMTC - KISII",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KISII CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KISII COUNTY"
+  },
+  {
+    "code": "KMTC - KISUMU",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KISUMU CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KISUMU COUNTY"
+  },
+  {
+    "code": "KMTC - KITALE",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KITALE CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "TRANSNZOIA COUNTY"
+  },
+  {
+    "code": "KMTC - KITUI - MUTOMO",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KITUI - MUTOMO CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KITUI COUNTY"
+  },
+  {
+    "code": "KMTC - KITUI",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KITUI CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KITUI COUNTY"
+  },
+  {
+    "code": "KMTC - KOMBEWA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KOMBEWA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KISUMU COUNTY"
+  },
+  {
+    "code": "KMTC - KURIA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KURIA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MIGORI COUNTY"
+  },
+  {
+    "code": "KMTC - KWALE",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - KWALE CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KWALE COUNTY"
+  },
+  {
+    "code": "KMTC - LAKE VICTORIA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - LAKE VICTORIA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KISUMU COUNTY"
+  },
+  {
+    "code": "KMTC - LAMU",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - LAMU CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "LAMU COUNTY"
+  },
+  {
+    "code": "KMTC - LODWAR",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - LODWAR CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "TURKANA COUNTY"
+  },
+  {
+    "code": "KMTC - LOITOKITOK",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - LOITOKITOK CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KAJIADO COUNTY"
+  },
+  {
+    "code": "KMTC - LUGARI",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - LUGARI CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "KMTC - MACHAKOS",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MACHAKOS CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MACHAKOS COUNTY"
+  },
+  {
+    "code": "KMTC - MAKINDU",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MAKINDU CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MAKUENI COUNTY"
+  },
+  {
+    "code": "KMTC - MAKUENI - MBUVO",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MAKUENI - MBUVO CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MAKUENI COUNTY"
+  },
+  {
+    "code": "KMTC - MAKUENI",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MAKUENI CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MAKUENI COUNTY"
+  },
+  {
+    "code": "KMTC - MANDERA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MANDERA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MANDERA COUNTY"
+  },
+  {
+    "code": "KMTC - MANZA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MANZA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MACHAKOS COUNTY"
+  },
+  {
+    "code": "KMTC - MARIMANTI",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MARIMANTI CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "THARAKA NITHI COUNTY"
+  },
+  {
+    "code": "KMTC - MARSABIT",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MARSABIT CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MARSABIT COUNTY"
+  },
+  {
+    "code": "KMTC - MATHARE",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MATHARE CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KMTC - MAUA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MAUA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "KMTC - MBOONI",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MBOONI CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MAKUENI COUNTY"
+  },
+  {
+    "code": "KMTC - MERU - MIATHENE SATELLITE",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MERU - MIATHENE SATELLITE CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "KMTC - MERU",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MERU CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "KMTC - MIGORI",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MIGORI CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MIGORI COUNTY"
+  },
+  {
+    "code": "KMTC - MOLO",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MOLO CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "NAKURU COUNTY"
+  },
+  {
+    "code": "KMTC - MOMBASA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MOMBASA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MOMBASA COUNTY"
+  },
+  {
+    "code": "KMTC - MOSORIOT",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MOSORIOT CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "NANDI COUNTY"
+  },
+  {
+    "code": "KMTC - MSAMBWENI",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MSAMBWENI CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KWALE COUNTY"
+  },
+  {
+    "code": "KMTC - MURANG'A",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MURANG'A CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MURANG'A COUNTY"
+  },
+  {
+    "code": "KMTC - MWINGI",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - MWINGI CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KITUI COUNTY"
+  },
+  {
+    "code": "KMTC - NAIROBI",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - NAIROBI CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KMTC - NAKURU",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - NAKURU CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "NAKURU COUNTY"
+  },
+  {
+    "code": "KMTC - NAROK",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - NAROK CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "NAROK COUNTY"
+  },
+  {
+    "code": "KMTC - NDHIWA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - NDHIWA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "HOMA BAY COUNTY"
+  },
+  {
+    "code": "KMTC - NYAHURURU",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - NYAHURURU CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "LAIKIPIA COUNTY"
+  },
+  {
+    "code": "KMTC - NYAMACHE",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - NYAMACHE CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KISII COUNTY"
+  },
+  {
+    "code": "KMTC - NYAMIRA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - NYAMIRA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "NYAMIRA COUNTY"
+  },
+  {
+    "code": "KMTC - NYANDARUA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - NYANDARUA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "NYANDARUA COUNTY"
+  },
+  {
+    "code": "KMTC - NYERI - MUKURUWEINI SATELLITE",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - NYERI - MUKURUWEINI SATELLITE CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "NYERI COUNTY"
+  },
+  {
+    "code": "KMTC - NYERI",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - NYERI CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "NYERI COUNTY"
+  },
+  {
+    "code": "KMTC - OTHAYA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - OTHAYA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "NYERI COUNTY"
+  },
+  {
+    "code": "KMTC - PORT REITZ",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - PORT REITZ CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MOMBASA COUNTY"
+  },
+  {
+    "code": "KMTC - RACHUONYO",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - RACHUONYO CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "HOMA BAY COUNTY"
+  },
+  {
+    "code": "KMTC - RERA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - RERA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "SIAYA COUNTY"
+  },
+  {
+    "code": "KMTC - SHIANDA - MUMIAS",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - SHIANDA - MUMIAS CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "KMTC - SIAYA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - SIAYA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "SIAYA COUNTY"
+  },
+  {
+    "code": "KMTC - SIGOWET",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - SIGOWET CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KERICHO COUNTY"
+  },
+  {
+    "code": "KMTC - TANA RIVER",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - TANA RIVER CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "TANA RIVER COUNTY"
+  },
+  {
+    "code": "KMTC - TAVETA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - TAVETA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "TAITA TAVETA COUNTY"
+  },
+  {
+    "code": "KMTC - TESO",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - TESO CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "BUSIA COUNTY"
+  },
+  {
+    "code": "KMTC - THIKA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - THIKA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "KMTC - TRANS-MARA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - TRANS MARA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "NAROK COUNTY"
+  },
+  {
+    "code": "KMTC - UGENYA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - UGENYA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "SIAYA COUNTY"
+  },
+  {
+    "code": "KMTC - UGUNJA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - UGUNJA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "SIAYA COUNTY"
+  },
+  {
+    "code": "KMTC - VIHIGA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - VIHIGA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "VIHIGA COUNTY"
+  },
+  {
+    "code": "KMTC - VOI",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - VOI CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "TAITA TAVETA COUNTY"
+  },
+  {
+    "code": "KMTC - WAJIR",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - WAJIR CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "WAJIR COUNTY"
+  },
+  {
+    "code": "KMTC - WEBUYE",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - WEBUYE CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "BUNGOMA COUNTY"
+  },
+  {
+    "code": "KMTC - YATTA",
+    "name": "KENYA MEDICAL TRAINING COLLEGE - YATTA CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Health",
+    "location": "MACHAKOS COUNTY"
+  },
+  {
+    "code": "KEMU",
+    "name": "KENYA METHODIST UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "KSA",
+    "name": "KENYA SCHOOL OF AGRICULTURE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "NYERI COUNTY"
+  },
+  {
+    "code": "KSA SONGA MBELE CAMPUS",
+    "name": "KENYA SCHOOL OF AGRICULTURE SONGA MBELE CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MURANG'A COUNTY"
+  },
+  {
+    "code": "KSL",
+    "name": "KENYA SCHOOL OF LAW",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KESRA",
+    "name": "KENYA SCHOOL OF REVENUE ADMINISTRATION",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "TANA RIVER COUNTY"
+  },
+  {
+    "code": "KTTC",
+    "name": "KENYA TECHNICAL TRAINERS COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KENYA UTALII COLLEGE",
+    "name": "KENYA UTALII COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KEWI",
+    "name": "KENYA WATER INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KWSTI",
+    "name": "KENYA WILDLIFE SERVICE TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "NAKURU COUNTY"
+  },
+  {
+    "code": "KU",
+    "name": "KENYATTA UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KENYATTA UNIVERSITY CITY CAMPUS TVET",
+    "name": "KENYATTA UNIVERSITY - CITY CAMPUS, TVET CENTRE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "MNUC",
+    "name": "KENYATTA UNIVERSITY - MAMA NGINA UNIVERSITY COLLEGE",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "KU TVET - KITUI",
+    "name": "KENYATTA UNIVERSITY TVET - KITUI",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "KITUI COUNTY"
+  },
+  {
+    "code": "KU TVET - MAIN CAMPUS",
+    "name": "KENYATTA UNIVERSITY TVET - MAIN CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KU TVET - MOMBASA",
+    "name": "KENYATTA UNIVERSITY TVET - MOMBASA",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "MOMBASA COUNTY"
+  },
+  {
+    "code": "KU TVET - NAKURU",
+    "name": "KENYATTA UNIVERSITY TVET - NAKURU",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "NAKURU COUNTY"
+  },
+  {
+    "code": "KENYENYA TTC",
+    "name": "KENYENYA TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KISII COUNTY"
+  },
+  {
+    "code": "KERICHO TTC",
+    "name": "KERICHO TEACHERS' COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KERICHO COUNTY"
+  },
+  {
+    "code": "KERICHO TOWNSHIP TVC",
+    "name": "KERICHO TOWNSHIP TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KERICHO COUNTY"
+  },
+  {
+    "code": "KERIO VALLEY TVC",
+    "name": "KERIO VALLEY TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "ELGEYO MARAKWET COUNTY"
+  },
+  {
+    "code": "KEROKA TTI",
+    "name": "KEROKA TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KISII COUNTY"
+  },
+  {
+    "code": "KHWISERO TVC",
+    "name": "KHWISERO TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "KIST",
+    "name": "KIAMBU INSTITUTE OF SCIENCE AND TECHNOLOGY",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "KIBABII TTC",
+    "name": "KIBABII DIPLOMA TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUNGOMA COUNTY"
+  },
+  {
+    "code": "KBBU",
+    "name": "KIBABII UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUNGOMA COUNTY"
+  },
+  {
+    "code": "KIBABII UNIVERSITY TVET COLLEGE",
+    "name": "KIBABII UNIVERSITY DIRECTORATE OF TVET COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "BUNGOMA COUNTY"
+  },
+  {
+    "code": "KIBRA TVC",
+    "name": "KIBRA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KIBWEZI TVC",
+    "name": "KIBWEZI TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MAKUENI COUNTY"
+  },
+  {
+    "code": "KIENI TVC",
+    "name": "KIENI TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYERI COUNTY"
+  },
+  {
+    "code": "KIGUMO TTI",
+    "name": "KIGUMO TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MURANG'A COUNTY"
+  },
+  {
+    "code": "KIHARU TVC",
+    "name": "KIHARU TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MURANG'A COUNTY"
+  },
+  {
+    "code": "KIIRUA TTI",
+    "name": "KIIRUA TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "KILGORIS TVC",
+    "name": "KILGORIS TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAROK COUNTY"
+  },
+  {
+    "code": "KIMASIAN TVC",
+    "name": "KIMASIAN TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KERICHO COUNTY"
+  },
+  {
+    "code": "KIMININI TVC",
+    "name": "KIMININI TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "TRANSNZOIA COUNTY"
+  },
+  {
+    "code": "KINANGO TVC",
+    "name": "KINANGO TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KWALE COUNTY"
+  },
+  {
+    "code": "KINANGOP TVC",
+    "name": "KINANGOP TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYANDARUA COUNTY"
+  },
+  {
+    "code": "KIPIPIRI TVC",
+    "name": "KIPIPIRI TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYANDARUA COUNTY"
+  },
+  {
+    "code": "KIPKABUS TVC",
+    "name": "KIPKABUS TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "UASIN GISHU COUNTY"
+  },
+  {
+    "code": "KIPSINENDE  TVC",
+    "name": "KIPSINENDE TECHNICAL VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KERICHO COUNTY"
+  },
+  {
+    "code": "KIPSOEN TVC",
+    "name": "KIPSOEN TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "ELGEYO MARAKWET COUNTY"
+  },
+  {
+    "code": "KIPTARAGON TVC",
+    "name": "KIPTARAGON TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAKURU COUNTY"
+  },
+  {
+    "code": "KIRINYAGA CENTRAL TVC",
+    "name": "KIRINYAGA CENTRAL TECHNICAL& VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KIRINYAGA COUNTY"
+  },
+  {
+    "code": "KYU",
+    "name": "KIRINYAGA UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "KIRINYAGA COUNTY"
+  },
+  {
+    "code": "KWUST",
+    "name": "KIRIRI WOMENS UNIVERSITY OF SCIENCE AND TECHNOLOGY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "KSI POLY",
+    "name": "KISII NATIONAL POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KISII COUNTY"
+  },
+  {
+    "code": "KSU",
+    "name": "KISII UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "KISII COUNTY"
+  },
+  {
+    "code": "KISII UNIVERSITY TI",
+    "name": "KISII UNIVERSITY TVET INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "KISII COUNTY"
+  },
+  {
+    "code": "KISTVC",
+    "name": "KISIWA TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUNGOMA COUNTY"
+  },
+  {
+    "code": "KICDT",
+    "name": "KISUMU INSTITUTE OF COMMUNITY DEVELOPMENT TRAINING",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Private Institution",
+    "location": "KISUMU COUNTY"
+  },
+  {
+    "code": "KSM POLY",
+    "name": "KISUMU POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KISUMU COUNTY"
+  },
+  {
+    "code": "KITALE NP",
+    "name": "KITALE NATIONAL POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "TRANSNZOIA COUNTY"
+  },
+  {
+    "code": "KITELAKAPEL TTI",
+    "name": "KITELAKAPEL TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "WEST POKOT COUNTY"
+  },
+  {
+    "code": "KITUI EAST TVC",
+    "name": "KITUI EAST TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KITUI COUNTY"
+  },
+  {
+    "code": "KITUI RURAL TVC",
+    "name": "KITUI RURAL TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KITUI COUNTY"
+  },
+  {
+    "code": "KITUI TC",
+    "name": "KITUI TEACHERS TECHNICAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KITUI COUNTY"
+  },
+  {
+    "code": "KITUI TTC",
+    "name": "KITUI TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KITUI COUNTY"
+  },
+  {
+    "code": "KITUTU CHACHE  TVC",
+    "name": "KITUTU CHACHE  TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KISII COUNTY"
+  },
+  {
+    "code": "KITUTU MASABA TVC",
+    "name": "KITUTU MASABA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYAMIRA COUNTY"
+  },
+  {
+    "code": "KSUC",
+    "name": "KOITALEEL SAMOEI UNIVERSITY COLLEGE",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "NANDI COUNTY"
+  },
+  {
+    "code": "KONGONI TVC",
+    "name": "KONGONI TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "KONOIN TTI",
+    "name": "KONOIN TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BOMET COUNTY"
+  },
+  {
+    "code": "KOSHIN TTI",
+    "name": "KOSHIN TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "UASIN GISHU COUNTY"
+  },
+  {
+    "code": "KUCCPS TVET",
+    "name": "KUCCPS TVET",
+    "category": "",
+    "institution_type": "TVET",
+    "parent_ministry": "",
+    "location": "COUNTY"
+  },
+  {
+    "code": "KWALE TTC",
+    "name": "KWALE TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KWALE COUNTY"
+  },
+  {
+    "code": "LAGDERA TVC",
+    "name": "LAGDERA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "GARISSA COUNTY"
+  },
+  {
+    "code": "LAIKIPIA EAST TVC",
+    "name": "LAIKIPIA EAST TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "LAIKIPIA COUNTY"
+  },
+  {
+    "code": "LAIKIPIA NORTH TVC",
+    "name": "LAIKIPIA NORTH TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "LAIKIPIA COUNTY"
+  },
+  {
+    "code": "LU",
+    "name": "LAIKIPIA UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "LAIKIPIA COUNTY"
+  },
+  {
+    "code": "LAIKIPIA UNIVERSITY TI",
+    "name": "LAIKIPIA UNIVERSITY TVET INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "LAIKIPIA COUNTY"
+  },
+  {
+    "code": "LAIKIPIA WEST TVC",
+    "name": "LAIKIPIA WEST TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "LAIKIPIA COUNTY"
+  },
+  {
+    "code": "LAISAMIS TVC",
+    "name": "LAISAMIS TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MARSABIT COUNTY"
+  },
+  {
+    "code": "LAMU EAST TVC",
+    "name": "LAMU EAST TECHCHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "LAMU COUNTY"
+  },
+  {
+    "code": "LANGATA TVC",
+    "name": "LANGATA TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "LARI TVC",
+    "name": "LARI TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "LIKONI TVC",
+    "name": "LIKONI TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MOMBASA COUNTY"
+  },
+  {
+    "code": "LIMURU TVC",
+    "name": "LIMURU  TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "LODWAR TVC",
+    "name": "LODWAR TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "TURKANA COUNTY"
+  },
+  {
+    "code": "LOIMA TVC",
+    "name": "LOIMA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "TURKANA COUNTY"
+  },
+  {
+    "code": "LUGARI TTC",
+    "name": "LUGARI DIPLOMA TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUNGOMA COUNTY"
+  },
+  {
+    "code": "LUKENYA",
+    "name": "LUKENYA UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "MACHAKOS COUNTY"
+  },
+  {
+    "code": "LUNGA LUNGA TVC",
+    "name": "LUNGA LUNGA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KWALE COUNTY"
+  },
+  {
+    "code": "MMTVC",
+    "name": "MAASAI MARA TECHNICAL VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAROK COUNTY"
+  },
+  {
+    "code": "MMARAU",
+    "name": "MAASAI MARA UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAROK COUNTY"
+  },
+  {
+    "code": "MAASAI MARA UNIVERSITY TI",
+    "name": "MAASAI MARA UNIVERSITY TVET INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "NAROK COUNTY"
+  },
+  {
+    "code": "MABERA TVC",
+    "name": "MABERA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MIGORI COUNTY"
+  },
+  {
+    "code": "MACHAKOS TTC",
+    "name": "MACHAKOS TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MACHAKOS COUNTY"
+  },
+  {
+    "code": "MTIB",
+    "name": "MACHAKOS TECHNICAL INSTITUTE FOR THE BLIND",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MACHAKOS COUNTY"
+  },
+  {
+    "code": "MACHAKOS TOWNSHIP TVC",
+    "name": "MACHAKOS TOWN TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MACHAKOS COUNTY"
+  },
+  {
+    "code": "MCKU",
+    "name": "MACHAKOS UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "MACHAKOS COUNTY"
+  },
+  {
+    "code": "MACHAKOS UNIVERSITY  TVET INSTITUTE",
+    "name": "MACHAKOS UNIVERSITY  TVET INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "MACHAKOS COUNTY"
+  },
+  {
+    "code": "MAGARINI TVC",
+    "name": "MAGARINI TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KILIFI COUNTY"
+  },
+  {
+    "code": "MAMA NGINA UNIVERSITY COLLEGE",
+    "name": "MAMA NGINA UNIVERSITY COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "COUNTY"
+  },
+  {
+    "code": "MUA",
+    "name": "MANAGEMENT UNIVERSITY OF AFRICA",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "MANDERA TTC",
+    "name": "MANDERA TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MANDERA COUNTY"
+  },
+  {
+    "code": "MANDERA TTI",
+    "name": "MANDERA TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MANDERA COUNTY"
+  },
+  {
+    "code": "MANYATTA TVC",
+    "name": "MANYATTA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "EMBU COUNTY"
+  },
+  {
+    "code": "MARIST",
+    "name": "MARIST INTERNATIONAL UNIVERSITY COLLEGE",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "MASAI TTI",
+    "name": "MASAI TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KAJIADO COUNTY"
+  },
+  {
+    "code": "MSU",
+    "name": "MASENO UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "KISUMU COUNTY"
+  },
+  {
+    "code": "MMUST",
+    "name": "MASINDE MULIRO UNIVERSITY OF SCIENCE & TECHNOLOGY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "MASINDE MULIRO UNIVERSITY TVET  INSTITUTE",
+    "name": "MASINDE MULIRO UNIVERSITY OF SCIENCE AND TECHNOLOGY TVET INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "MASINGA TVC",
+    "name": "MASINGA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MACHAKOS COUNTY"
+  },
+  {
+    "code": "MATHENGE TTI",
+    "name": "MATHENGE TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYERI COUNTY"
+  },
+  {
+    "code": "MATHIOYA TVC",
+    "name": "MATHIOYA TECHNICAL VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MURANG'A COUNTY"
+  },
+  {
+    "code": "MATHIRA TVC",
+    "name": "MATHIRA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYERI COUNTY"
+  },
+  {
+    "code": "MATILI TTI",
+    "name": "MATILI TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUNGOMA COUNTY"
+  },
+  {
+    "code": "MATUGA TVC",
+    "name": "MATUGA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KWALE COUNTY"
+  },
+  {
+    "code": "MAWEGO POLY",
+    "name": "MAWEGO NATIONAL POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "HOMA BAY COUNTY"
+  },
+  {
+    "code": "MBEERE NORTH TVC",
+    "name": "MBEERE NORTH TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "EMBU COUNTY"
+  },
+  {
+    "code": "MBITA TVC",
+    "name": "MBITA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "HOMA BAY COUNTY"
+  },
+  {
+    "code": "MERTI TTI",
+    "name": "MERTI TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "ISIOLO COUNTY"
+  },
+  {
+    "code": "MERU UNIVERSITY TVET",
+    "name": "MERU  UNIVERSITY OF SCIENCE  AND TECHNOLOGY TVET DIRECTORATE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "MERU POLY",
+    "name": "MERU NATIONAL POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "MERU TTC",
+    "name": "MERU TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "MUST",
+    "name": "MERU UNIVERSITY OF SCIENCE AND TECHNOLOGY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "MICHUKI POLY",
+    "name": "MICHUKI NATIONAL POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MURANG'A COUNTY"
+  },
+  {
+    "code": "MIGORI TTC",
+    "name": "MIGORI TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MIGORI COUNTY"
+  },
+  {
+    "code": "MITUNGUU TTI",
+    "name": "MITUNGUU TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "MOCHONGOI TVC",
+    "name": "MOCHONGOI TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "TURKANA COUNTY"
+  },
+  {
+    "code": "MOI TEACHERS COLLEGE - BARINGO",
+    "name": "MOI TEACHERS COLLEGE - BARINGO",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BARINGO COUNTY"
+  },
+  {
+    "code": "MU",
+    "name": "MOI UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "UASIN GISHU COUNTY"
+  },
+  {
+    "code": "MU TVET INSTITUTE",
+    "name": "MOI UNIVERSITY TVET INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "UASIN GISHU COUNTY"
+  },
+  {
+    "code": "MOIBEN TVC",
+    "name": "MOIBEN TECHNICAL VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "UASIN GISHU COUNTY"
+  },
+  {
+    "code": "MOLO TVC",
+    "name": "MOLO TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAKURU COUNTY"
+  },
+  {
+    "code": "MORENDAT",
+    "name": "MORENDAT INSTITUTE OF OIL AND GAS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "MOSORIOT TTC",
+    "name": "MOSORIOT TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NANDI COUNTY"
+  },
+  {
+    "code": "MKU",
+    "name": "MOUNT KENYA UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "MSAMBWENI TVC",
+    "name": "MSAMBWENI TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KWALE COUNTY"
+  },
+  {
+    "code": "MUKIRIA TTI",
+    "name": "MUKIRIA TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "MUKURWEINI TTI",
+    "name": "MUKURWEINI TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYERI COUNTY"
+  },
+  {
+    "code": "MULANGO TVC",
+    "name": "MULANGO TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KITUI COUNTY"
+  },
+  {
+    "code": "MMU",
+    "name": "MULTIMEDIA UNIVERSITY OF KENYA",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "MULTIMEDIA UNIVERSITY TVET",
+    "name": "MULTIMEDIA UNIVERSITY OF KENYA TVET CENTRE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "MUMIAS WEST TVC",
+    "name": "MUMIAS WEST TECHNICAL VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "MUNGATSI TVC",
+    "name": "MUNGATSI TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUSIA COUNTY"
+  },
+  {
+    "code": "MURAGA TVC",
+    "name": "MURAGA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "MURANG'A TTC",
+    "name": "MURANG'A TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MURANG'A COUNTY"
+  },
+  {
+    "code": "MURANG'A TTI",
+    "name": "MURANG'A TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MURANG'A COUNTY"
+  },
+  {
+    "code": "MUT",
+    "name": "MURANG'A UNIVERSITY OF TECHNOLOGY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "MURANG'A COUNTY"
+  },
+  {
+    "code": "MURANG'A UNIVERSITY TI",
+    "name": "MURANG'A UNIVERSITY OF TECHNOLOGY TVET INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "MURANG'A COUNTY"
+  },
+  {
+    "code": "MUSAKASA TTI",
+    "name": "MUSAKASA TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUNGOMA COUNTY"
+  },
+  {
+    "code": "MWALA TVC",
+    "name": "MWALA TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MACHAKOS COUNTY"
+  },
+  {
+    "code": "MWATATE TVC",
+    "name": "MWATATE TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "TAITA TAVETA COUNTY"
+  },
+  {
+    "code": "MWEA TVC",
+    "name": "MWEA  TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KIRINYAGA COUNTY"
+  },
+  {
+    "code": "NACHU TVC",
+    "name": "NACHU TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "NAIROBI TTI",
+    "name": "NAIROBI TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "NAIVASHA TVC",
+    "name": "NAIVASHA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAKURU COUNTY"
+  },
+  {
+    "code": "NAROK SOUTH TVC",
+    "name": "NAROK SOUTH TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAROK COUNTY"
+  },
+  {
+    "code": "NAROK TTC",
+    "name": "NAROK TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAROK COUNTY"
+  },
+  {
+    "code": "NAROK  WEST TTI",
+    "name": "NAROK WEST TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAROK COUNTY"
+  },
+  {
+    "code": "NAVAKHOLO TVC",
+    "name": "NAVAKHOLO TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "NDARAGWA TVC",
+    "name": "NDARAGWA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYANDARUA COUNTY"
+  },
+  {
+    "code": "NDIA TVC",
+    "name": "NDIA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KIRINYAGA COUNTY"
+  },
+  {
+    "code": "NGERIA TTI",
+    "name": "NGERIA TECHNICAL TRAINING INSTITITUON",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "UASIN GISHU COUNTY"
+  },
+  {
+    "code": "NGONG TVC",
+    "name": "NGONG TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KAJIADO COUNTY"
+  },
+  {
+    "code": "NJORO TTI",
+    "name": "NJORO TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAKURU COUNTY"
+  },
+  {
+    "code": "NKABUNE TTI",
+    "name": "NKABUNE TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "NEPOLY",
+    "name": "NORTH EASTERN NATIONAL POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "GARISSA COUNTY"
+  },
+  {
+    "code": "NORTH HORR TVC",
+    "name": "NORTH HORR TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MARSABIT COUNTY"
+  },
+  {
+    "code": "NORTH RIFT TVC",
+    "name": "NORTH RIFT TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BARINGO COUNTY"
+  },
+  {
+    "code": "NUU TVC",
+    "name": "NUU TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KITUI COUNTY"
+  },
+  {
+    "code": "NYAKACH TVC",
+    "name": "NYAKACH TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KISUMU COUNTY"
+  },
+  {
+    "code": "NYAMIRA POLY",
+    "name": "NYAMIRA NATIONAL POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYAMIRA COUNTY"
+  },
+  {
+    "code": "NYANDARUA POLY",
+    "name": "NYANDARUA NATIONAL POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYANDARUA COUNTY"
+  },
+  {
+    "code": "NUC",
+    "name": "NYANDARUA UNIVERSITY COLLEGE",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYANDARUA COUNTY"
+  },
+  {
+    "code": "NYANDO TVC",
+    "name": "NYANDO TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KISUMU COUNTY"
+  },
+  {
+    "code": "NYERI POLY",
+    "name": "NYERI NATIONAL POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYERI COUNTY"
+  },
+  {
+    "code": "OKAME TVC",
+    "name": "OKAME TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUSIA COUNTY"
+  },
+  {
+    "code": "OL KALOU TVC",
+    "name": "OL KALOU TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYANDARUA COUNTY"
+  },
+  {
+    "code": "OL'LESSOS POLY",
+    "name": "OL'LESSOS NATIONAL POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NANDI COUNTY"
+  },
+  {
+    "code": "OMUGA TVC",
+    "name": "OMUGA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "HOMA BAY COUNTY"
+  },
+  {
+    "code": "OUK",
+    "name": "OPEN UNIVERSITY OF KENYA",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "MACHAKOS COUNTY"
+  },
+  {
+    "code": "OROGARE TVC",
+    "name": "OROGARE TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KISII COUNTY"
+  },
+  {
+    "code": "PAC",
+    "name": "PAN AFRICA CHRISTIAN UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "PCKINYANJUI TTI",
+    "name": "PC KINYANJUI TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "PUEA",
+    "name": "PRESBYTERIAN UNIVERSITY OF EAST AFRICA",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "PU",
+    "name": "PWANI UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "KILIFI COUNTY"
+  },
+  {
+    "code": "PWANI UNIVERSITY TVET",
+    "name": "PWANI UNIVERSITY TVET COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "KILIFI COUNTY"
+  },
+  {
+    "code": "RACHUONYO TVC",
+    "name": "RACHUONYO TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "HOMA BAY COUNTY"
+  },
+  {
+    "code": "RTI",
+    "name": "RAILWAY TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "RIAT",
+    "name": "RAMOGI INSTITUTE OF ADVANCE TECHNOLOGY",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KISUMU COUNTY"
+  },
+  {
+    "code": "RANGWE TVC",
+    "name": "RANGWE TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "HOMA BAY COUNTY"
+  },
+  {
+    "code": "RARIEDA TVC",
+    "name": "RARIEDA TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "SIAYA COUNTY"
+  },
+  {
+    "code": "RCMRD",
+    "name": "REGIONAL CENTRE FOR MAPPING OF RESOURCES FOR DEVELOPMENT",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "In Other Ministries",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "RIAMO TVC",
+    "name": "RIAMO TECHNICAL VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KISII COUNTY"
+  },
+  {
+    "code": "RU",
+    "name": "RIARA UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "RIATIRIMBA TVC",
+    "name": "RIATIRIMBA TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KISII COUNTY"
+  },
+  {
+    "code": "RVIST",
+    "name": "RIFT VALLEY INSTITUTE OF SCIENCE AND TECHNOLOGY",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAKURU COUNTY"
+  },
+  {
+    "code": "RIFT VALLEY TTI",
+    "name": "RIFT VALLEY TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "UASIN GISHU COUNTY"
+  },
+  {
+    "code": "RIRAGIA TTI",
+    "name": "RIRAGIA TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KISII COUNTY"
+  },
+  {
+    "code": "RNU",
+    "name": "RONGO UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "MIGORI COUNTY"
+  },
+  {
+    "code": "RONGO UNIVERSITY TI",
+    "name": "RONGO UNIVERSITY TECHNICAL & VOCATIONAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "MIGORI COUNTY"
+  },
+  {
+    "code": "RUIRU TVC",
+    "name": "RUIRU TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "RUNYENJES TVC",
+    "name": "RUNYENJES TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "EMBU COUNTY"
+  },
+  {
+    "code": "SABATIA TVC",
+    "name": "SABATIA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "VIHIGA COUNTY"
+  },
+  {
+    "code": "SAMBURU NORTH TVC",
+    "name": "SAMBURU NORTH  TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "SAMBURU COUNTY"
+  },
+  {
+    "code": "SAMBURU TVC",
+    "name": "SAMBURU TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "SAMBURU COUNTY"
+  },
+  {
+    "code": "SCU",
+    "name": "SCOTT CHRISTIAN UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "MACHAKOS COUNTY"
+  },
+  {
+    "code": "SEKU TI",
+    "name": "SEKU DIRECTORATE OF TVET WOTE CAMPUS",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "MAKUENI COUNTY"
+  },
+  {
+    "code": "SEME TTC",
+    "name": "SEME TEACHERS COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KISUMU COUNTY"
+  },
+  {
+    "code": "SEME TVC",
+    "name": "SEME TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KISUMU COUNTY"
+  },
+  {
+    "code": "SHAMBERERE TTI",
+    "name": "SHAMBERERE TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "SHANZU TTC",
+    "name": "SHANZU TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MOMBASA COUNTY"
+  },
+  {
+    "code": "SIALA TTI",
+    "name": "SIALA TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MIGORI COUNTY"
+  },
+  {
+    "code": "SIAYA POLY",
+    "name": "SIAYA NATIONAL POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "SIAYA COUNTY"
+  },
+  {
+    "code": "SIGALAGALA POLY",
+    "name": "SIGALAGALA NATIONAL POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "SIKRI TTIBD",
+    "name": "SIKRI TECHNICAL TRAINING INSTITUTE FOR THE BLIND AND DEAF",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "HOMA BAY COUNTY"
+  },
+  {
+    "code": "SIRISIA TVC",
+    "name": "SIRISIA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUNGOMA COUNTY"
+  },
+  {
+    "code": "SIRUTI TVC",
+    "name": "SIRUTI TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MIGORI COUNTY"
+  },
+  {
+    "code": "SOT TTI",
+    "name": "SOT TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BOMET COUNTY"
+  },
+  {
+    "code": "SOTIK TTI",
+    "name": "SOTIK TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BOMET COUNTY"
+  },
+  {
+    "code": "SEKU",
+    "name": "SOUTH EASTERN KENYA UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "KITUI COUNTY"
+  },
+  {
+    "code": "SEKU DIRECTORATE OF TVET",
+    "name": "SOUTH EASTERN KENYA UNIVERSITY DIRECTORATE OF TVET",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "KITUI COUNTY"
+  },
+  {
+    "code": "SEKU TVET - MIGWANI",
+    "name": "SOUTH EASTERN KENYA UNIVERSITY TVET - MIGWANI",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "KITUI COUNTY"
+  },
+  {
+    "code": "SEKU TVET - MTITO ANDEI",
+    "name": "SOUTH EASTERN KENYA UNIVERSITY TVET - MTITO ANDEI",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "MAKUENI COUNTY"
+  },
+  {
+    "code": "ST.JOSEPH TI",
+    "name": "ST JOSEPH'S TECHNICAL INSTITUTE FOR THE DEAF NYANG'OMA",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "SIAYA COUNTY"
+  },
+  {
+    "code": "SPU",
+    "name": "ST PAULS UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "ST. AUGUSTINE TTC - EREGI",
+    "name": "ST. AUGUSTINE TEACHERS TRAINING COLLEGE - EREGI",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "ST. JOHN'S TTC - KILIMAMBOGO",
+    "name": "ST. JOHN'S TEACHERS TRAINING COLLEGE - KILIMAMBOGO",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "ST. MARKS TTC-KIGARI",
+    "name": "ST. MARKS TEACHERS TRAINING COLLEGE-KIGARI",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "EMBU COUNTY"
+  },
+  {
+    "code": "SUBUKIA TVC",
+    "name": "SUBUKIA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAKURU COUNTY"
+  },
+  {
+    "code": "TTNP",
+    "name": "TAITA TAVETA NATIONAL POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "TAITA TAVETA COUNTY"
+  },
+  {
+    "code": "TTU",
+    "name": "TAITA TAVETA UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "TAITA TAVETA COUNTY"
+  },
+  {
+    "code": "TAITA TAVETA UNIVERSITY TVET",
+    "name": "TAITA TAVETA UNIVERSITY INSTITUTE OF TVET",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "TAITA TAVETA COUNTY"
+  },
+  {
+    "code": "TAMBACH TTC",
+    "name": "TAMBACH  TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "ELGEYO MARAKWET COUNTY"
+  },
+  {
+    "code": "TANA RIVER TVC",
+    "name": "TANA RIVER TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "TANA RIVER COUNTY"
+  },
+  {
+    "code": "TU",
+    "name": "TANGAZA UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "TARBAJ TTC",
+    "name": "TARBAJ TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "WAJIR COUNTY"
+  },
+  {
+    "code": "TARBAJ TVC",
+    "name": "TARBAJ TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "WAJIR COUNTY"
+  },
+  {
+    "code": "TAVETA TVC",
+    "name": "TAVETA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "TAITA TAVETA COUNTY"
+  },
+  {
+    "code": "TUK",
+    "name": "TECHNICAL UNIVERSITY OF KENYA",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "TUM",
+    "name": "TECHNICAL UNIVERSITY OF MOMBASA",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "MOMBASA COUNTY"
+  },
+  {
+    "code": "TUM TVET",
+    "name": "TECHNICAL UNIVERSITY OF MOMBASA TVET INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "MOMBASA COUNTY"
+  },
+  {
+    "code": "TETU TVC",
+    "name": "TETU TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYERI COUNTY"
+  },
+  {
+    "code": "THARAKA TVC",
+    "name": "THARAKA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "THRKU",
+    "name": "THARAKA UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "THARAKA NITHI COUNTY"
+  },
+  {
+    "code": "THARAKA UNIVERSITY TI",
+    "name": "THARAKA UNIVERSITY TVET INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "THARAKA NITHI COUNTY"
+  },
+  {
+    "code": "BUNGOMA  POLY",
+    "name": "THE BUNGOMA NATIONAL POLYTECHNIC",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUNGOMA COUNTY"
+  },
+  {
+    "code": "THE CUK INSTITUTE OF TVET",
+    "name": "THE CO-OPERATIVE UNIVERSITY OF KENYA INSTITUTE OF TVET (CUK - ITVET)",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "CUK NAIROBI CBD TI",
+    "name": "THE CUK NAIROBI CBD TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "TEAU",
+    "name": "THE EAST AFRICAN UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "KAJIADO COUNTY"
+  },
+  {
+    "code": "UOEM TI",
+    "name": "THE UNIVERSITY OF EMBU TVET INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "EMBU COUNTY"
+  },
+  {
+    "code": "THIKA TTI",
+    "name": "THIKA TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "THOGOTO TTC",
+    "name": "THOGOTO TEACHERS TRAINING COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KIAMBU COUNTY"
+  },
+  {
+    "code": "TIGANIA EAST TVC",
+    "name": "TIGANIA EAST TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MERU COUNTY"
+  },
+  {
+    "code": "TINDERET INTERGRATED TECHNICAL TC",
+    "name": "TINDERET INTERGRATED TECHNICAL AND TRAINERS COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NANDI COUNTY"
+  },
+  {
+    "code": "TINDIRET TVC",
+    "name": "TINDIRET TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NANDI COUNTY"
+  },
+  {
+    "code": "TOMBOYA LC",
+    "name": "TOM MBOYA LABOUR COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "",
+    "location": "KISUMU COUNTY"
+  },
+  {
+    "code": "TMU",
+    "name": "TOM MBOYA UNIVERSITY",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "HOMA BAY COUNTY"
+  },
+  {
+    "code": "TOTAL TVC",
+    "name": "TOTAL TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAKURU COUNTY"
+  },
+  {
+    "code": "TSEIKURU TTI",
+    "name": "TSEIKURU TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KITUI COUNTY"
+  },
+  {
+    "code": "TUK TVET INSTITUTE",
+    "name": "TUK DIRECTORATE OF TVET COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "TURBO TVC",
+    "name": "TURBO TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "UASIN GISHU COUNTY"
+  },
+  {
+    "code": "TURKANA EAST TVC",
+    "name": "TURKANA EAST TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "TURKANA COUNTY"
+  },
+  {
+    "code": "TURKANA NORTH TVC",
+    "name": "TURKANA NORTH TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "TURKANA COUNTY"
+  },
+  {
+    "code": "TRUC",
+    "name": "TURKANA UNIVERSITY COLLEGE",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "TURKANA COUNTY"
+  },
+  {
+    "code": "TURKANA UNIVERSITY TVET INSTITUTE",
+    "name": "TURKANA UNIVERSITY TVET INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "University TVET",
+    "location": "TURKANA COUNTY"
+  },
+  {
+    "code": "UGENYA TC",
+    "name": "UGENYA TEACHERS COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "SIAYA COUNTY"
+  },
+  {
+    "code": "UGENYA TVC",
+    "name": "UGENYA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "SIAYA COUNTY"
+  },
+  {
+    "code": "UGUNJA TVC",
+    "name": "UGUNJA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "SIAYA COUNTY"
+  },
+  {
+    "code": "BARA",
+    "name": "UNIVERSITY OF EASTERN AFRICA, BARATON",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "NANDI COUNTY"
+  },
+  {
+    "code": "UOE",
+    "name": "UNIVERSITY OF ELDORET",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "UASIN GISHU COUNTY"
+  },
+  {
+    "code": "UOEM",
+    "name": "UNIVERSITY OF EMBU",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "EMBU COUNTY"
+  },
+  {
+    "code": "UOK",
+    "name": "UNIVERSITY OF KABIANGA",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "KERICHO COUNTY"
+  },
+  {
+    "code": "UON",
+    "name": "UNIVERSITY OF NAIROBI",
+    "category": "University",
+    "institution_type": "PUBLIC",
+    "parent_ministry": "Ministry of Education",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "URIRI TVC",
+    "name": "URIRI TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MIGORI COUNTY"
+  },
+  {
+    "code": "UZIMA",
+    "name": "UZIMA UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "KISUMU COUNTY"
+  },
+  {
+    "code": "WAJIR EAST TVC",
+    "name": "WAJIR EAST TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "WAJIR COUNTY"
+  },
+  {
+    "code": "WAJIR SOUTH TVC",
+    "name": "WAJIR SOUTH TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "WAJIR COUNTY"
+  },
+  {
+    "code": "WANGA TVC",
+    "name": "WANGA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KAKAMEGA COUNTY"
+  },
+  {
+    "code": "WATAMU TVC",
+    "name": "WATAMU TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "",
+    "institution_type": "TVET",
+    "parent_ministry": "",
+    "location": "COUNTY"
+  },
+  {
+    "code": "WEBUYE WEST TVC",
+    "name": "WEBUYE WEST TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "BUNGOMA COUNTY"
+  },
+  {
+    "code": "WERU TVC",
+    "name": "WERU TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "KILIFI COUNTY"
+  },
+  {
+    "code": "WEST MUGIRANGO TVC",
+    "name": "WEST MUGIRANGO  TECHCHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "NYAMIRA COUNTY"
+  },
+  {
+    "code": "WOTE TTI",
+    "name": "WOTE TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MAKUENI COUNTY"
+  },
+  {
+    "code": "WUMINGU TVC",
+    "name": "WUMINGU TECHNICAL & VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "TAITA TAVETA COUNTY"
+  },
+  {
+    "code": "YATTA TVC",
+    "name": "YATTA TECHNICAL AND VOCATIONAL COLLEGE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "MACHAKOS COUNTY"
+  },
+  {
+    "code": "ZETECH",
+    "name": "ZETECH UNIVERSITY",
+    "category": "University",
+    "institution_type": "PRIVATE",
+    "parent_ministry": "Private Institution",
+    "location": "NAIROBI COUNTY"
+  },
+  {
+    "code": "ZIWA TTI",
+    "name": "ZIWA TECHNICAL TRAINING INSTITUTE",
+    "category": "College",
+    "institution_type": "TVET",
+    "parent_ministry": "Ministry of Education",
+    "location": "UASIN GISHU COUNTY"
+  }
+]

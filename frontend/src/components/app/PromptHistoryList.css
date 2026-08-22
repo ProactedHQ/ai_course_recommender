@@ -1,0 +1,206 @@
+.prompt-history-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+/* Month Group */
+.history-month-group {
+    margin-bottom: 1rem;
+}
+
+.month-header {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #94a3b8;
+    padding: 0.5rem 0.75rem 0.25rem;
+    letter-spacing: 0.05em;
+}
+
+/* History Item Wrapper */
+.history-item-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.history-item-wrapper:hover .history-menu-btn {
+    opacity: 1;
+}
+
+/* History Item (ChatGPT-like) */
+.history-item {
+    flex: 1;
+    display: block;
+    padding: 0.65rem 0.75rem;
+    border-radius: 0;
+    text-decoration: none;
+    color: #475569;
+    transition: background-color 0.15s;
+    overflow: hidden;
+}
+
+.history-item:hover {
+    background-color: rgba(59, 180, 161, 0.08); /* Brand Secondary Teal Faint */
+    color: var(--color-primary);
+}
+
+.history-item.active {
+    background-color: rgba(59, 180, 161, 0.15);
+    color: var(--color-primary);
+}
+
+/* Dark Mode Extractor for History Items */
+[data-theme='dark'] .history-item {
+    color: var(--color-text-muted);
+}
+
+[data-theme='dark'] .history-item:hover {
+    background-color: rgba(59, 180, 161, 0.15);
+    color: white;
+}
+
+[data-theme='dark'] .history-item.active {
+    background-color: rgba(59, 180, 161, 0.25);
+    color: var(--color-secondary);
+}
+
+.history-item-title {
+    font-size: 0.85rem;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+}
+
+/* 3-Dot Menu Button - Ultra-Minimalist */
+.history-menu-btn {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    padding: 2px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+/* No hover background icon or scale as per user request */
+.history-menu-btn:hover {
+    color: var(--color-text-muted);
+    /* Keep color static */
+}
+
+.history-item-wrapper:hover .history-menu-btn,
+.history-menu-btn.active {
+    opacity: 0.8;
+}
+
+/* Premium Options Menu (No button-like backgrounds) */
+.history-dropdown-menu {
+    position: absolute;
+    right: 0.5rem;
+    top: 85%;
+    background: rgba(var(--color-bg-card-rgb), 0.95);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 0;
+    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+    min-width: 120px;
+    padding: 0.5rem 0;
+    overflow: hidden;
+    animation: premiumFadeIn 0.15s ease-out;
+}
+
+[data-theme='dark'] .history-dropdown-menu {
+    background: rgba(15, 23, 42, 0.98);
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 0.7rem 1.25rem;
+    background: transparent;
+    border: none;
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: opacity 0.15s;
+    border-radius: 0;
+}
+
+/* No hover color shift on options as per user request */
+.menu-item:hover {
+    color: var(--color-text-muted);
+    /* Keep color static */
+}
+
+.menu-item-delete:hover {
+    color: var(--color-text-muted);
+    /* Keep color static even for delete */
+}
+
+.menu-item svg {
+    opacity: 0.6;
+    transition: opacity 0.15s;
+}
+
+.menu-item:hover svg {
+    opacity: 0.9;
+    /* Subtle opacity increase is okay to show active state without "button" feel */
+}
+
+/* Toast Notification */
+.share-toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1e293b;
+    color: white;
+    padding: 1rem;
+    border-radius: 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    animation: toastSlideUp 0.3s ease-out;
+}
+
+@keyframes toastSlideUp {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Loading & Empty States */
+.history-loader,
+.empty-history {
+    font-size: 0.75rem;
+    color: #9ca3af;
+    padding: 1rem 0.75rem;
+    text-align: center;
+}

@@ -1,0 +1,101 @@
+.cta-bottom-section {
+    padding: 100px 0;
+    background-color: transparent;
+}
+
+.cta-card-premium {
+    background: linear-gradient(135deg, rgba(15, 25, 38, 0.85) 0%, rgba(26, 62, 92, 0.85) 100%), url("../assets/images/landing/landingpage 3.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 40px;
+    padding: 100px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(15, 23, 42, 0.3);
+}
+
+.cta-card-premium::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(59, 180, 161, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.cta-premium-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta-icon-wrapper-premium {
+    width: 96px;
+    height: 96px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 32px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.cta-premium-icon {
+    color: var(--color-secondary);
+    filter: drop-shadow(0 0 15px rgba(59, 180, 161, 0.5));
+}
+
+.cta-premium-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 24px;
+    letter-spacing: -2px;
+    line-height: 1.1;
+}
+
+.cta-premium-text {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 48px;
+    line-height: 1.6;
+}
+
+.cta-premium-btn {
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 1.25rem 3.5rem;
+    font-size: 1.1rem;
+    font-weight: 800;
+    border-radius: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: none;
+    cursor: pointer;
+}
+
+.cta-premium-btn:hover {
+    background-color: white;
+    color: var(--color-primary);
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 991px) {
+    .cta-premium-title {
+        font-size: 2.25rem;
+        letter-spacing: -1px;
+    }
+
+    .cta-card-premium {
+        padding: 60px 24px;
+        border-radius: 30px;
+    }
+}

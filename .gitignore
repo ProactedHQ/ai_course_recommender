@@ -1,0 +1,18 @@
+# .gitignore
+node_modules/
+dist/
+build/
+.env
+.env.local
+.DS_Store
+Thumbs.db
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.pyc
+db.sqlite3
+media/
+staticfiles/
+landingpage_wireframes/

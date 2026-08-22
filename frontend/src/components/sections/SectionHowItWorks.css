@@ -1,0 +1,208 @@
+.how-it-works-section {
+    padding: 120px 0;
+    background-color: #fbfcfe;
+}
+
+@media (prefers-color-scheme: dark) {
+    .how-it-works-section {
+        background-color: rgba(15, 36, 54, 0.5);
+    }
+}
+
+
+/* ── Section Title — same visual language as SectionProblem ── */
+.how-it-works-section .section-title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: #0f172a !important;
+    /* Maximum contrast dark blue */
+    /* Deep bluish for better visibility */
+    letter-spacing: -1px;
+    line-height: 1.15;
+}
+
+@media (prefers-color-scheme: dark) {
+    .how-it-works-section .section-title {
+        color: var(--color-text-light);
+    }
+}
+
+/* Teal accent underline beneath the title */
+.how-it-works-section .section-title-accent {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 72px;
+}
+
+.how-it-works-section .section-title-accent::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    border-radius: 0;
+    background: linear-gradient(90deg, var(--color-secondary), var(--color-accent));
+}
+
+.steps-container {
+    display: flex;
+    gap: 40px;
+    margin-top: 0;
+}
+
+.step-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.step-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 28px;
+    /* tighter — the number is taller now */
+}
+
+.step-number {
+    font-family: 'Outfit', sans-serif;
+    font-size: 70px !important;
+    font-weight: 900;
+    line-height: 0.92;
+    letter-spacing: -4px;
+    flex-shrink: 0;
+    user-select: none;
+
+    color: transparent;
+    -webkit-text-stroke: 2.5px var(--color-secondary);
+    opacity: 1;
+
+    transition: transform 0.25s ease, opacity 0.25s ease, -webkit-text-stroke 0.25s ease;
+}
+
+/* Hover: number becomes vivid and pops */
+.step-item:hover .step-number {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.step-line {
+    flex: 1;
+    height: 1.5px;
+    background: linear-gradient(to right, var(--color-secondary) 0%, transparent 100%);
+}
+
+.step-content {
+    padding: 50px 40px;
+    background: #ffffff;
+    border-radius: 0;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.03);
+    height: 100%;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    border: 1px solid rgba(15, 23, 42, 0.04);
+    display: flex;
+    flex-direction: column;
+}
+
+@media (prefers-color-scheme: dark) {
+    .step-content {
+        background: rgba(255, 255, 255, 0.02);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        border-color: rgba(255, 255, 255, 0.05);
+    }
+}
+
+.step-content:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 30px 70px rgba(15, 23, 42, 0.1);
+    border-color: var(--color-secondary);
+}
+
+.step-icon {
+    width: 64px;
+    height: 64px;
+    background: #f1f5f9;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0;
+    margin-bottom: 32px;
+    transition: all 0.5s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+    .step-icon {
+        background: rgba(59, 180, 161, 0.1);
+        color: var(--color-secondary);
+    }
+}
+
+.step-content:hover .step-icon {
+    transform: scale(1.1) rotate(8deg);
+    background: var(--color-secondary);
+    color: white;
+}
+
+.how-it-works-section .step-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: #1a365d !important;
+    /* Solid dark blue for visibility */
+    /* Solid bluish for light mode */
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+@media (prefers-color-scheme: dark) {
+    .step-title {
+        color: var(--color-text-light);
+    }
+}
+
+.how-it-works-section .step-description {
+    color: #334155 !important;
+    /* Dense bluish gray */
+    /* Slightly bluish gray for light mode */
+    line-height: 1.7;
+    font-size: 1.05rem;
+    opacity: 1 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+    .step-description {
+        color: rgba(245, 245, 245, 0.7);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+
+    .how-it-works-section .section-title,
+    .how-it-works-section .step-title {
+        color: #ffffff !important;
+    }
+
+    .how-it-works-section .step-description {
+        color: rgba(255, 255, 255, 0.8) !important;
+    }
+}
+
+
+@media (max-width: 991px) {
+    .steps-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    .step-line {
+        display: none;
+    }
+
+    .step-number {
+        font-size: 8rem;
+        /* large and impactful on mobile */
+        letter-spacing: -4px;
+    }
+}

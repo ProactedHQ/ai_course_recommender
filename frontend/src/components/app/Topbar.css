@@ -1,0 +1,90 @@
+.app-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background-color: var(--color-bg-card);
+    border-bottom: 1.5px solid var(--color-border);
+    height: var(--navbar-height);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 80;
+}
+
+.hamburger-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.topbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.topbar-logo-img {
+    height: 38px;
+    width: auto;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.logo-name,
+.proacted-branding {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 900;
+    font-size: 1rem;
+    color: var(--color-primary);
+    letter-spacing: -0.04em;
+    line-height: 1.2;
+}
+
+.logo-separator {
+    color: var(--color-primary);
+    font-weight: 900;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.logo-brand-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+@media (min-width: 1024px) {
+    .app-topbar {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .app-topbar {
+        padding: 0.5rem 0.75rem;
+    }
+
+    .topbar-logo {
+        gap: 0.75rem;
+    }
+
+    .topbar-logo-img {
+        height: 28px;
+    }
+
+    .logo-name,
+    .proacted-branding,
+    .logo-separator {
+        font-size: 0.9rem;
+    }
+
+    .logo-brand-container {
+        gap: 4px;
+    }
+}

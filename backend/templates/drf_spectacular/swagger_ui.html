@@ -1,0 +1,8 @@
+{% extends "drf_spectacular/swagger_ui.html" %}
+{% load static %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'drf_spectacular/custom_swagger.css' %}">
+<link rel="icon" type="image/png" href="{% static 'drf_spectacular/logo.png' %}">
+<title>AIACADEMIA – PROACTED API Docs</title>
+{% endblock %}

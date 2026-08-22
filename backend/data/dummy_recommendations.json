@@ -1,0 +1,29 @@
+{
+    "top_5": [
+        {
+            "course": "BSc Computer Science",
+            "reason": "Math + tech interest alignment",
+            "score": 0.86
+        },
+        {
+            "course": "BSc Data Science",
+            "reason": "Analytical strengths + priorities fit",
+            "score": 0.82
+        },
+        {
+            "course": "BSc Information Technology",
+            "reason": "Practical fit and skills match",
+            "score": 0.78
+        },
+        {
+            "course": "BSc Software Engineering",
+            "reason": "Strong interest and career goals",
+            "score": 0.75
+        },
+        {
+            "course": "BSc Business Information Systems",
+            "reason": "Business + tech blend",
+            "score": 0.71
+        }
+    ]
+}

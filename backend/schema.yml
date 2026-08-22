@@ -1,0 +1,1403 @@
+openapi: 3.0.3
+info:
+  title: AIACADEMIA – PROACTED API Docs
+  version: 1.0.0
+  description: Detailed API documentation for the AI Course Recommender system. All
+    protected endpoints require a Supabase JWT Bearer Token.
+paths:
+  /api/auth/profile/:
+    get:
+      operationId: auth_profile_retrieve
+      description: Returns basic profile information for the currently logged-in user
+        (authenticated via Supabase JWT).
+      summary: Get authenticated user profile
+      tags:
+      - auth
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                  username:
+                    type: string
+                  email:
+                    type: string
+                  is_student:
+                    type: boolean
+          description: ''
+        '401':
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  detail:
+                    type: string
+          description: ''
+  /api/clusters/:
+    get:
+      operationId: clusters_list
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Universities
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ClusterGroup'
+          description: ''
+  /api/clusters/{id}/:
+    get:
+      operationId: clusters_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this cluster group.
+        required: true
+      tags:
+      - Universities
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ClusterGroup'
+          description: ''
+  /api/grades/:
+    get:
+      operationId: grades_list
+      description: Allows adding/updating grades.
+      tags:
+      - Students
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AcademicResult'
+          description: ''
+    post:
+      operationId: grades_create
+      description: Allows adding/updating grades.
+      tags:
+      - Students
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AcademicResultRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AcademicResultRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AcademicResultRequest'
+        required: true
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcademicResult'
+          description: ''
+  /api/grades/{id}/:
+    get:
+      operationId: grades_retrieve
+      description: Allows adding/updating grades.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this academic result.
+        required: true
+      tags:
+      - Students
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcademicResult'
+          description: ''
+    put:
+      operationId: grades_update
+      description: Allows adding/updating grades.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this academic result.
+        required: true
+      tags:
+      - Students
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AcademicResultRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AcademicResultRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AcademicResultRequest'
+        required: true
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcademicResult'
+          description: ''
+    patch:
+      operationId: grades_partial_update
+      description: Allows adding/updating grades.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this academic result.
+        required: true
+      tags:
+      - Students
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedAcademicResultRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedAcademicResultRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedAcademicResultRequest'
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AcademicResult'
+          description: ''
+    delete:
+      operationId: grades_destroy
+      description: Allows adding/updating grades.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this academic result.
+        required: true
+      tags:
+      - Students
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/institutions/:
+    get:
+      operationId: institutions_list
+      description: API endpoint that allows Institutions to be viewed.
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Universities
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Institution'
+          description: ''
+  /api/institutions/{id}/:
+    get:
+      operationId: institutions_retrieve
+      description: API endpoint that allows Institutions to be viewed.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this institution.
+        required: true
+      tags:
+      - Universities
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Institution'
+          description: ''
+  /api/profiles/:
+    get:
+      operationId: profiles_list
+      description: Allows students to create/view/update their OWN profile.
+      tags:
+      - Students
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/StudentProfile'
+          description: ''
+    post:
+      operationId: profiles_create
+      description: Allows students to create/view/update their OWN profile.
+      tags:
+      - Students
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StudentProfileRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/StudentProfileRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/StudentProfileRequest'
+        required: true
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentProfile'
+          description: ''
+  /api/profiles/{id}/:
+    get:
+      operationId: profiles_retrieve
+      description: Allows students to create/view/update their OWN profile.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this student profile.
+        required: true
+      tags:
+      - Students
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentProfile'
+          description: ''
+    put:
+      operationId: profiles_update
+      description: Allows students to create/view/update their OWN profile.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this student profile.
+        required: true
+      tags:
+      - Students
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/StudentProfileRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/StudentProfileRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/StudentProfileRequest'
+        required: true
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentProfile'
+          description: ''
+    patch:
+      operationId: profiles_partial_update
+      description: Allows students to create/view/update their OWN profile.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this student profile.
+        required: true
+      tags:
+      - Students
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedStudentProfileRequest'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedStudentProfileRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedStudentProfileRequest'
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/StudentProfile'
+          description: ''
+    delete:
+      operationId: profiles_destroy
+      description: Allows students to create/view/update their OWN profile.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this student profile.
+        required: true
+      tags:
+      - Students
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/programmes/:
+    get:
+      operationId: programmes_list
+      description: API endpoint that allows Generic Courses to be viewed and searched.
+      parameters:
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      tags:
+      - Universities
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Programme'
+          description: ''
+  /api/programmes/{id}/:
+    get:
+      operationId: programmes_retrieve
+      description: API endpoint that allows Generic Courses to be viewed and searched.
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this programme.
+        required: true
+      tags:
+      - Universities
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Programme'
+          description: ''
+  /api/prompts/:
+    get:
+      operationId: prompts_list
+      description: Handles the submission of the multi-step prompt wizard. Currently
+        returns dummy recommendations for UI testing.
+      summary: Submit Wizard data and get recommendations
+      tags:
+      - AI Recommendations
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/PromptSubmission'
+              examples:
+                RecommendationResponseExample:
+                  value:
+                  - received: true
+                    submission_id: 42
+                    recommendations:
+                      top_5:
+                      - course: BSc Computer Science
+                        reason: Math + tech interest alignment
+                        score: 0.86
+                      - course: BSc Data Science
+                        reason: Analytical strengths match
+                        score: 0.82
+                  summary: Format of returned recommendations
+          description: ''
+    post:
+      operationId: prompts_create
+      description: Handles the submission of the multi-step prompt wizard. Currently
+        returns dummy recommendations for UI testing.
+      summary: Submit Wizard data and get recommendations
+      tags:
+      - AI Recommendations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PromptSubmissionRequest'
+            examples:
+              WizardSubmissionExample:
+                value:
+                  payload:
+                    step1:
+                      mean_grade: B+
+                      kcse_points: 65
+                    step2:
+                      subjects:
+                        MAT: A
+                        ENG: B+
+                        CHE: B
+                    step3:
+                      interests:
+                      - Artificial Intelligence
+                      - Software Engineering
+                      hobbies:
+                      - Chess
+                      - Gaming
+                    step4:
+                      personal_statement: I want to be a tech leader in Africa.
+                summary: Standard payload from frontend wizard
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PromptSubmissionRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PromptSubmissionRequest'
+        required: true
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromptSubmission'
+              examples:
+                RecommendationResponseExample:
+                  value:
+                    received: true
+                    submission_id: 42
+                    recommendations:
+                      top_5:
+                      - course: BSc Computer Science
+                        reason: Math + tech interest alignment
+                        score: 0.86
+                      - course: BSc Data Science
+                        reason: Analytical strengths match
+                        score: 0.82
+                  summary: Format of returned recommendations
+          description: ''
+  /api/prompts/{id}/:
+    get:
+      operationId: prompts_retrieve
+      description: Handles the submission of the multi-step prompt wizard. Currently
+        returns dummy recommendations for UI testing.
+      summary: Submit Wizard data and get recommendations
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this prompt submission.
+        required: true
+      tags:
+      - AI Recommendations
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromptSubmission'
+              examples:
+                RecommendationResponseExample:
+                  value:
+                    received: true
+                    submission_id: 42
+                    recommendations:
+                      top_5:
+                      - course: BSc Computer Science
+                        reason: Math + tech interest alignment
+                        score: 0.86
+                      - course: BSc Data Science
+                        reason: Analytical strengths match
+                        score: 0.82
+                  summary: Format of returned recommendations
+          description: ''
+    put:
+      operationId: prompts_update
+      description: Handles the submission of the multi-step prompt wizard. Currently
+        returns dummy recommendations for UI testing.
+      summary: Submit Wizard data and get recommendations
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this prompt submission.
+        required: true
+      tags:
+      - AI Recommendations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PromptSubmissionRequest'
+            examples:
+              WizardSubmissionExample:
+                value:
+                  payload:
+                    step1:
+                      mean_grade: B+
+                      kcse_points: 65
+                    step2:
+                      subjects:
+                        MAT: A
+                        ENG: B+
+                        CHE: B
+                    step3:
+                      interests:
+                      - Artificial Intelligence
+                      - Software Engineering
+                      hobbies:
+                      - Chess
+                      - Gaming
+                    step4:
+                      personal_statement: I want to be a tech leader in Africa.
+                summary: Standard payload from frontend wizard
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PromptSubmissionRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PromptSubmissionRequest'
+        required: true
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromptSubmission'
+              examples:
+                RecommendationResponseExample:
+                  value:
+                    received: true
+                    submission_id: 42
+                    recommendations:
+                      top_5:
+                      - course: BSc Computer Science
+                        reason: Math + tech interest alignment
+                        score: 0.86
+                      - course: BSc Data Science
+                        reason: Analytical strengths match
+                        score: 0.82
+                  summary: Format of returned recommendations
+          description: ''
+    patch:
+      operationId: prompts_partial_update
+      description: Handles the submission of the multi-step prompt wizard. Currently
+        returns dummy recommendations for UI testing.
+      summary: Submit Wizard data and get recommendations
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this prompt submission.
+        required: true
+      tags:
+      - AI Recommendations
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedPromptSubmissionRequest'
+            examples:
+              WizardSubmissionExample:
+                value:
+                  payload:
+                    step1:
+                      mean_grade: B+
+                      kcse_points: 65
+                    step2:
+                      subjects:
+                        MAT: A
+                        ENG: B+
+                        CHE: B
+                    step3:
+                      interests:
+                      - Artificial Intelligence
+                      - Software Engineering
+                      hobbies:
+                      - Chess
+                      - Gaming
+                    step4:
+                      personal_statement: I want to be a tech leader in Africa.
+                summary: Standard payload from frontend wizard
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedPromptSubmissionRequest'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedPromptSubmissionRequest'
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PromptSubmission'
+              examples:
+                RecommendationResponseExample:
+                  value:
+                    received: true
+                    submission_id: 42
+                    recommendations:
+                      top_5:
+                      - course: BSc Computer Science
+                        reason: Math + tech interest alignment
+                        score: 0.86
+                      - course: BSc Data Science
+                        reason: Analytical strengths match
+                        score: 0.82
+                  summary: Format of returned recommendations
+          description: ''
+    delete:
+      operationId: prompts_destroy
+      description: Handles the submission of the multi-step prompt wizard. Currently
+        returns dummy recommendations for UI testing.
+      summary: Submit Wizard data and get recommendations
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this prompt submission.
+        required: true
+      tags:
+      - AI Recommendations
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '204':
+          description: No response body
+  /api/subjects/:
+    get:
+      operationId: subjects_list
+      description: Lists all available KCSE subjects (Math, Eng, etc.)
+      tags:
+      - Students
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Subject'
+          description: ''
+  /api/subjects/{id}/:
+    get:
+      operationId: subjects_retrieve
+      description: Lists all available KCSE subjects (Math, Eng, etc.)
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: integer
+        description: A unique integer value identifying this subject.
+        required: true
+      tags:
+      - Students
+      security:
+      - bearerAuth: []
+      - bearerAuth: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Subject'
+          description: ''
+components:
+  schemas:
+    AcademicResult:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        subject:
+          type: integer
+        subject_name:
+          type: string
+          readOnly: true
+        grade:
+          $ref: '#/components/schemas/GradeEnum'
+        points:
+          type: integer
+          readOnly: true
+      required:
+      - grade
+      - id
+      - points
+      - subject
+      - subject_name
+    AcademicResultRequest:
+      type: object
+      properties:
+        subject:
+          type: integer
+        grade:
+          $ref: '#/components/schemas/GradeEnum'
+      required:
+      - grade
+      - subject
+    AttributeTypeEnum:
+      enum:
+      - SKILL
+      - INTEREST
+      - HOBBY
+      - STYLE
+      - VALUE
+      type: string
+      description: |-
+        * `SKILL` - Skill
+        * `INTEREST` - Interest
+        * `HOBBY` - Hobby
+        * `STYLE` - Learning Style
+        * `VALUE` - Core Value
+    BlankEnum:
+      enum:
+      - ''
+    CareerGoal:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+          nullable: true
+      required:
+      - id
+      - title
+    CareerGoalRequest:
+      type: object
+      properties:
+        title:
+          type: string
+          minLength: 1
+          maxLength: 100
+        description:
+          type: string
+          nullable: true
+      required:
+      - title
+    CategoryEnum:
+      enum:
+      - GP1
+      - GP2
+      - GP3
+      - GP4
+      - GP5
+      type: string
+      description: |-
+        * `GP1` - Group 1 (Compulsory)
+        * `GP2` - Group 2 (Sciences)
+        * `GP3` - Group 3 (Humanities)
+        * `GP4` - Group 4 (Technicals)
+        * `GP5` - Group 5 (Foreign Languages/Business)
+    ClusterGroup:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        level:
+          type: integer
+        level_name:
+          type: string
+          readOnly: true
+        code:
+          type: string
+          maxLength: 20
+        name:
+          type: string
+          maxLength: 255
+      required:
+      - id
+      - level
+      - level_name
+      - name
+    CutOffPoint:
+      type: object
+      properties:
+        year:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        cutoff_type:
+          allOf:
+          - $ref: '#/components/schemas/CutoffTypeEnum'
+          description: |-
+            Whether this uses weighted points or mean grade
+
+            * `WEIGHTED_POINTS` - Weighted Cluster Points
+            * `MEAN_GRADE` - Mean Grade
+        weighted_cluster_points:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,3}(?:\.\d{0,3})?$
+          nullable: true
+          description: Cut-off for degree programmes (e.g., 42.155)
+        mean_grade_cutoff:
+          type: string
+          nullable: true
+          description: Cut-off for TVET programmes (e.g., C-, C+)
+          maxLength: 2
+        capacity:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+          description: Declared slots for this offering
+        placed_students:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+          description: Number of students placed
+      required:
+      - year
+    CutoffTypeEnum:
+      enum:
+      - WEIGHTED_POINTS
+      - MEAN_GRADE
+      type: string
+      description: |-
+        * `WEIGHTED_POINTS` - Weighted Cluster Points
+        * `MEAN_GRADE` - Mean Grade
+    GradeEnum:
+      enum:
+      - A
+      - A-
+      - B+
+      - B
+      - B-
+      - C+
+      - C
+      - C-
+      - D+
+      - D
+      - D-
+      - E
+      type: string
+      description: |-
+        * `A` - A
+        * `A-` - A-
+        * `B+` - B+
+        * `B` - B
+        * `B-` - B-
+        * `C+` - C+
+        * `C` - C
+        * `C-` - C-
+        * `D+` - D+
+        * `D` - D
+        * `D-` - D-
+        * `E` - E
+    Institution:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        code:
+          type: string
+          description: KUCCPS Institution Code
+          maxLength: 50
+        institution_type:
+          $ref: '#/components/schemas/InstitutionTypeEnum'
+        location:
+          type: string
+          description: City or Town
+          maxLength: 100
+        website:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+      required:
+      - code
+      - id
+      - location
+      - name
+    InstitutionTypeEnum:
+      enum:
+      - PUBLIC_UNIVERSITY
+      - PRIVATE_UNIVERSITY
+      - TVET
+      type: string
+      description: |-
+        * `PUBLIC_UNIVERSITY` - Public University
+        * `PRIVATE_UNIVERSITY` - Private University
+        * `TVET` - TVET/College
+    JobMarketDemandEnum:
+      enum:
+      - HIGH
+      - MODERATE
+      - LOW
+      type: string
+      description: |-
+        * `HIGH` - High
+        * `MODERATE` - Moderate
+        * `LOW` - Low
+    MinimumGradeEnum:
+      enum:
+      - A
+      - A-
+      - B+
+      - B
+      - B-
+      - C+
+      - C
+      - C-
+      - D+
+      - D
+      - D-
+      type: string
+      description: |-
+        * `A` - A
+        * `A-` - A-
+        * `B+` - B+
+        * `B` - B
+        * `B-` - B-
+        * `C+` - C+
+        * `C` - C
+        * `C-` - C-
+        * `D+` - D+
+        * `D` - D
+        * `D-` - D-
+    NullEnum:
+      enum:
+      - null
+    PatchedAcademicResultRequest:
+      type: object
+      properties:
+        subject:
+          type: integer
+        grade:
+          $ref: '#/components/schemas/GradeEnum'
+    PatchedPromptSubmissionRequest:
+      type: object
+      properties:
+        payload:
+          description: The full multi-step wizard data.
+    PatchedStudentProfileRequest:
+      type: object
+      properties:
+        kcse_index_number:
+          type: string
+          nullable: true
+          maxLength: 20
+        kcse_year:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          description: Year the student sat for KCSE
+        mean_grade:
+          type: string
+          nullable: true
+          maxLength: 2
+    Programme:
+      type: object
+      description: Generic programme with all requirements + all offerings
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        kuccps_code:
+          type: string
+          maxLength: 20
+        name:
+          type: string
+          maxLength: 255
+        level:
+          type: integer
+        level_name:
+          type: string
+          readOnly: true
+        cluster:
+          type: integer
+          nullable: true
+        cluster_info:
+          allOf:
+          - $ref: '#/components/schemas/ClusterGroup'
+          readOnly: true
+        description:
+          type: string
+        job_market_demand:
+          $ref: '#/components/schemas/JobMarketDemandEnum'
+        minimum_mean_grade:
+          type: string
+          nullable: true
+          description: Minimum mean grade for TVET programmes (e.g., C-, D+, C)
+          maxLength: 3
+        requirements:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProgrammeRequirement'
+          readOnly: true
+        offerings:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProgrammeOffering'
+          readOnly: true
+      required:
+      - cluster_info
+      - id
+      - kuccps_code
+      - level
+      - level_name
+      - name
+      - offerings
+      - requirements
+    ProgrammeOffering:
+      type: object
+      description: Shows a generic programme offered at a specific institution
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        institution:
+          type: integer
+        institution_name:
+          type: string
+          readOnly: true
+        location:
+          type: string
+          readOnly: true
+        cutoffs:
+          type: array
+          items:
+            $ref: '#/components/schemas/CutOffPoint'
+          readOnly: true
+      required:
+      - cutoffs
+      - id
+      - institution
+      - institution_name
+      - location
+    ProgrammeRequirement:
+      type: object
+      properties:
+        subject:
+          type: integer
+          nullable: true
+          description: Specific subject required (e.g. Math)
+        subject_name:
+          type: string
+          readOnly: true
+        subject_category:
+          nullable: true
+          description: |-
+            If no specific subject, require a category (e.g. Any Group 2)
+
+            * `GP1` - Group 1 (Compulsory)
+            * `GP2` - Group 2 (Sciences)
+            * `GP3` - Group 3 (Humanities)
+            * `GP4` - Group 4 (Technicals)
+            * `GP5` - Group 5 (Foreign Languages/Business)
+          oneOf:
+          - $ref: '#/components/schemas/CategoryEnum'
+          - $ref: '#/components/schemas/BlankEnum'
+          - $ref: '#/components/schemas/NullEnum'
+        minimum_grade:
+          $ref: '#/components/schemas/MinimumGradeEnum'
+        is_category:
+          type: boolean
+          description: True if requiring 'Any Group 2' or alternatives like 'ENG or
+            KIS'
+        description:
+          type: string
+          description: Full requirement text for complex rules (e.g., 'ENG(101)/KIS(102):C+'
+            or 'Any two Group II subjects')
+      required:
+      - subject_name
+    PromptSubmission:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: integer
+          readOnly: true
+        payload:
+          description: The full multi-step wizard data.
+        result:
+          readOnly: true
+          description: The generated AI recommendation JSON.
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - id
+      - payload
+      - result
+      - user
+    PromptSubmissionRequest:
+      type: object
+      properties:
+        payload:
+          description: The full multi-step wizard data.
+      required:
+      - payload
+    StudentAttribute:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        attribute_type:
+          $ref: '#/components/schemas/AttributeTypeEnum'
+        name:
+          type: string
+          maxLength: 100
+        weight:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          description: 1-10 scale of how important this is to the student
+      required:
+      - attribute_type
+      - id
+      - name
+    StudentAttributeRequest:
+      type: object
+      properties:
+        attribute_type:
+          $ref: '#/components/schemas/AttributeTypeEnum'
+        name:
+          type: string
+          minLength: 1
+          maxLength: 100
+        weight:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          description: 1-10 scale of how important this is to the student
+      required:
+      - attribute_type
+      - name
+    StudentProfile:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: integer
+          readOnly: true
+        username:
+          type: string
+          readOnly: true
+        kcse_index_number:
+          type: string
+          nullable: true
+          maxLength: 20
+        kcse_year:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          description: Year the student sat for KCSE
+        mean_grade:
+          type: string
+          nullable: true
+          maxLength: 2
+        academic_results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AcademicResult'
+          readOnly: true
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/StudentAttribute'
+          readOnly: true
+        career_goals:
+          type: array
+          items:
+            $ref: '#/components/schemas/CareerGoal'
+          readOnly: true
+      required:
+      - academic_results
+      - attributes
+      - career_goals
+      - id
+      - kcse_year
+      - user
+      - username
+    StudentProfileRequest:
+      type: object
+      properties:
+        kcse_index_number:
+          type: string
+          nullable: true
+          maxLength: 20
+        kcse_year:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          description: Year the student sat for KCSE
+        mean_grade:
+          type: string
+          nullable: true
+          maxLength: 2
+      required:
+      - kcse_year
+    Subject:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        code:
+          type: string
+          maxLength: 10
+        name:
+          type: string
+          maxLength: 50
+        category:
+          $ref: '#/components/schemas/CategoryEnum'
+      required:
+      - category
+      - code
+      - id
+      - name
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Enter your Supabase Access Token (JWT) to authorize requests.

@@ -1,0 +1,2602 @@
+[
+  {
+    "name": "Bachelor of Laws (LL.B.)",
+    "cluster_code": "1A"
+  },
+  {
+    "name": "Bachelor of Library & Information Science",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Library and Information Studies",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Business and Office Management Bachelor of Science in Information Sciences",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Business Management Bachelor of Business Information and",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Business Management (Marine Business Management)",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Business Management (Civil Aviation Management)",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Science (Information Studies)",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Arts (Business Studies, With IT)",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Science in Information Science",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Science (Records Management and Information Technology)",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Co-operative Management Bachelor of Business Information Technology",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Co-operative Business Bachelor of Science",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Co-operative and Community Development Bachelor of Technology (Business Information Technology)",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Secretarial Management and Administration",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Technology (Office Administration and Technology)",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Commerce",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Entrepreneurship",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Entrepreneurship & Small Business Management",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Entrepreneurship and Small Business",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Science (Entrepreneurship and Small Enterprises Management)",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Science (Entrepreneurship)",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Science (Entrepreneurship Studies)",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Science in Entrepreneurship",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Procurement and Contract Management",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Procurement and Supply Chain Management",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Purchasing & Supplies Management",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Supply Chain Management",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Logistics and Supply Chain Management",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Procurement and Logistics Management",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Purchasing and Supplies Management",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Science (Management Science)",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Science in Strategic Management",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Science (Strategic Management)",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Science In International Business Management",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Science in Marketing With IT",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Science In Co-operative and Entreprenuership Management",
+    "cluster_code": "2A"
+  },
+  {
+    "name": "Bachelor of Project Planning and Management Bachelor of Hotel & Hospitality Management",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Science (Project Planning Management)",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Hotel Management",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Science in Project Management Bachelor of Hotels and Hospitality Management",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Human Resources Management Bachelor of Catering & Hospitality Management",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Science (Human Resource Management)",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Science (Ecotourism & Hospitality Management)",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Human Resource Management Bachelor of Science in Ecotourism",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Science in Human Resource Management, With IT Bachelor of Eco-tourism and Hospitality Management",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Science (Eco-tourism, Hotel and Institution Management, With IT)",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Science (Hospitality & Tourism Management)",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Science (Hospitality Management)",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Sustainable Tourism & Hospitality Management",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Tourism & Hotel Management",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Travel & Tours Operations Management",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Science in Travel and Tourism",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Catering & Hotel Management",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Hotel and Hospitality Management",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of International Tourism Management",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Science (Hospitality and Tourism Management)",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Science (Tourism Management)",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Science in Hospitality Management",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Technology (Institutional Catering and Accommodation)",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Technology in Hotel & Hospitality Management",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Tourism Management",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Travel and Tours Operations Management",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Science (Food Operations Management)",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Science in Food Service and Hospitality Management",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Science (Food Service and Hospitality Management)",
+    "cluster_code": "2B"
+  },
+  {
+    "name": "Bachelor of Applied Communication Bachelor of Science (Communication and Public Relations)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Arts (Applied Linguistics)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Science (Communication & Journalism)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Arts (Communication & Media)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Science (Comm. & Public Relations)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Arts (Drama and Theatre Studies, With IT)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Communication & Public Relations",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Arts (International Relations and Diplomacy ,With IT)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Communication and Public Relations",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Arts (International Relations and Diplomacy)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Science (Communication and Journalism)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Arts in Government and International Relations Bachelor of Arts",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Arts in International Relations Bachelor of Arts (Communication and Media)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Arts (Language and Communication, With IT)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Broadcast Journalism",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Arts (Linguistics, Media and Communication)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Journalism",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Arts (Linguistic)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Journalism and Mass Communication",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Arts (Literature, With IT)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Corporate Communication and",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Arts (Literature)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Arts in Linguistics and Literature Bachelor of Science (Media Science)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Arts (Theatre Arts & Film Technology)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Technology (Journalism and Mass Communication)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Arts (Translation and Interpretation)",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Film Animation",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Communication & Journalism Bachelor of Film Production and Animation",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Communication and Media Studies Bachelor of Arts in Mass Communication",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Journalism & Mass Communication Bachelor of Science in Mass Communication",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Arts in Communication and Journalism Bachelor of Mass Communication",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Arts in Communication Studies",
+    "cluster_code": "3A"
+  },
+  {
+    "name": "Bachelor of Arts (English & Communication)",
+    "cluster_code": "3B"
+  },
+  {
+    "name": "Bachelor of Arts (Kiswahili and Communication)",
+    "cluster_code": "3C"
+  },
+  {
+    "name": "Bachelor of Arts (With IT)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Psychology (With IT)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts Bachelor of Science (Counselling Psychology)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Anthropology)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Counselling Psychology)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Philosophy)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Psychology)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts in Philosophy Bachelor of Arts in Counselling Psychology",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Philosophy, With IT)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Psychology",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Science (Event and Convention Management)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Sociology and Social Work)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Political Science, With IT)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts in Sociology",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Criminology & Security Studies)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Social Work)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts in Criminology and Security Studies) Bachelor of Social Work",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Criminology and Security Studies)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Social Work)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Penology, Correction and Administration)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Social Work and Administration",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts in Criminology, Criminal Justice and Public Safety Bachelor of Arts",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Conflict Resolution and Humanitarian Bachelor of Arts (Sociology)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Criminology and Penology)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Science in Sociology",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Science in Public Administration and Leadership Sustainable Development)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Science in Medical Social Work Bachelor of Science",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Criminology, With IT)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Disaster Management, With IT)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Disaster Management & International",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Criminology Bachelor of Arts in Community Development",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Science (Criminology and Security Studies)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Development Studies Bachelor of Arts (Peace and Conflict Studies)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Development Studies, With IT)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts Community Development",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Gender and Development Studies)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Community Development",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Gender Studies, With IT)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Development Studies",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Gender and Development)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts in Development Studies",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Gender)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Science (Community Development)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Science (Public Management and Development)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Science in Community Development",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Public Management and Development Bachelor of Science",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Science in Development Studies Bachelor of Community Development and",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Developmental and Policy Studies)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts in Management Bachelor of Science in Community Resource Management",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts in Leadership and Philosophy Bachelor of Arts (Political Science)",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts in Child Care and Protection",
+    "cluster_code": "3D"
+  },
+  {
+    "name": "Bachelor of Arts (Fine Art, With IT)",
+    "cluster_code": "3E"
+  },
+  {
+    "name": "Bachelor of Science (Graphic, Communication and Advertising)",
+    "cluster_code": "3E"
+  },
+  {
+    "name": "Bachelor of Arts (Fine Arts)",
+    "cluster_code": "3E"
+  },
+  {
+    "name": "Bachelor of Science (Graphic, Comm. & Advertising)",
+    "cluster_code": "3E"
+  },
+  {
+    "name": "Bachelor of Science in Gaming and Animation Technology",
+    "cluster_code": "3E"
+  },
+  {
+    "name": "Bachelor of Science (Geomatic & Geospatial Information Systems)",
+    "cluster_code": "4A"
+  },
+  {
+    "name": "Bachelor of Applied Science (Geo-informatics)",
+    "cluster_code": "4A"
+  },
+  {
+    "name": "Bachelor of Science (Geospatial Information Science and Remote Sensing)",
+    "cluster_code": "4A"
+  },
+  {
+    "name": "Bachelor of Science (Geomatic Engineering and Geospatial Information Systems)",
+    "cluster_code": "4A"
+  },
+  {
+    "name": "Bachelor of Science (Geospatial Information Science, With IT)",
+    "cluster_code": "4A"
+  },
+  {
+    "name": "Bachelor of Technology (Geospatial Engineering Technology)",
+    "cluster_code": "4A"
+  },
+  {
+    "name": "Bachelor of Technology (Geoinformation Technology)",
+    "cluster_code": "4A"
+  },
+  {
+    "name": "Bachelor of Science (Geospatial Information Science)",
+    "cluster_code": "4A"
+  },
+  {
+    "name": "Bachelor of Science (Geospatial Engineering)",
+    "cluster_code": "4A"
+  },
+  {
+    "name": "Bachelor of Science in Geospatial Information Science",
+    "cluster_code": "4A"
+  },
+  {
+    "name": "Bachelor of Engineering (Geospatial Engineering)",
+    "cluster_code": "4A"
+  },
+  {
+    "name": "Bachelor of Science (Spatial Management)",
+    "cluster_code": "4A"
+  },
+  {
+    "name": "Bachelor of Science in Geomatic Engineering and Geospatial Information Systems",
+    "cluster_code": "4A"
+  },
+  {
+    "name": "Bachelor of Science (Geophysical and Mineralogy)",
+    "cluster_code": "4B"
+  },
+  {
+    "name": "Bachelor of Science (Earth Science, With IT)",
+    "cluster_code": "4B"
+  },
+  {
+    "name": "Bachelor of Science (Meteorology)",
+    "cluster_code": "4B"
+  },
+  {
+    "name": "Bachelor of Science (Geology)",
+    "cluster_code": "4B"
+  },
+  {
+    "name": "Bachelor of Science (Astronomy and Astrophysics)",
+    "cluster_code": "4B"
+  },
+  {
+    "name": "Bachelor of Science (Geophysics)",
+    "cluster_code": "4B"
+  },
+  {
+    "name": "Bachelor of Science in Mining Physics (Geophysics)",
+    "cluster_code": "4B"
+  },
+  {
+    "name": "Bachelor of Science in Geophysics",
+    "cluster_code": "4B"
+  },
+  {
+    "name": "Bachelor of Science (Hydrology and Water Resources Management)",
+    "cluster_code": "4B"
+  },
+  {
+    "name": "Bachelor of Engineering (Aeronautical Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Science (Civil and Structural Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Engineering (Chemical and Process Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Science in Civil Engineering",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Engineering (Civil & Structural Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Science (Civil Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Engineering (Civil and Structural Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Science (Electrical and Communication Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Engineering (Civil Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Science (Electronic and Computer Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Engineering",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Science in Electronic and Computer Engineering",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Engineering (Electrical and Electronic Bachelor of Science (Mechanical and Industrial Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Engineering (Electrical and Telecommunication Bachelor of Science (Mechanical & Manufacturing Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Engineering",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Science in Mechanical Engineering",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Engineering (Mechanical and Production Bachelor of Science (Mechanical Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Engineering (Mechanical Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Engineering (Industrial and Textile Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Engineering (Industrial and Textile Bachelor of Science (Electrical and Electronic Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Science (Mechatronic Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Science (Aerospace Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Science in Electrical and Electronics Engineering Bachelor of Engineering (Chemical Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Science (Electrical & Electronics Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Science (Marine Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Science in Water and Environmental Engineering Bachelor of Science in Marine Engineering",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Science (Agricultural Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Science (Petroleum Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Science (Telecommunication and Information Engineering)",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Science in Telecommunication and Information Engineering",
+    "cluster_code": "5A"
+  },
+  {
+    "name": "Bachelor of Science (Analytical Chemistry With Management)",
+    "cluster_code": "5B"
+  },
+  {
+    "name": "Bachelor of Science (Industrial Chemistry With Management)",
+    "cluster_code": "5B"
+  },
+  {
+    "name": "Bachelor of Science in Analytical Chemistry Bachelor of Science (Industrial Chemistry, With IT)",
+    "cluster_code": "5B"
+  },
+  {
+    "name": "Bachelor of Science (Analytical Chemistry)",
+    "cluster_code": "5B"
+  },
+  {
+    "name": "Bachelor of Science in Industrial Chemistry",
+    "cluster_code": "5B"
+  },
+  {
+    "name": "Bachelor of Science in Analytical Chemistry With Computing Bachelor of Science (Industrial Chemistry)",
+    "cluster_code": "5B"
+  },
+  {
+    "name": "Bachelor of Science Chemistry (Inorganic, Physical and Organic Options)",
+    "cluster_code": "5B"
+  },
+  {
+    "name": "Bachelor of Science (Petroleum Chemistry)",
+    "cluster_code": "5B"
+  },
+  {
+    "name": "Bachelor of Technology in Applied Chemistry (Analytical & Industrial Options)",
+    "cluster_code": "5B"
+  },
+  {
+    "name": "Bachelor of Technology (Industrial and Applied Chemistry)",
+    "cluster_code": "5B"
+  },
+  {
+    "name": "Bachelor of Science (Control and Instrumentation)",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science (Renewable Energy and Environmental Physics)",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science Instrumentation & Control Bachelor of Science in Renewable Energy and Environmental Physics",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science in Control and Instrumentation Bachelor of Science (Renewable Energy)",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science (Microprocessor Technology and Instrumentation)",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science (Renewable Energy Technology and Management)",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science (Instrumentation & Control Engineering)",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science (Renewable Energy and Bio-fuels Technology)",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science (Telecommunication & Information Technology)",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science (Renewable Energy and Biofuels Technology)",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science (Manufacturing Engineering & Technology)",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science (Energy Technology)",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science (Applied Optics and Lasers)",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science (Electronics)",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science Engineering Physics",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science in Engineering Physics",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science (Applied Bioengineering)",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science in Applied Bioengineering",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science (Biomedical Engineering)",
+    "cluster_code": "5C"
+  },
+  {
+    "name": "Bachelor of Science (Agricultural and Biosystems Engineering)",
+    "cluster_code": "5D"
+  },
+  {
+    "name": "Bachelor of Engineering (Agricultural & Bio-systems Engineering)",
+    "cluster_code": "5D"
+  },
+  {
+    "name": "Bachelor of Science (Agricultural & Bio-systems Engineering)",
+    "cluster_code": "5D"
+  },
+  {
+    "name": "Bachelor of Science in Agricultural and Biosystems Engineering",
+    "cluster_code": "5D"
+  },
+  {
+    "name": "Bachelor of Technology (Civil Engineering Technology)",
+    "cluster_code": "5E"
+  },
+  {
+    "name": "Bachelor of Technology in Electrical and Electronic Engineering",
+    "cluster_code": "5E"
+  },
+  {
+    "name": "Bachelor of Technology in Medical Engineering",
+    "cluster_code": "5E"
+  },
+  {
+    "name": "Bachelor of Industrial Technology",
+    "cluster_code": "5E"
+  },
+  {
+    "name": "Bachelor of Science (Renewable Energy and Technology)",
+    "cluster_code": "5E"
+  },
+  {
+    "name": "Bachelor of Science in Renewable Energy and Technology",
+    "cluster_code": "5E"
+  },
+  {
+    "name": "Bachelor of Technology in Renewable Energy & Environmental Physics",
+    "cluster_code": "5E"
+  },
+  {
+    "name": "Bachelor of Technology (Chemical Engineering)",
+    "cluster_code": "5E"
+  },
+  {
+    "name": "Bachelor of Education in Technology (Civil Engineering)",
+    "cluster_code": "5F"
+  },
+  {
+    "name": "Bachelor of Education in Technology",
+    "cluster_code": "5F"
+  },
+  {
+    "name": "Bachelor of Education in Technology",
+    "cluster_code": "5F"
+  },
+  {
+    "name": "Bachelor of Education Technical and Vocational Education",
+    "cluster_code": "5F"
+  },
+  {
+    "name": "Bachelor of Education (Technology)",
+    "cluster_code": "5F"
+  },
+  {
+    "name": "Bachelor of Education (Technology Education)",
+    "cluster_code": "5F"
+  },
+  {
+    "name": "Bachelor of Architectural Studies/Bachelor of Architecture Bachelor of Quantity Surveying",
+    "cluster_code": "6A"
+  },
+  {
+    "name": "Bachelor of Architecture Bachelor of Science (Quantity Surveying)",
+    "cluster_code": "6A"
+  },
+  {
+    "name": "Bachelor of Architectural Technology",
+    "cluster_code": "6A"
+  },
+  {
+    "name": "Bachelor of Landscape Architecture",
+    "cluster_code": "6A"
+  },
+  {
+    "name": "Bachelor of Arts (Planning)",
+    "cluster_code": "6B"
+  },
+  {
+    "name": "Bachelor of Construction Management",
+    "cluster_code": "6B"
+  },
+  {
+    "name": "Bachelor of Arts (Spatial Planning)",
+    "cluster_code": "6B"
+  },
+  {
+    "name": "Bachelor of Science (Construction Management)",
+    "cluster_code": "6B"
+  },
+  {
+    "name": "Bachelor of Arts (Design)",
+    "cluster_code": "6B"
+  },
+  {
+    "name": "Bachelor of The Built Environment (Construction Management)",
+    "cluster_code": "6B"
+  },
+  {
+    "name": "Bachelor of Technology (Design)",
+    "cluster_code": "6B"
+  },
+  {
+    "name": "Bachelor of The Built Environment (Urban and Regional Planning)",
+    "cluster_code": "6B"
+  },
+  {
+    "name": "Bachelor of Technology (Building Construction)",
+    "cluster_code": "6B"
+  },
+  {
+    "name": "Bachelor of Arts (Urban and Regional Planning, With IT)",
+    "cluster_code": "6B"
+  },
+  {
+    "name": "Bachelor of Science (Urban Design and Development)",
+    "cluster_code": "6B"
+  },
+  {
+    "name": "Bachelor of Real Estate",
+    "cluster_code": "6C"
+  },
+  {
+    "name": "Bachelor of Science (Real Estate)",
+    "cluster_code": "6C"
+  },
+  {
+    "name": "Bachelor of Technology (Real Estate and Property Management)",
+    "cluster_code": "6C"
+  },
+  {
+    "name": "Bachelor of Science (Land Administration)",
+    "cluster_code": "6C"
+  },
+  {
+    "name": "Bachelor of Science (Computer Science)",
+    "cluster_code": "7A"
+  },
+  {
+    "name": "Bachelor of Science (Mathematics & Computer Science)",
+    "cluster_code": "7A"
+  },
+  {
+    "name": "Bachelor of Science in Computer Science Bachelor of Science (Mathematics and Computer Science)",
+    "cluster_code": "7A"
+  },
+  {
+    "name": "Bachelor of Science (Applied Computer Science)",
+    "cluster_code": "7A"
+  },
+  {
+    "name": "Bachelor of Science in Mathematics & Computer Science",
+    "cluster_code": "7A"
+  },
+  {
+    "name": "Bachelor of Science in Applied Computer Science Bachelor of Science (Maths and Computer Science)",
+    "cluster_code": "7A"
+  },
+  {
+    "name": "Bachelor of Science in Applied Physics and Computer Science Bachelor of Science in Mathematics and Computer Science",
+    "cluster_code": "7A"
+  },
+  {
+    "name": "Bachelor of Science in Software Engineering Bachelor of Science in Statistics & Computer Science",
+    "cluster_code": "7A"
+  },
+  {
+    "name": "Bachelor of Science (Computer Technology)",
+    "cluster_code": "7A"
+  },
+  {
+    "name": "Bachelor of Technology (Communication and Computer Networks)",
+    "cluster_code": "7A"
+  },
+  {
+    "name": "Bachelor of Science in Computer Technology Bachelor of Applied Computer Science",
+    "cluster_code": "7A"
+  },
+  {
+    "name": "Bachelor of Technology (Computer Technology)",
+    "cluster_code": "7A"
+  },
+  {
+    "name": "Bachelor of Science (Computer Security and Forensics)",
+    "cluster_code": "7A"
+  },
+  {
+    "name": "Bachelor of Science in Computer Information Systems Bachelor of Science in Computer Security and Forensics",
+    "cluster_code": "7A"
+  },
+  {
+    "name": "Bachelor of Science (Applied Statistics With Computing)",
+    "cluster_code": "7B"
+  },
+  {
+    "name": "Bachelor of Science in Applied Statistics With Computing",
+    "cluster_code": "7B"
+  },
+  {
+    "name": "Bachelor of Science (Mathematics and Computing)",
+    "cluster_code": "7B"
+  },
+  {
+    "name": "Bachelor of Science (Statistics & Programming)",
+    "cluster_code": "7B"
+  },
+  {
+    "name": "Bachelor of Science (Applied Statistics With Programming)",
+    "cluster_code": "7B"
+  },
+  {
+    "name": "Bachelor of Science in Statistics and Programming",
+    "cluster_code": "7B"
+  },
+  {
+    "name": "Bachelor of Science (Informatics and Mathematics)",
+    "cluster_code": "7B"
+  },
+  {
+    "name": "Bachelor of Science (Business Computing)",
+    "cluster_code": "7B"
+  },
+  {
+    "name": "Bachelor of Science in Business Computing",
+    "cluster_code": "7B"
+  },
+  {
+    "name": "Bachelor of Science in Informatics",
+    "cluster_code": "7B"
+  },
+  {
+    "name": "Bachelor of Science (Informatics)",
+    "cluster_code": "7B"
+  },
+  {
+    "name": "Bachelor of Science (Biometry and Informatics)",
+    "cluster_code": "7B"
+  },
+  {
+    "name": "Bachelor of Science Statistics and Information Technology",
+    "cluster_code": "7B"
+  },
+  {
+    "name": "Bachelor of Information Technology",
+    "cluster_code": "7C"
+  },
+  {
+    "name": "Bachelor of Science (Information Technology)",
+    "cluster_code": "7C"
+  },
+  {
+    "name": "Bachelor of Science in Information Technology",
+    "cluster_code": "7C"
+  },
+  {
+    "name": "Bachelor of Technology (Information Technology)",
+    "cluster_code": "7C"
+  },
+  {
+    "name": "Bachelor of Technology in Information Technology",
+    "cluster_code": "7C"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "7C"
+  },
+  {
+    "name": "Bachelor of Technology in Information & Communication",
+    "cluster_code": "7C"
+  },
+  {
+    "name": "Bachelor of Science (Agribusiness)",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Science (Agricultural Economics & Resource Management)",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Agribusiness Management Bachelor of Science (Agricultural Economics, With IT)",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Science (Agribusiness Management)",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Science (Agribusiness Economics and Food Industry Management)",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Science Agribusiness Management Bachelor of Science (Agricultural Economics and Rural Development)",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Science (Agricultural Resource Management)",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Science in Agricultural Economics and Rural Development",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Science in Agribusiness Management and Bachelor of Science (Agricultural Economics and Resource Management)",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Science in Agribusiness Management Bachelor of Science (Agricultural Economics)",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Science in Agricultural Resource Economics and Bachelor of Science (Agricultural Economics and Resource Management)",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Science Agribusiness Management and Bachelor of Science (Agriculture Economics & Resource Management)",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Science (Agribusiness Management)",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Science in Agricultural Economics",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Science (Agri Business Management)",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Science in Agricultural Resource Management",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Science (Agribusiness Management & Trade)",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Science in Agribusiness Management and Trade",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Science (Agribusiness Management, With IT)",
+    "cluster_code": "8A"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "9A"
+  },
+  {
+    "name": "Bachelor of Science (Basic Science, With IT)",
+    "cluster_code": "9A"
+  },
+  {
+    "name": "Bachelor of Science (B.sc)",
+    "cluster_code": "9A"
+  },
+  {
+    "name": "Bachelor of Science in Biology Bachelor of Science (Cellular and Molecular Biology)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science (Biological Sciences)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science (Molecular & Cellular Biology)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science (Applied Biology)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science in Entomology and Parasitology",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science in Applied Biology Bachelor of Science in Biotechnology",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Technology (Applied Biology)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science (Biotechnology)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science (Microbiology and Biotechnology)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science (Conservation Biology)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science in Microbiology and Biotechnology Bachelor of Science (Genomic Sciences)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science in Microbiology Bachelor of Science (Forensic Biology)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science (Microbiology)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science in Genomic Science",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science in Biology (Botany or Zoology Option)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science (Zoology)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science Industrial Biotechnology Bachelor of Science in Zoology",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Technology (Biotechnology)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science in Molecular Biology and Forensic Technology",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Technology in Industrial Microbiology & Biotechnology Bachelor of Science (Botany)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science in Biotechnology and Biosafety Bachelor of Science (Biochemistry and Molecular Biology)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science (Forensic Science)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science in Biochemistry and Molecular Biology",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science in Biosciences Bachelor of Science (Biochemistry)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science in Medical Microbiology Bachelor of Science in Biochemistry",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science (Medical Biochemistry)",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science in Medical Biochemistry",
+    "cluster_code": "9B"
+  },
+  {
+    "name": "Bachelor of Science (Physics)",
+    "cluster_code": "9C"
+  },
+  {
+    "name": "Bachelor of Science in Physics",
+    "cluster_code": "9C"
+  },
+  {
+    "name": "Bachelor of Science (Physics, With IT)",
+    "cluster_code": "9C"
+  },
+  {
+    "name": "Bachelor of Technology (Technical and Applied Physics)",
+    "cluster_code": "9C"
+  },
+  {
+    "name": "Bachelor of Technology in Applied Physics",
+    "cluster_code": "9C"
+  },
+  {
+    "name": "Bachelor of Science (Chemistry)",
+    "cluster_code": "9D"
+  },
+  {
+    "name": "Bachelor of Science in Chemistry",
+    "cluster_code": "9D"
+  },
+  {
+    "name": "Bachelor of Science (Environmental Chemistry)",
+    "cluster_code": "9D"
+  },
+  {
+    "name": "Bachelor of Science (Accountancy)",
+    "cluster_code": "10A"
+  },
+  {
+    "name": "Bachelor of Economics Bachelor of Arts (Economics & Sociology)",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Science in Economics Bachelor of Arts (Economics and Sociology)",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Science in Economics & Statistics Bachelor of Arts in Economics and Sociology",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Economics & Statistics Bachelor of Arts (Economics)",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Economics and Statistics Bachelor of Arts in Economics",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Science (Economics and Statistics)",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Arts (Economics, With IT)",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Science (Economics & Statistics)",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Arts (History & Economics)",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Science (Mathematics and Economics)",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Arts (History and Economics)",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Science in Mathematics and Economics Bachelor of Science (Financial Engineering)",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Science (Mathematics & Business Studies, With IT)",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Science in Mathematics and Finance and Statistics)",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Economics & Finance Bachelor of Science",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Economics (Economics & Finance, With IT)",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Science in Financial Economics",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Economics and Finance Bachelor of Science in Mathematics and Finance",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Science in Finance Bachelor of Science (Operations Research)",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Science (Finance)",
+    "cluster_code": "10B"
+  },
+  {
+    "name": "Bachelor of Actuarial Science Bachelor of Science (Mathematics and Economics)",
+    "cluster_code": "10C"
+  },
+  {
+    "name": "Bachelor of Science in Actuarial Science Bachelor of Science (Mathematics & Business Studies, With IT)",
+    "cluster_code": "10C"
+  },
+  {
+    "name": "Bachelor of Science (Actuarial Science)",
+    "cluster_code": "10C"
+  },
+  {
+    "name": "Bachelor of Science in Mathematics",
+    "cluster_code": "10C"
+  },
+  {
+    "name": "Bachelor of Science (Actuarial Science With IT)",
+    "cluster_code": "10C"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "10C"
+  },
+  {
+    "name": "Bachelor of Science (Financial Engineering)",
+    "cluster_code": "10C"
+  },
+  {
+    "name": "Bachelor of Science in Mathematics and Finance and Statistics)",
+    "cluster_code": "10C"
+  },
+  {
+    "name": "Bachelor of Science (Applied Statistics, With IT)",
+    "cluster_code": "10C"
+  },
+  {
+    "name": "Bachelor of Science (Industrial Mathematics)",
+    "cluster_code": "10C"
+  },
+  {
+    "name": "Bachelor of Science (Applied Statistics)",
+    "cluster_code": "10C"
+  },
+  {
+    "name": "Bachelor of Science (Mathematical Sciences, With IT)",
+    "cluster_code": "10C"
+  },
+  {
+    "name": "Bachelor of Science in Applied Statistics Bachelor of Science (Mathematics)",
+    "cluster_code": "10C"
+  },
+  {
+    "name": "Bachelor of Technology (Applied Statistics)",
+    "cluster_code": "10C"
+  },
+  {
+    "name": "Bachelor of Science in Mathematics",
+    "cluster_code": "10C"
+  },
+  {
+    "name": "Bachelor of Science (Statistics)",
+    "cluster_code": "10C"
+  },
+  {
+    "name": "Bachelor of Arts (History and Economics)",
+    "cluster_code": "10C"
+  },
+  {
+    "name": "Bachelor of Arts (Interior Design, With IT)",
+    "cluster_code": "11A"
+  },
+  {
+    "name": "Bachelor of Arts (Textiles, Apparel Design and Fashion Merchandising, With IT)",
+    "cluster_code": "11A"
+  },
+  {
+    "name": "Bachelor of Science (Apparel & Fashion Technology)",
+    "cluster_code": "11A"
+  },
+  {
+    "name": "Bachelor of Science (Clothing Textile & Interior Design)",
+    "cluster_code": "11A"
+  },
+  {
+    "name": "Bachelor of Science (Fashion Design & Marketing)",
+    "cluster_code": "11A"
+  },
+  {
+    "name": "Bachelor of Science (Fashion Design and Textile Technology)",
+    "cluster_code": "11A"
+  },
+  {
+    "name": "Bachelor of Science in Fashion Design and Marketing",
+    "cluster_code": "11A"
+  },
+  {
+    "name": "Bachelor of Science (Health Promotion and Sports Science)",
+    "cluster_code": "12A"
+  },
+  {
+    "name": "Bachelor of Science (Exercise & Sport Science)",
+    "cluster_code": "12A"
+  },
+  {
+    "name": "Bachelor of Science (Recreation and Sports Management)",
+    "cluster_code": "12A"
+  },
+  {
+    "name": "Bachelor of Sports Science & Management",
+    "cluster_code": "12A"
+  },
+  {
+    "name": "Bachelor of Sports Management",
+    "cluster_code": "12A"
+  },
+  {
+    "name": "Bachelor of Dental Surgery Bachelor of Medicine & Bachelor of Surgery",
+    "cluster_code": "13A"
+  },
+  {
+    "name": "Bachelor of Medicine & Bachelor of Surgery (M.B.Ch.B)",
+    "cluster_code": "13A"
+  },
+  {
+    "name": "Bachelor of Medicine and Bachelor of Surgery",
+    "cluster_code": "13A"
+  },
+  {
+    "name": "Bachelor of Medicine and Bachelor of Surgery (M.B.Ch.B)",
+    "cluster_code": "13A"
+  },
+  {
+    "name": "Bachelor of Medicine and Bachelor of Surgery (With IT)",
+    "cluster_code": "13A"
+  },
+  {
+    "name": "Bachelor of Pharmacy Bachelor of Science (Nursing, With IT)",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Science (Pharmaceutical Sciences, With IT)",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Science (Nursing)",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Science (Environmental Health)",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Science in Nursing",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Science in Environmental Health Bachelor of Science (Nursing Science)",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Science in Environmental Health Sciences Bachelor of Science (Medical Laboratory Science & Technology)",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Science (Optometry and Vision Sciences)",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Science (Medical Laboratory Sciences)",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Science (Physical Therapy)",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Science (Medical Laboratory)",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Physiotherapy Bachelor of Science in Medical Laboratory Sciences",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Science in Physiotherapy Bachelor of Technology (Medical Laboratory Science)",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Science (Public Health, With IT)",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Science in Clinical Medicine and Community Health",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Science in Public Health Bachelor of Science Clinical Medicine",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Science (Public Health)",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Science in Clinical Medicine, Surgery and Community Health",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Science in Public Health Bachelor of Science in Midwifery with Reproductive Health",
+    "cluster_code": "13B"
+  },
+  {
+    "name": "Bachelor of Technology (Community and Public Health)",
+    "cluster_code": "13C"
+  },
+  {
+    "name": "Bachelor of Science (Occupational Health & Safety)",
+    "cluster_code": "13C"
+  },
+  {
+    "name": "Bachelor of Science in Occupational Therapy",
+    "cluster_code": "13C"
+  },
+  {
+    "name": "Bachelor of Population Health",
+    "cluster_code": "13C"
+  },
+  {
+    "name": "Bachelor of Science (Community Health and Development)",
+    "cluster_code": "13C"
+  },
+  {
+    "name": "Bachelor of Science in Community Health and Development",
+    "cluster_code": "13C"
+  },
+  {
+    "name": "Bachelor of Science in Community Health Education",
+    "cluster_code": "13C"
+  },
+  {
+    "name": "Bachelor of Science (Population Health)",
+    "cluster_code": "13C"
+  },
+  {
+    "name": "Bachelor of Science (Community Health & Development)",
+    "cluster_code": "13C"
+  },
+  {
+    "name": "Bachelor of Science in Community Health",
+    "cluster_code": "13C"
+  },
+  {
+    "name": "Bachelor of Science in Global Health and Emporiatrics",
+    "cluster_code": "13C"
+  },
+  {
+    "name": "Bachelor of Science in Health Systems Management",
+    "cluster_code": "13C"
+  },
+  {
+    "name": "Bachelor of Health Services Management",
+    "cluster_code": "13C"
+  },
+  {
+    "name": "Bachelor of Veterinary Medicine",
+    "cluster_code": "13D"
+  },
+  {
+    "name": "Bachelor of Science (Biostatistics)",
+    "cluster_code": "13E"
+  },
+  {
+    "name": "Bachelor of Science in Biostatistics",
+    "cluster_code": "13E"
+  },
+  {
+    "name": "Bachelor of Science in Epidemiology and Biostatistics",
+    "cluster_code": "13E"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "13F"
+  },
+  {
+    "name": "Bachelor of Science in Biomedical Science and Technology",
+    "cluster_code": "13F"
+  },
+  {
+    "name": "Bachelor of Science (Biomedical Science & Technology)",
+    "cluster_code": "13F"
+  },
+  {
+    "name": "Bachelor of Science (Laboratory Sciences)",
+    "cluster_code": "13F"
+  },
+  {
+    "name": "Bachelor of Technology (Science Laboratory Technology)",
+    "cluster_code": "13F"
+  },
+  {
+    "name": "Bachelor of Science (Medical Psychology)",
+    "cluster_code": "13F"
+  },
+  {
+    "name": "Bachelor of Science (Health Records and Informatics)",
+    "cluster_code": "13G"
+  },
+  {
+    "name": "Bachelor of Science in Health Records and Information",
+    "cluster_code": "13G"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "13G"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "13G"
+  },
+  {
+    "name": "Bachelor of Science in Health Records Management &",
+    "cluster_code": "13G"
+  },
+  {
+    "name": "Bachelor of Arts History and Archaeology)",
+    "cluster_code": "14A"
+  },
+  {
+    "name": "Bachelor of Arts (History)",
+    "cluster_code": "14A"
+  },
+  {
+    "name": "Bachelor of Arts (History and Archaeology, With IT)",
+    "cluster_code": "14A"
+  },
+  {
+    "name": "Bachelor of Arts in History & International Studies",
+    "cluster_code": "14A"
+  },
+  {
+    "name": "Bachelor of Science (Animal Health & Production)",
+    "cluster_code": "15A"
+  },
+  {
+    "name": "Bachelor of Science (Animal Health and Production)",
+    "cluster_code": "15A"
+  },
+  {
+    "name": "Bachelor of Science (Animal Health, Production & Processing Bachelor of Science (Animal Production & Health Management)",
+    "cluster_code": "15A"
+  },
+  {
+    "name": "Bachelor of Science in Animal Health Management Bachelor of Science in Animal Production",
+    "cluster_code": "15A"
+  },
+  {
+    "name": "Bachelor of Science in Applied Animal Laboratory Science",
+    "cluster_code": "15A"
+  },
+  {
+    "name": "Bachelor of Science (Animal Science & Management)",
+    "cluster_code": "15B"
+  },
+  {
+    "name": "Bachelor of Science (Animal Science, With IT)",
+    "cluster_code": "15B"
+  },
+  {
+    "name": "Bachelor of Science in Animal Science",
+    "cluster_code": "15B"
+  },
+  {
+    "name": "Bachelor of Science in Animal Science & Technology",
+    "cluster_code": "15B"
+  },
+  {
+    "name": "Bachelor of Science in Animal Products Technology",
+    "cluster_code": "15B"
+  },
+  {
+    "name": "Bachelor of Science (Food Nutrition and Dietetics)",
+    "cluster_code": "15C"
+  },
+  {
+    "name": "Bachelor of Science (Human Nutrition and Dietetics)",
+    "cluster_code": "15C"
+  },
+  {
+    "name": "Bachelor of Science (Food Science and Nutrition)",
+    "cluster_code": "15C"
+  },
+  {
+    "name": "Bachelor of Science in Food Science and Nutrition",
+    "cluster_code": "15C"
+  },
+  {
+    "name": "Bachelor of Science (Nutrition and Dietetics, With IT)",
+    "cluster_code": "15C"
+  },
+  {
+    "name": "Bachelor of Science in Human Nutrition and Dietetics",
+    "cluster_code": "15C"
+  },
+  {
+    "name": "Bachelor of Science (Food Nutrition & Dietetics)",
+    "cluster_code": "15C"
+  },
+  {
+    "name": "Bachelor of Technology (Nutrition and Dietetics)",
+    "cluster_code": "15C"
+  },
+  {
+    "name": "Bachelor of Science (Food Science & Nutrition)",
+    "cluster_code": "15C"
+  },
+  {
+    "name": "Bachelor of Science (Food, Nutrition & Dietetics)",
+    "cluster_code": "15C"
+  },
+  {
+    "name": "Bachelor of Science in Food Nutrition and Dietetics",
+    "cluster_code": "15C"
+  },
+  {
+    "name": "Bachelor of Science (Fisheries and Aquaculture Management)",
+    "cluster_code": "15D"
+  },
+  {
+    "name": "Bachelor of Science (Fisheries and Aquaculture, With IT)",
+    "cluster_code": "15D"
+  },
+  {
+    "name": "Bachelor of Science Fisheries Management and Aquaculture Technology Bachelor of Science in Fisheries and Aquaculture",
+    "cluster_code": "15D"
+  },
+  {
+    "name": "Bachelor of Science (Coastal & Marine Resource Management Bachelor of Science (Marine Biology & Fisheries)",
+    "cluster_code": "15D"
+  },
+  {
+    "name": "Bachelor of Science (Fisheries & Aquatic Sciences)",
+    "cluster_code": "15D"
+  },
+  {
+    "name": "Bachelor of Science in Aquaculture and Fisheries Technology",
+    "cluster_code": "15D"
+  },
+  {
+    "name": "Bachelor of Science in Fisheries and Oceanography Bachelor of Science in Marine Resource Management",
+    "cluster_code": "15D"
+  },
+  {
+    "name": "Bachelor of Science in Maritime Management (Commercial)",
+    "cluster_code": "15D"
+  },
+  {
+    "name": "Bachelor of Science (Applied Aquatic Science)",
+    "cluster_code": "15D"
+  },
+  {
+    "name": "Bachelor of Science (Food Processing Technology)",
+    "cluster_code": "15E"
+  },
+  {
+    "name": "Bachelor of Science in Food Science & Technology",
+    "cluster_code": "15E"
+  },
+  {
+    "name": "Bachelor of Science (Food Science & Technology)",
+    "cluster_code": "15E"
+  },
+  {
+    "name": "Bachelor of Science (Food Science and Management)",
+    "cluster_code": "15E"
+  },
+  {
+    "name": "Bachelor of Science (Food Science and Technology)",
+    "cluster_code": "15E"
+  },
+  {
+    "name": "Bachelor of Science (Food Security)",
+    "cluster_code": "15E"
+  },
+  {
+    "name": "Bachelor of Science in Food Technology & Quality Assurance",
+    "cluster_code": "15E"
+  },
+  {
+    "name": "Bachelor of Environmental Science Bachelor of Technology",
+    "cluster_code": "15F"
+  },
+  {
+    "name": "Bachelor of Environmental Studies Bachelor of Science (Environmental Management)",
+    "cluster_code": "15F"
+  },
+  {
+    "name": "Bachelor of Science in Environmental Studies Bachelor of Science (Environmental Science, With IT)",
+    "cluster_code": "15F"
+  },
+  {
+    "name": "Bachelor of Environmental Studies (Arts)",
+    "cluster_code": "15F"
+  },
+  {
+    "name": "Bachelor of Science (Environmental Science)",
+    "cluster_code": "15F"
+  },
+  {
+    "name": "Bachelor of Environmental Studies (Science)",
+    "cluster_code": "15F"
+  },
+  {
+    "name": "Bachelor of Science in Environmental Science and Technology",
+    "cluster_code": "15F"
+  },
+  {
+    "name": "Bachelor of Science in Environmental Science Bachelor of Science (Environmental Sciences)",
+    "cluster_code": "15F"
+  },
+  {
+    "name": "Bachelor of Environmental (Environmental Resource Conservation)",
+    "cluster_code": "15F"
+  },
+  {
+    "name": "Bachelor of Environmental Studies (Community Development)",
+    "cluster_code": "15F"
+  },
+  {
+    "name": "Bachelor of Science (Bio-resources Management and Conservation)",
+    "cluster_code": "15F"
+  },
+  {
+    "name": "Bachelor of Environmental Planning & Development Management",
+    "cluster_code": "15F"
+  },
+  {
+    "name": "Bachelor of Environmental Education Bachelor of Environmental Studies and Community Development",
+    "cluster_code": "15F"
+  },
+  {
+    "name": "Bachelor of Science in Environment, Lands and Sustainable Development",
+    "cluster_code": "15F"
+  },
+  {
+    "name": "Bachelor of Science in Natural Resources Bachelor of Science (Sustainable Energy & Climate Change Systems)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Natural Resource Management)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Agriculture & Biotechnology)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science in Natural Resources Management Bachelor of Science (Agriculture and Biotechnology)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Nutraceutical Science and Technology)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Agroforestry & Rural Development)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science in Nutraceutical Science and Technology Bachelor of Science (Aquatic Resources Conservation and Development, With IT)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Utilization & Sustainability of Arid Lands (Usal)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Wildlife Enterprises & Management)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science in Wildlife Enterprise & Management Bachelor of Science (Dryland, Agriculture & Enterprise Development)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science in Natural Resource Management Bachelor of Science (Dryland Animal Science)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science in Soil Environment & Land Use Management) Bachelor of Science",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Environmental Horticulture & Landscaping Technology)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Waste Management)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Forestry)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Horticulture)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science in Ethno botany",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science in Horticulture Bachelor of Science",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science in Horticultural Science & Management Bachelor of Science",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science Horticulture Bachelor of Science",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Horticultural Science & Management)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Leather Technology)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Horticulture, With IT)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Soil Science)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Range Management)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Bio-resources Management and Conservation)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Integrated Forest Resources Management)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Natural Products)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Natural Resources Management)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Leather Technology)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Soil Science, With IT)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Soil Science)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Wildlife Management)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Wildlife Management)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Water and Environment Management)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Agricultural Biotechnology)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Wood Science and Industrial Processes)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science in Agriculture Bachelor of Science (Wood Science and Industrial Processes)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Agriculture)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science in Water and Environment Management",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Dryland Agriculture)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Land Resource Management)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Environmental Conservation and Natural Resources Management)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Land Resource Planning & Management)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science (Agronomy, With IT)",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Science in Land Resource Planning & Management",
+    "cluster_code": "15G"
+  },
+  {
+    "name": "Bachelor of Arts (Geography)",
+    "cluster_code": "16A"
+  },
+  {
+    "name": "Bachelor of Science (Geography)",
+    "cluster_code": "16A"
+  },
+  {
+    "name": "Bachelor of Arts (Geography and Economics)",
+    "cluster_code": "16A"
+  },
+  {
+    "name": "Bachelor of Arts (Kiswahili and Geography)",
+    "cluster_code": "16A"
+  },
+  {
+    "name": "Bachelor of Science (Geography and Natural Resource Management, With IT)",
+    "cluster_code": "16A"
+  },
+  {
+    "name": "Bachelor of Arts (French)",
+    "cluster_code": "17A"
+  },
+  {
+    "name": "Bachelor of Arts (French, With IT)",
+    "cluster_code": "17A"
+  },
+  {
+    "name": "Bachelor of Arts (German)",
+    "cluster_code": "17A"
+  },
+  {
+    "name": "Bachelor of Arts (Music)",
+    "cluster_code": "18A"
+  },
+  {
+    "name": "Bachelor of Arts (Music, With IT)",
+    "cluster_code": "18A"
+  },
+  {
+    "name": "Bachelor of Music",
+    "cluster_code": "18A"
+  },
+  {
+    "name": "Bachelor of Music (Technology)",
+    "cluster_code": "18A"
+  },
+  {
+    "name": "Bachelor of Education (Science)",
+    "cluster_code": "19A"
+  },
+  {
+    "name": "Bachelor of Science with Education",
+    "cluster_code": "19A"
+  },
+  {
+    "name": "Bachelor of Education (Science,With IT)",
+    "cluster_code": "19A"
+  },
+  {
+    "name": "Bachelor of Education (Science with IT)",
+    "cluster_code": "19A"
+  },
+  {
+    "name": "Bachelor of Education (Arts)",
+    "cluster_code": "19B"
+  },
+  {
+    "name": "Bachelor of Education",
+    "cluster_code": "19B"
+  },
+  {
+    "name": "Bachelor of Education (Arts)",
+    "cluster_code": "19B"
+  },
+  {
+    "name": "Bachelor of Education",
+    "cluster_code": "19B"
+  },
+  {
+    "name": "Bachelor of Education",
+    "cluster_code": "19B"
+  },
+  {
+    "name": "Bachelor of Education (Arts)",
+    "cluster_code": "19B"
+  },
+  {
+    "name": "Bachelor of Education",
+    "cluster_code": "19B"
+  },
+  {
+    "name": "Bachelor of Education (Arts, With IT)",
+    "cluster_code": "19B"
+  },
+  {
+    "name": "Bachelor of Education (Early Childhood)",
+    "cluster_code": "19B"
+  },
+  {
+    "name": "Bachelor of Education (Guidance and Counselling)",
+    "cluster_code": "19B"
+  },
+  {
+    "name": "Bachelor of Education in Early Childhood",
+    "cluster_code": "19B"
+  },
+  {
+    "name": "Bachelor of Education (Home Science and Technology)",
+    "cluster_code": "19B"
+  },
+  {
+    "name": "Bachelor of Education",
+    "cluster_code": "19B"
+  },
+  {
+    "name": "Bachelor of Education (Library Science)",
+    "cluster_code": "19B"
+  },
+  {
+    "name": "Bachelor of Education Arts (Home Economics)",
+    "cluster_code": "19B"
+  },
+  {
+    "name": "Bachelor of Education",
+    "cluster_code": "19B"
+  },
+  {
+    "name": "Bachelor of Education Arts Bachelor of Education",
+    "cluster_code": "19B"
+  },
+  {
+    "name": "Bachelor of Arts (With Education)",
+    "cluster_code": "19B"
+  },
+  {
+    "name": "Bachelor of Education Arts(Business Studies)",
+    "cluster_code": "19C"
+  },
+  {
+    "name": "Bachelor of Education (Physical Education and Sports)",
+    "cluster_code": "19D"
+  },
+  {
+    "name": "Bachelor of Education (Physical Education)",
+    "cluster_code": "19D"
+  },
+  {
+    "name": "Bachelor of Education (Special Needs Education - Secondary Option)",
+    "cluster_code": "19E"
+  },
+  {
+    "name": "Bachelor of Education (Special Needs Education)",
+    "cluster_code": "19E"
+  },
+  {
+    "name": "Bachelor of Education (Visual and Performing Arts)",
+    "cluster_code": "19E"
+  },
+  {
+    "name": "Bachelor of Education (French)",
+    "cluster_code": "19F"
+  },
+  {
+    "name": "Bachelor of Education (French, With IT)",
+    "cluster_code": "19F"
+  },
+  {
+    "name": "Bachelor of Education (Music)",
+    "cluster_code": "19G"
+  },
+  {
+    "name": "Bachelor of Education (Music, With IT)",
+    "cluster_code": "19G"
+  },
+  {
+    "name": "Bachelor of Education (German)",
+    "cluster_code": "19H"
+  },
+  {
+    "name": "Bachelor of Education (Arts)",
+    "cluster_code": "19H"
+  },
+  {
+    "name": "Bachelor of Agricultural Education & Extension Bachelor of Science (Agricultural Education & Extension)",
+    "cluster_code": "19"
+  },
+  {
+    "name": "Bachelor of Agricultural Education and Extension Bachelor of Science (Agricultural Extension and Education)",
+    "cluster_code": "19"
+  },
+  {
+    "name": "Bachelor of Science in Agricultural Extension Bachelor of Science (Agriculture Education & Extension)",
+    "cluster_code": "19"
+  },
+  {
+    "name": "Bachelor of Science (Agriculture Education and Extension)",
+    "cluster_code": "19"
+  },
+  {
+    "name": "Bachelor of Science (Agriculture Education and Extension, With IT)",
+    "cluster_code": "19"
+  },
+  {
+    "name": "Bachelor of Science Agricultural Extension and Education Bachelor of Education (Agricultural Education)",
+    "cluster_code": "19"
+  },
+  {
+    "name": "Bachelor of Science (Agricultural Extension Education)",
+    "cluster_code": "19"
+  },
+  {
+    "name": "Bachelor of Science in Agricultural Education & Extension",
+    "cluster_code": "19"
+  },
+  {
+    "name": "Bachelor of Science (Agricultural Education and Extension)",
+    "cluster_code": "19"
+  },
+  {
+    "name": "Bachelor of Education (Computer Studies)",
+    "cluster_code": "19J"
+  },
+  {
+    "name": "Bachelor of Education (ICT)",
+    "cluster_code": "19J"
+  },
+  {
+    "name": "Bachelor of Education (Agriculture)",
+    "cluster_code": "19K"
+  },
+  {
+    "name": "Bachelor of Arts (Religion, With IT)",
+    "cluster_code": "20A"
+  },
+  {
+    "name": "Bachelor of Arts in Sociology and Religious Studies",
+    "cluster_code": "20A"
+  },
+  {
+    "name": "Bachelor of Arts (Religious Studies)",
+    "cluster_code": "20A"
+  },
+  {
+    "name": "Bachelor of Arts (Theology, With IT)",
+    "cluster_code": "20A"
+  },
+  {
+    "name": "Bachelor of Arts (Sociology & Religion)",
+    "cluster_code": "20A"
+  },
+  {
+    "name": "Bachelor of Theology",
+    "cluster_code": "20A"
+  },
+  {
+    "name": "Bachelor of Arts in Intercultural Studies Bachelor of Arts in Biblical Studies",
+    "cluster_code": "20A"
+  },
+  {
+    "name": "Bachelor of Arts in Islamic Studies Bachelor of Arts in Church Education Ministries",
+    "cluster_code": "20A"
+  },
+  {
+    "name": "Bachelor of Arts in Islamic Sharia Bachelor of Arts in Christian Ministries",
+    "cluster_code": "20A"
+  }
+]

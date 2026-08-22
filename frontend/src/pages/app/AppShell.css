@@ -1,0 +1,94 @@
+.app-shell-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--color-bg-light);
+}
+
+.app-layout {
+  display: flex;
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-main-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  position: relative;
+  transition: padding-left 0.3s ease;
+  background-color: var(--color-bg-light);
+}
+
+.app-content-wrapper {
+  width: 100%;
+  margin: 0;
+  padding: 2rem 3rem 5rem;
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sidebar behavior on desktop */
+@media (min-width: 1024px) {
+  .app-main-panel {
+    padding-left: 280px;
+    padding-right: 0;
+    transition: padding-left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .app-main-panel.collapsed {
+    padding-left: 80px;
+  }
+}
+
+/* Mobile Sidebar Overlay */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+  z-index: 90;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1023px) {
+  .app-content-wrapper {
+    padding-top: calc(var(--navbar-height) + 1.5rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .app-content-wrapper {
+    /* Preserve top padding so topbar never overlaps content */
+    padding-top: calc(var(--navbar-height) + 1rem);
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .app-content-wrapper {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: calc(var(--navbar-height) + 0.5rem);
+  }
+}

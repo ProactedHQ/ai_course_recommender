@@ -1,0 +1,49 @@
+asgiref==3.11.0
+Django
+django-cors-headers==4.9.0
+djangorestframework==3.16.1
+djangorestframework_simplejwt==5.5.1
+psycopg2-binary==2.9.11
+PyJWT==2.10.1
+python-dotenv==1.2.1
+sqlparse==0.5.5
+beautifulsoup4==4.12.3
+requests==2.32.3
+dj-database-url==2.3.0
+
+# Redis caching dependencies
+redis==5.2.1
+django-redis==5.4.0
+
+# Django Channels for WebSocket support
+channels==4.2.0
+channels-redis==4.2.1
+daphne==4.2.1
+
+# Security headers
+django-csp==3.8.0
+
+langgraph
+langchain_openai
+# AI & LLM Integration
+cohere
+openai
+langchain-core
+langchain-openai
+langgraph
+pydantic
+
+# Data Science & Processing
+numpy
+pandas
+scikit-learn
+pdfplumber
+
+# Auth & API Documentation
+drf-spectacular
+drf_spectacular_sidecar
+python-jose[cryptography]
+
+# Testing & WebSockets
+pytest
+websockets

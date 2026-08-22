@@ -1,0 +1,321 @@
+{
+    "subjects": [
+        {
+            "code": "101",
+            "name": "English",
+            "category": "GP1"
+        },
+        {
+            "code": "102",
+            "name": "Kiswahili",
+            "category": "GP1"
+        },
+        {
+            "code": "121",
+            "name": "Mathematics Alternative A",
+            "category": "GP1"
+        },
+        {
+            "code": "122",
+            "name": "Mathematics Alternative B",
+            "category": "GP1"
+        },
+        {
+            "code": "231",
+            "name": "Physics",
+            "category": "GP2"
+        },
+        {
+            "code": "232",
+            "name": "Biology",
+            "category": "GP2"
+        },
+        {
+            "code": "233",
+            "name": "Chemistry",
+            "category": "GP2"
+        },
+        {
+            "code": "236",
+            "name": "Home Science",
+            "category": "GP2"
+        },
+        {
+            "code": "245",
+            "name": "Agriculture",
+            "category": "GP2"
+        },
+        {
+            "code": "246",
+            "name": "Biological Sciences",
+            "category": "GP2"
+        },
+        {
+            "code": "247",
+            "name": "Physical Sciences",
+            "category": "GP2"
+        },
+        {
+            "code": "311",
+            "name": "Geography",
+            "category": "GP3"
+        },
+        {
+            "code": "312",
+            "name": "History and Government",
+            "category": "GP3"
+        },
+        {
+            "code": "313",
+            "name": "Christian Religious Education",
+            "category": "GP3"
+        },
+        {
+            "code": "314",
+            "name": "Islamic Religious Education",
+            "category": "GP3"
+        },
+        {
+            "code": "315",
+            "name": "Hindu Religious Education",
+            "category": "GP3"
+        },
+        {
+            "code": "433",
+            "name": "Aviation Technology",
+            "category": "GP4"
+        },
+        {
+            "code": "440",
+            "name": "Computer Studies",
+            "category": "GP4"
+        },
+        {
+            "code": "442",
+            "name": "Electricity",
+            "category": "GP4"
+        },
+        {
+            "code": "443",
+            "name": "Power Mechanics",
+            "category": "GP4"
+        },
+        {
+            "code": "444",
+            "name": "Metalwork",
+            "category": "GP4"
+        },
+        {
+            "code": "445",
+            "name": "Building Construction",
+            "category": "GP4"
+        },
+        {
+            "code": "446",
+            "name": "Woodwork",
+            "category": "GP4"
+        },
+        {
+            "code": "447",
+            "name": "Drawing and Design",
+            "category": "GP4"
+        },
+        {
+            "code": "448",
+            "name": "Art and Design",
+            "category": "GP4"
+        },
+        {
+            "code": "565",
+            "name": "French",
+            "category": "GP5"
+        },
+        {
+            "code": "566",
+            "name": "German",
+            "category": "GP5"
+        },
+        {
+            "code": "571",
+            "name": "Business Studies",
+            "category": "GP5"
+        },
+        {
+            "code": "574",
+            "name": "Music",
+            "category": "GP5"
+        },
+        {
+            "code": "579",
+            "name": "Arabic",
+            "category": "GP5"
+        },
+        {
+            "code": "511",
+            "name": "Accounting",
+            "category": "GP5"
+        }
+    ],
+    "clusters": [
+        {
+            "code": "1",
+            "name": "Law",
+            "subject_1": "ENG/KIS",
+            "subject_2": "MAT ALTERNATIVE A/MAT ALTERNATIVE B/ANY GROUP II",
+            "subject_3": "Any GROUP III",
+            "subject_4": "Any GROUP II/2nd GROUP III/ANY GROUP IV/ANY GROUP V"
+        },
+        {
+            "code": "10",
+            "name": "Actuarial Science, Accountancy, Mathematics, Economics, Statistics & Related",
+            "subject_1": "MAT ALTERNATIVE A",
+            "subject_2": "Any GROUP II",
+            "subject_3": "Any GROUP III",
+            "subject_4": "2nd GROUP II or 2nd GROUP III or a GROUP IV or any GROUP V"
+        },
+        {
+            "code": "11",
+            "name": "Interior Design, Fashion Design, Textiles & Related",
+            "subject_1": "CHE",
+            "subject_2": "MAT ALTERNATIVE A/B or PHY",
+            "subject_3": "BIO/HSC",
+            "subject_4": "ENG/KIS or any GROUP III or a GROUP IV or any GROUP V"
+        },
+        {
+            "code": "12",
+            "name": "Sport Science & Related",
+            "subject_1": "BIO/GSC",
+            "subject_2": "MAT ALTERNATIVE A/B",
+            "subject_3": "Any GROUP II or any GROUP II",
+            "subject_4": "ENG/KIS or a GROUP II or a GROUP III or any GROUP IV or any GROUP V"
+        },
+        {
+            "code": "13",
+            "name": "Medicine, Health , Veterinary Medicine & Related",
+            "subject_1": "BIO",
+            "subject_2": "CHE",
+            "subject_3": "MAT ALTERNATIVE A/PHY",
+            "subject_4": "ENG/KIS or 3rd GROUP II or any GROUP III or any GROUP IV or any GROUP V"
+        },
+        {
+            "code": "14",
+            "name": "History, Archeology & Related",
+            "subject_1": "HAG - C+",
+            "subject_2": "ENG/KIS",
+            "subject_3": "MAT ALTERNATIVE A/B or any GROUP II",
+            "subject_4": "A GROUP II or 2nd GROUP III or any GROUP IV or any GROUP V "
+        },
+        {
+            "code": "15",
+            "name": "Agriculture, Animal Health, Food Science, Nutrition Dietetics, Environmental Sciences, Natural Resources & Related",
+            "subject_1": "BIO",
+            "subject_2": "CHE",
+            "subject_3": "MAT ALTERNATIVE A/PHY/GEO",
+            "subject_4": "ENG/KIS or 3rd GROUP II or a GROUP III or any GROUP IV or any GROUP V "
+        },
+        {
+            "code": "16",
+            "name": "Geography & Related",
+            "subject_1": "GEO",
+            "subject_2": "MAT ALTERNATIVE A/B",
+            "subject_3": "Any GROUP II",
+            "subject_4": "2nd GROUP II or 2nd GROUP III or any GROUP IV or any GROUP V"
+        },
+        {
+            "code": "17",
+            "name": "French & German",
+            "subject_1": "FRE/GER",
+            "subject_2": "ENG/KIS",
+            "subject_3": "MAT ALTERNATIVE A/B or any GROUP II or any GROUP III",
+            "subject_4": "A GROUP II or a GROUP III or any GROUP IV or 2nd GROUP V"
+        },
+        {
+            "code": "18",
+            "name": "Music & Related",
+            "subject_1": "MUS",
+            "subject_2": "ENG/KIS",
+            "subject_3": "MAT ALTERNATIVE A/B or any GROUP II or any GROUP III",
+            "subject_4": "A GROUP II or a GROUP III or any GROUP IV or 2nd GROUP V"
+        },
+        {
+            "code": "19",
+            "name": "Education & Related",
+            "subject_1": "ENG",
+            "subject_2": "MAT ALTERNATIVE A/B or any GROUP II",
+            "subject_3": "2nd GROUP II",
+            "subject_4": "KIS or 3rd GROUP II or 2nd GROUP III or any GROUP IV or any GROUP V"
+        },
+        {
+            "code": "2",
+            "name": "Business, Hospitality & Related",
+            "subject_1": "ENG/KIS",
+            "subject_2": "MAT ALTERNATIVE A/B",
+            "subject_3": " Any GROUP II or any GROUP III",
+            "subject_4": "A GROUP II or a GROUP III or any GROUP IV or any GROUP V"
+        },
+        {
+            "code": "20",
+            "name": "Religious Studies, Theology, Islamic Studies & Related",
+            "subject_1": "CRE/IRE/HRE",
+            "subject_2": "ENG/KIS",
+            "subject_3": "2nd GROUP III",
+            "subject_4": "A GROUP II or a GROUP IV or any GROUP V"
+        },
+        {
+            "code": "3",
+            "name": "Social Sciences, Media Studies, Fine Arts, Film, Animation, Graphics & Related",
+            "subject_1": "ENG/KIS",
+            "subject_2": "MAT ALTERNATIVE A/B or any GROUP II",
+            "subject_3": "Any GROUP III",
+            "subject_4": "A GROUP II or 2nd GROUP III or any GROUP IV or any GROUP V"
+        },
+        {
+            "code": "4",
+            "name": "Geosciences & Related",
+            "subject_1": "MAT ALTERNATIVE A ",
+            "subject_2": "PHY",
+            "subject_3": "BIO/CHE/GEO",
+            "subject_4": "A GROUP II or any GROUP III or any GROUP IV or any GROUP V"
+        },
+        {
+            "code": "5",
+            "name": "Engineering, Engineering Technology & Related",
+            "subject_1": "MAT ALTERNATIVE A",
+            "subject_2": "PHY",
+            "subject_3": "CHE",
+            "subject_4": "BIO or any GROUP III or any GROUP IV or any GROUP V"
+        },
+        {
+            "code": "6",
+            "name": "Architecture, Building Construction & Related",
+            "subject_1": "MAT ALTERNATIVE A",
+            "subject_2": "PHY",
+            "subject_3": "Any GROUP III",
+            "subject_4": "2nd GROUP II or 2nd GROUP III or any GROUP IV or any GROUP V"
+        },
+        {
+            "code": "7",
+            "name": "Computing, IT & Related",
+            "subject_1": "MAT ALTERNATIVE A",
+            "subject_2": "PHY",
+            "subject_3": "2nd GROUP II or any GROUP III",
+            "subject_4": "A GROUP II or a GROUP III or any GROUP IV or any GROUP V"
+        },
+        {
+            "code": "8",
+            "name": "Agribusiness & Related",
+            "subject_1": "MAT ALTERNATIVE A",
+            "subject_2": "BIO",
+            "subject_3": "PHY or CHE",
+            "subject_4": "3rd GROUP II or any GROUP III or any GROUP IV or any GROUP V"
+        },
+        {
+            "code": "9",
+            "name": "General Science , Biological Sciences, Physics, Chemistry & Related",
+            "subject_1": "MAT ALTERNATIVE A",
+            "subject_2": "any GROUP II",
+            "subject_3": "2nd GROUP II",
+            "subject_4": "3rd GROUP II or any GROUP III or any GROUP IV or any GROUP V"
+        }
+    ]
+}

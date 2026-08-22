@@ -1,0 +1,135 @@
+.problem-section {
+    padding: 120px 0;
+    background-color: #ffffff;
+    position: relative;
+}
+
+@media (prefers-color-scheme: dark) {
+    .problem-section {
+        background-color: var(--color-bg-dark);
+    }
+}
+
+/* Shared section title — same as HowItWorks */
+.problem-section .section-title {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 80px;
+    color: var(--color-primary);
+    letter-spacing: -1px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .problem-section .section-title {
+        color: var(--color-text-light);
+    }
+}
+
+/* ── Grid ── */
+.problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+/* ── Card — identical structure to .step-content ── */
+.problem-card {
+    padding: 50px 40px;
+    background: #ffffff;
+    border-radius: 36px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(15, 23, 42, 0.04);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* left-aligned like step cards */
+    text-align: left;
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (prefers-color-scheme: dark) {
+    .problem-card {
+        background: rgba(255, 255, 255, 0.02);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        border-color: rgba(255, 255, 255, 0.05);
+    }
+}
+
+.problem-card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 30px 70px rgba(15, 23, 42, 0.1);
+    border-color: var(--color-secondary);
+}
+
+@media (prefers-color-scheme: dark) {
+    .problem-card:hover {
+        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.35);
+    }
+}
+
+/* ── Icon — same as .step-icon ── */
+.problem-icon {
+    width: 64px;
+    height: 64px;
+    background: #f1f5f9;
+    color: var(--color-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    margin-bottom: 32px;
+    transition: all 0.5s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+    .problem-icon {
+        background: rgba(59, 180, 161, 0.10);
+        color: var(--color-secondary);
+    }
+}
+
+/* Icon animates on card hover — same as step card */
+.problem-card:hover .problem-icon {
+    transform: scale(1.1) rotate(-5deg);
+    background: var(--color-secondary);
+    color: white;
+}
+
+/* ── Title — same as .step-title ── */
+.problem-card-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.75rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+    letter-spacing: -0.5px;
+    line-height: 1.2;
+}
+
+@media (prefers-color-scheme: dark) {
+    .problem-card-title {
+        color: var(--color-text-light);
+    }
+}
+
+/* ── Description — same as .step-description ── */
+.problem-card-description {
+    color: var(--color-text-gray);
+    line-height: 1.7;
+    font-size: 1.05rem;
+    opacity: 0.85;
+    max-width: 100%;
+}
+
+/* ── Responsive ── */
+@media (max-width: 991px) {
+    .problem-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .problem-card {
+        padding: 40px 30px;
+    }
+}

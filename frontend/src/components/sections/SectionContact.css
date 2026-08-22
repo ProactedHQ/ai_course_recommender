@@ -1,0 +1,235 @@
+.contact-section {
+    padding: 120px 0;
+    background-color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+    .contact-section {
+        background-color: var(--color-bg-dark);
+    }
+}
+
+.contact-container {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+}
+
+.contact-info {
+    flex: 1;
+}
+
+.contact-description {
+    font-size: 1.2rem;
+    color: var(--color-text-gray);
+    margin-bottom: 48px;
+    line-height: 1.7;
+    max-width: 480px;
+}
+
+.contact-details {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.contact-item {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+}
+
+.contact-item .icon-premium {
+    background: linear-gradient(135deg, #f0f7ff 0%, #e0f0ff 100%);
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    color: var(--color-primary);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+}
+
+@media (prefers-color-scheme: dark) {
+    .contact-item .icon-premium {
+        background: linear-gradient(135deg, rgba(59, 180, 161, 0.1) 0%, rgba(59, 180, 161, 0.05) 100%);
+        color: var(--color-secondary);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.contact-item:hover .icon-premium {
+    transform: scale(1.1) rotate(5deg);
+    background: var(--color-primary);
+    color: white;
+    box-shadow: 0 8px 24px rgba(26, 62, 92, 0.2);
+}
+
+.contact-item .icon-premium svg {
+    width: 28px;
+    height: 28px;
+}
+
+.contact-cta-box {
+    flex: 0.8;
+    padding: 80px 40px;
+    background: linear-gradient(135deg, rgba(15, 25, 38, 0.85) 0%, rgba(15, 28, 43, 0.85) 100%), url("../assets/images/landing/landingpage 4.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    border-radius: 40px;
+    text-align: center;
+    box-shadow: 0 40px 100px rgba(15, 23, 42, 0.3);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.cta-glass-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at top right, rgba(59, 180, 161, 0.15), transparent 60%);
+    pointer-events: none;
+}
+
+.cta-glow-emitter {
+    position: absolute;
+    bottom: -50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 100px;
+    background: var(--color-secondary);
+    filter: blur(80px);
+    opacity: 0.15;
+    pointer-events: none;
+    animation: cta-glow-pulse 4s infinite alternate ease-in-out;
+}
+
+@keyframes cta-glow-pulse {
+    from {
+        opacity: 0.1;
+        transform: translateX(-50%) scale(1);
+    }
+
+    to {
+        opacity: 0.25;
+        transform: translateX(-50%) scale(1.5);
+    }
+}
+
+.cta-content-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+}
+
+.cta-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 32px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.cta-icon-main {
+    color: var(--color-secondary);
+    filter: drop-shadow(0 0 10px rgba(59, 180, 161, 0.4));
+}
+
+.contact-cta-box h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: white;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.contact-cta-box p {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 48px;
+    line-height: 1.6;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-whatsapp-cta-premium {
+    background: linear-gradient(135deg, var(--color-secondary) 0%, #2dbd6e 100%);
+    color: white;
+    width: 100%;
+    max-width: 300px;
+    height: 64px;
+    font-size: 1.15rem;
+    border-radius: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-weight: 800;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    letter-spacing: 0.01em;
+    box-shadow: 0 10px 30px rgba(45, 189, 110, 0.3);
+}
+
+.btn-whatsapp-cta-premium:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(45, 189, 110, 0.4);
+    background: white;
+    color: #2dbd6e;
+}
+
+@media (max-width: 991px) {
+    .contact-cta-box {
+        padding: 60px 30px;
+        border-radius: 30px;
+    }
+
+    .contact-cta-box h3 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .contact-container {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+
+    .contact-item {
+        text-align: left;
+        max-width: 320px;
+        margin: 0 auto;
+        justify-content: center;
+    }
+
+    .contact-details {
+        align-items: center;
+    }
+
+    .contact-cta-box {
+        width: 100%;
+    }
+}

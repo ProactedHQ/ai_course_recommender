@@ -1,0 +1,87 @@
+[
+    {
+        "id": "101",
+        "name": "English",
+        "category": "Language"
+    },
+    {
+        "id": "102",
+        "name": "Kiswahili",
+        "category": "Language"
+    },
+    {
+        "id": "121",
+        "name": "Mathematics",
+        "category": "Mathematics"
+    },
+    {
+        "id": "231",
+        "name": "Biology",
+        "category": "Science"
+    },
+    {
+        "id": "232",
+        "name": "Physics",
+        "category": "Science"
+    },
+    {
+        "id": "233",
+        "name": "Chemistry",
+        "category": "Science"
+    },
+    {
+        "id": "311",
+        "name": "History and Government",
+        "category": "Humanity"
+    },
+    {
+        "id": "312",
+        "name": "Geography",
+        "category": "Humanity"
+    },
+    {
+        "id": "313",
+        "name": "Christian Religious Education",
+        "category": "Humanity"
+    },
+    {
+        "id": "314",
+        "name": "Islamic Religious Education",
+        "category": "Humanity"
+    },
+    {
+        "id": "441",
+        "name": "Home Science",
+        "category": "Applied Science"
+    },
+    {
+        "id": "442",
+        "name": "Art and Design",
+        "category": "Applied Science"
+    },
+    {
+        "id": "443",
+        "name": "Agriculture",
+        "category": "Applied Science"
+    },
+    {
+        "id": "451",
+        "name": "Computer Studies",
+        "category": "Applied Science"
+    },
+    {
+        "id": "501",
+        "name": "French",
+        "category": "Alternative"
+    },
+    {
+        "id": "502",
+        "name": "German",
+        "category": "Alternative"
+    },
+    {
+        "id": "504",
+        "name": "Business Studies",
+        "category": "Applied Science"
+    }
+]

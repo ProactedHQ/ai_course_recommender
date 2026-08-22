@@ -1,0 +1,3 @@
+"""
+Universities app tests package.
+"""

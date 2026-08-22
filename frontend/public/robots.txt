@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /app/
+Disallow: /admin/
+Disallow: /onboarding/
+Disallow: /billing/
+Disallow: /auth/callback
+
+Sitemap: https://proactedai.co.ke/sitemap.xml

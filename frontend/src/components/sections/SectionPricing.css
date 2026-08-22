@@ -1,0 +1,436 @@
+.pricing-section {
+    padding: 120px 0;
+    background-color: #f8fafc;
+    position: relative;
+    overflow: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+    .pricing-section {
+        background-color: #03070b;
+    }
+}
+
+[data-theme='dark'] .pricing-section {
+    background-color: #03070b;
+}
+
+.pricing-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-subtitle {
+    color: #64748b;
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 15px auto 0;
+}
+
+[data-theme='dark'] .section-subtitle {
+    color: #94a3b8;
+}
+
+.pricing-grid {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.pricing-card {
+    flex: 1;
+    padding: 60px 40px;
+    background: #ffffff;
+    border-radius: 0;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    overflow: hidden;
+}
+
+@media (prefers-color-scheme: dark) {
+    .pricing-card {
+        background: var(--color-bg-card);
+        border-color: var(--color-border);
+    }
+}
+
+[data-theme='dark'] .pricing-card {
+    background: var(--color-bg-card);
+    border-color: var(--color-border);
+}
+
+.pricing-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.12);
+}
+
+/* Explorer Facelift */
+.pricing-card.tier-free {
+    background: linear-gradient(180deg, var(--color-bg-light) 0%, var(--color-bg-card) 100%) !important;
+    border-top: 4px solid #94a3b8;
+}
+
+[data-theme='dark'] .pricing-card.tier-free {
+    border-top-color: #475569;
+}
+
+@media (prefers-color-scheme: dark) {
+    .pricing-card.tier-free {
+        border-top-color: #475569;
+    }
+}
+
+/* Mentor Elite Facelift */
+.pricing-card.highlighted {
+    border-color: #3bb4a1;
+    border-width: 2px;
+    transform: scale(1.03);
+    z-index: 2;
+    background: var(--color-bg-card) !important;
+    backdrop-filter: blur(10px);
+    border-top: 4px solid #3bb4a1;
+}
+
+.pricing-card.highlighted::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(59, 180, 161, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.pricing-card.highlighted:hover {
+    transform: scale(1.05) translateY(-10px);
+}
+
+/* Scholar VVIP Facelift */
+.pricing-card.dominant {
+    background: #03070b;
+    color: white;
+    border: none;
+    transform: scale(1.08);
+    z-index: 3;
+    box-shadow: 0 30px 60px rgba(251, 191, 36, 0.15),
+        0 0 100px rgba(251, 191, 36, 0.05);
+    background: linear-gradient(145deg, #03070b 0%, #0a1122 100%);
+    border-top: 4px solid #fbbf24;
+}
+
+.pricing-card.dominant::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 0%, rgba(251, 191, 36, 0.2) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.pricing-card.dominant:hover {
+    transform: scale(1.1) translateY(-10px);
+    box-shadow: 0 40px 90px rgba(251, 191, 36, 0.3),
+        0 0 120px rgba(251, 191, 36, 0.1);
+}
+
+.tier-badge {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    background: #64748b;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 0;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.pricing-card.highlighted .tier-badge {
+    background: #3bb4a1;
+    box-shadow: 0 4px 10px rgba(59, 180, 161, 0.2);
+}
+
+.tier-badge.premium {
+    background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+    color: #03070b;
+    box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+}
+
+.card-top-glow-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: radial-gradient(circle at 50% 0%, rgba(59, 180, 161, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+    border-radius: 0;
+}
+
+.card-top-glow-inner.gold {
+    background: radial-gradient(circle at 50% 0%, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
+}
+
+.tier-icon {
+    width: 64px;
+    height: 64px;
+    background: #f1f5f9;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 30px;
+    color: #64748b;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+    .tier-icon {
+        background: #1e293b;
+        color: #94a3b8;
+    }
+}
+
+[data-theme='dark'] .tier-icon {
+    background: #1e293b;
+    color: #94a3b8;
+}
+
+.tier-icon.primary {
+    background: rgba(59, 180, 161, 0.1);
+    color: #3bb4a1;
+}
+
+.tier-icon.superior {
+    background: rgba(251, 191, 36, 0.15);
+    color: #fbbf24;
+}
+
+.plan-name {
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 15px;
+    font-family: 'Outfit', sans-serif;
+    letter-spacing: -0.02em;
+    color: var(--color-text-main);
+}
+
+[data-theme='dark'] .plan-name {
+    color: #f8fafc;
+}
+
+.dominant .plan-name {
+    color: white;
+}
+
+.plan-desc {
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    margin-bottom: 40px;
+    font-weight: 500;
+    min-height: 2.5rem;
+}
+
+.dominant .plan-desc {
+    color: #94a3b8;
+}
+
+.price-stack {
+    margin-bottom: 30px;
+}
+
+.old-price {
+    display: block;
+    font-size: 1.1rem;
+    color: #94a3b8;
+    text-decoration: line-through;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.plan-price {
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 6px;
+    color: var(--color-text-main);
+}
+
+.dominant .plan-price {
+    color: #ffffff;
+}
+
+.p-curr {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #94a3b8;
+}
+
+.p-amt {
+    font-size: 3.5rem;
+    font-weight: 950;
+    letter-spacing: -0.04em;
+}
+
+.p-per {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #94a3b8;
+}
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+    text-align: left;
+    flex-grow: 1;
+}
+
+.plan-features li {
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-text-main);
+}
+
+.dominant .plan-features li {
+    color: #cbd5e1;
+}
+
+.plan-features li svg {
+    color: #3bb4a1;
+}
+
+.dominant .plan-features li svg {
+    color: #fbbf24;
+}
+
+.path-btn {
+    width: 100%;
+    padding: 16px 24px;
+    border-radius: 0;
+    font-weight: 800;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.btn-icon-right {
+    transition: transform 0.3s ease;
+}
+
+.path-btn:hover .btn-icon-right {
+    transform: translateX(4px);
+}
+
+.path-btn.secondary {
+    background: #f1f5f9;
+    color: #475569;
+}
+
+@media (prefers-color-scheme: dark) {
+    .path-btn.secondary {
+        background: #1e293b;
+        color: #e2e8f0;
+    }
+}
+
+.path-btn.secondary:hover {
+    background: #e2e8f0;
+}
+
+.path-btn.primary {
+    background: #3bb4a1;
+    color: white;
+    box-shadow: 0 10px 25px rgba(59, 180, 161, 0.25);
+}
+
+.path-btn.primary:hover {
+    background: #2ea895;
+    transform: translateY(-2px);
+    box-shadow: 0 15px 30px rgba(59, 180, 161, 0.35);
+}
+
+.path-btn.premium {
+    background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+    color: #03070b;
+    box-shadow: 0 10px 25px rgba(217, 119, 6, 0.3);
+}
+
+.path-btn.premium:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(217, 119, 6, 0.45);
+}
+
+@media (max-width: 1100px) {
+    .pricing-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+    }
+
+    .pricing-card {
+        width: 100%;
+        max-width: 450px;
+        transform: none !important;
+    }
+}
+
+.pricing-sales-contact {
+    text-align: center;
+    margin: 60px auto 0;
+    padding: 30px;
+    background: rgba(15, 23, 42, 0.03);
+    border-radius: 12px;
+    font-weight: 700;
+    max-width: 600px;
+}
+
+[data-theme='dark'] .pricing-sales-contact {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.pricing-sales-contact p {
+    color: var(--color-text-muted);
+    font-size: 0.95rem;
+}
+
+.pricing-sales-contact a {
+    color: var(--color-primary);
+    text-decoration: none;
+    margin-left: 8px;
+    font-size: 1rem;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.pricing-sales-contact a:hover {
+    color: var(--color-secondary);
+    border-bottom-color: var(--color-secondary);
+}
