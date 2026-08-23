@@ -12,6 +12,9 @@ import os
 import sys
 import subprocess
 import django
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Setup Django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'course_recomeder_backend.settings')

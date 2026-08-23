@@ -27,9 +27,9 @@ import ChatLogs from "../pages/admin/ChatLogs";
 import AdminManagement from "../pages/admin/AdminManagement";
 
 // Placeholder Legal Pages
-import PrivacyPolicy from "../pages/legal/PrivacyPolicy";
+import LegalPrivacy from "../pages/legal/LegalPrivacy";
 import TermsOfService from "../pages/legal/TermsOfService";
-import CookiePolicy from "../pages/legal/CookiePolicy";
+import LegalCookies from "../pages/legal/LegalCookies";
 import About from "../pages/About";
 
 // Blog Routes
@@ -135,9 +135,9 @@ function AppRoutes() {
         </Route>
 
         {/* Legal Routes */}
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/privacy-policy" element={<LegalPrivacy />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
-        <Route path="/cookie-policy" element={<CookiePolicy />} />
+        <Route path="/cookie-policy" element={<LegalCookies />} />
       </Routes>
 
     </BrowserRouter>

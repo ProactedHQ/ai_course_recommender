@@ -3,7 +3,7 @@ import "./LegalLayout.css";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
-const PrivacyPolicy = () => {
+const LegalPrivacy = () => {
     return (
         <div className="legal-page">
             <Navbar />
@@ -130,4 +130,4 @@ const PrivacyPolicy = () => {
     );
 };
 
-export default PrivacyPolicy;
+export default LegalPrivacy;

@@ -30,6 +30,9 @@ sys.path.append(str(BASE_DIR / "apps"))
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+from utils.redis_config import is_redis_available, get_cache_backend, get_channel_layers
+REDIS_AVAILABLE = is_redis_available()
+
 # -----------------------------------------------------------------------------
 # Environment helpers
 # -----------------------------------------------------------------------------
@@ -62,6 +65,8 @@ ALLOWED_HOSTS = env_list("ALLOWED_HOSTS", "api.proactedai.co.ke")
 # Installed apps
 # -----------------------------------------------------------------------------
 INSTALLED_APPS = [
+    *(['daphne'] if REDIS_AVAILABLE else []),
+
     # Django
     "django.contrib.admin",
     "django.contrib.auth",
@@ -84,6 +89,8 @@ INSTALLED_APPS = [
     "proacted_recommender_engine.apps.ProactedRecommenderEngineConfig",
     'apps.blog.apps.BlogConfig',
     'subscriptions',
+
+    *(['channels'] if REDIS_AVAILABLE else []),
 ]
 
 # -----------------------------------------------------------------------------
@@ -125,8 +132,12 @@ TEMPLATES = [
     }
 ]
 
-# cPanel Passenger runs WSGI
-WSGI_APPLICATION = "course_recomeder_backend.wsgi.application"
+# ASGI / WSGI Application
+if REDIS_AVAILABLE:
+    ASGI_APPLICATION = "course_recomeder_backend.asgi.application"
+else:
+    # cPanel Passenger runs WSGI
+    WSGI_APPLICATION = "course_recomeder_backend.wsgi.application"
 
 # -----------------------------------------------------------------------------
 # Database (required)
@@ -280,12 +291,13 @@ CONTENT_SECURITY_POLICY = {
 }
 
 # -----------------------------------------------------------------------------
-# Cache (Redis if REDIS_URL is set; otherwise LocMem)
-# NOTE: This expects utils.redis_config.get_cache_backend() to NOT ping Redis.
+# Cache & Channels (Redis if available; otherwise fallback)
 # -----------------------------------------------------------------------------
-from utils.redis_config import get_cache_backend
 
 CACHES = get_cache_backend()
+
+if REDIS_AVAILABLE:
+    CHANNEL_LAYERS = get_channel_layers()
 
 # -----------------------------------------------------------------------------
 # Logging

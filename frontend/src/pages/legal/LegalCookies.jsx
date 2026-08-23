@@ -3,7 +3,7 @@ import "./LegalLayout.css";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 
-const CookiePolicy = () => {
+const LegalCookies = () => {
     return (
         <div className="legal-page">
             <Navbar />
@@ -80,4 +80,4 @@ const CookiePolicy = () => {
     );
 };
 
-export default CookiePolicy;
+export default LegalCookies;

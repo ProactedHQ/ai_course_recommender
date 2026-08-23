@@ -1,5 +1,5 @@
 asgiref==3.11.0
-Django
+Django<6.0
 django-cors-headers==4.9.0
 djangorestframework==3.16.1
 djangorestframework_simplejwt==5.5.1
@@ -22,6 +22,7 @@ daphne==4.2.1
 
 # Security headers
 django-csp==3.8.0
+whitenoise==6.7.0
 
 langgraph
 langchain_openai
