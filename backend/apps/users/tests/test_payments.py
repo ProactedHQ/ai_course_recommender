@@ -1,26 +1,34 @@
 """
 =======================================================================
- KeDira — M-Pesa Payment Test Suite
+ KeDira — PayHero Payment Test Suite
 =======================================================================
  Covers:
-   ✔ POST /api/subscription/upgrade/ → Initiates STK Push
-   ✔ POST /api/subscription/callback/ → M-Pesa Result Handler (fixed BUG 2)
-   ✔ Payment verification → Reference lookup (CheckoutRequestID)
-   ✔ Tier update after success
+   ✔ POST /api/subscriptions/initiate/     → Creates PENDING txn + STK push
+   ✔ POST /api/subscriptions/confirmation/ → PayHero callback (secret-checked)
+   ✔ Replayed / underpaid / forged callbacks do not upgrade anyone
+   ✔ GET  /api/subscriptions/status/       → Polling result
 
  Run these tests with:
    python manage.py test apps.users.tests.test_payments -v 2
 =======================================================================
 """
 
-from django.test import TestCase
-from rest_framework.test import APIClient
-from rest_framework import status
-from django.contrib.auth import get_user_model
-from apps.users.models import SubscriptionTransaction
+from decimal import Decimal
 from unittest.mock import patch
 
+from django.contrib.auth import get_user_model
+from django.test import TestCase, override_settings
+from rest_framework import status
+from rest_framework.test import APIClient
+
+from apps.subscriptions.models import Transaction, Coupon, CouponUsed
+from apps.subscriptions.utils import build_callback_url
+
 User = get_user_model()
+
+SECRET = 'test-callback-secret'
+CALLBACK = '/api/subscriptions/confirmation/'
+
 
 # ──────────────────────────────────────────────────────────────────────
 #  Helpers
@@ -31,12 +39,28 @@ def section(title):
     print(f"{'─' * 60}")
 
 def ok(msg):  print(f"    ✅  {msg}")
-def fail(msg): print(f"    ❌  {msg}")
-def info(msg): print(f"    ℹ️   {msg}")
 
 
+def payhero_callback(ref, status_str='Success', amount=1, result_code=0):
+    """Shape of the body PayHero POSTs to the callback URL."""
+    return {'response': {
+        'Amount': amount,
+        'ExternalReference': ref,
+        'MpesaReceiptNumber': 'SGR7XYZ123',
+        'Phone': '+254700000000',
+        'ResultCode': result_code,
+        'ResultDesc': 'The service request is processed successfully.',
+        'Status': status_str,
+    }}
+
+
+@override_settings(
+    MPESA_CALLBACK_SECRET=SECRET,
+    PAYHERO_CALLBACK_URL='https://api.example.com/api/subscriptions/confirmation/',
+    PAYHERO_CHANNEL_ID='123',
+)
 class PaymentFlowTests(TestCase):
-    """Tests for the M-Pesa payment integration."""
+    """Tests for the PayHero payment integration."""
 
     def setUp(self):
         self.client = APIClient()
@@ -48,119 +72,135 @@ class PaymentFlowTests(TestCase):
         )
         self.client.force_authenticate(user=self.user)
 
-    # ── 1. Upgrade Initiation ──────────────────────────────────────────
-    @patch('apps.users.utils.mpesa.MpesaClient.stk_push')
-    def test_upgrade_initiation_success(self, mock_stk_push):
-        section("Upgrade Initiation → Pending transaction created")
-        
-        # Mocking successful STK push initiation
-        mock_stk_push.return_value = {"CheckoutRequestID": "ws_CO_001", "ResponseCode": "0"}
-        
-        data = {
-            "target_tier": "mentor_elite",
-            "phone_number": "254712345678"
-        }
-        
-        response = self.client.post('/api/subscription/upgrade/', data)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        
-        # Verify transaction record
-        txn = SubscriptionTransaction.objects.get(user=self.user)
-        self.assertEqual(txn.status, 'pending')
-        self.assertEqual(txn.reference, 'ws_CO_001')
-        self.assertEqual(float(txn.amount), 199.00)
-        
-        ok("STK Push call succeeded")
-        ok(f"Pending transaction created with Ref: {txn.reference}")
-
-    # ── 2. Handle Callback (BUG 2 Fix Validation) ───────────────────────
-    def test_callback_updates_user_tier(self):
-        section("M-Pesa Callback (Success) → Updates Tier & Status")
-        
-        # Create a pending transaction
-        checkout_id = "ws_CO_CALLBACK_001"
-        txn = SubscriptionTransaction.objects.create(
-            user=self.user,
-            target_tier='scholar_vvip',
-            amount=499.00,
-            reference=checkout_id,
-            status='pending'
+    def _pending_txn(self, amount='1.00', tier='mentor_elite', coupon=None):
+        return Transaction.objects.create(
+            user=self.user, phone='0700000000', ref_id='PH-TEST0001',
+            amount=Decimal(amount), target_tier=tier, coupon=coupon, status='PENDING',
         )
-        
-        # Simulating Safaricom Callback Body
-        callback_data = {
-            "Body": {
-                "stkCallback": {
-                    "MerchantRequestID": "29115-34621005-1",
-                    "CheckoutRequestID": checkout_id,
-                    "ResultCode": 0,
-                    "ResultDesc": "The service request is processed successfully.",
-                    "CallbackMetadata": {
-                        "Item": [
-                            {"Name": "Amount", "Value": 499.00},
-                            {"Name": "MpesaReceiptNumber", "Value": "RHKXXXXXXX"},
-                            {"Name": "TransactionDate", "Value": 20230101000000},
-                            {"Name": "PhoneNumber", "Value": 254712345678}
-                        ]
-                    }
-                }
-            }
-        }
-        
-        # Call the endpoint (providing secret token in URL)
-        from django.conf import settings
-        token = getattr(settings, 'MPESA_CALLBACK_SECRET', 'test_secret')
-        url = f'/api/subscription/callback/?token={token}'
-        
-        response = self.client.post(url, callback_data, format='json')
-        self.assertEqual(response.status_code, 200)
-        
-        # 1. Verification: Transaction table updated
-        txn.refresh_from_db()
-        self.assertEqual(txn.status, 'completed')
-        ok("Transaction status updated to 'completed'")
-        
-        # 2. Verification: User tier updated
-        self.user.refresh_from_db()
-        self.assertEqual(self.user.subscription_tier, 'scholar_vvip')
-        ok(f"User tier correctly updated to '{self.user.subscription_tier}'")
 
-    # ── 3. Handle Callback (Failure) ──────────────────────────────────
-    def test_callback_handles_failure(self):
-        section("M-Pesa Callback (Failure) → Marks transaction as failed")
-        
-        checkout_id = "ws_CO_FAIL_001"
-        txn = SubscriptionTransaction.objects.create(
-            user=self.user,
-            target_tier='mentor_elite',
-            amount=199.00,
-            reference=checkout_id,
-            status='pending'
-        )
-        
-        callback_data = {
-            "Body": {
-                "stkCallback": {
-                    "CheckoutRequestID": checkout_id,
-                    "ResultCode": 1,
-                    "ResultDesc": "Request cancelled by user"
-                }
-            }
-        }
-        
-        from django.conf import settings
-        token = getattr(settings, 'MPESA_CALLBACK_SECRET', 'test_secret')
-        url = f'/api/subscription/callback/?token={token}'
-        
-        response = self.client.post(url, callback_data, format='json')
-        self.assertEqual(response.status_code, 200)
-        
-        txn.refresh_from_db()
-        self.assertEqual(txn.status, 'failed')
-        
-        # Tier should NOT be changed
+    # ── Initiation ────────────────────────────────────────────────────
+    @patch('apps.subscriptions.views.initiate_payhero_stk_push')
+    def test_initiate_creates_pending_transaction(self, mock_push):
+        section("Initiate → PENDING transaction")
+        mock_push.return_value = {'success': True, 'status': 'QUEUED', 'reference': 'R1'}
+
+        res = self.client.post('/api/subscriptions/initiate/',
+                               {'phone_number': '0700000000', 'target_tier': 'mentor_elite'}, format='json')
+
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        txn = Transaction.objects.get(ref_id=res.data['external_reference'])
+        self.assertEqual(txn.status, 'PENDING')
+        self.assertEqual(txn.target_tier, 'mentor_elite')
+        ok("Pending transaction stored and reference returned")
+
+    @patch('apps.subscriptions.views.initiate_payhero_stk_push')
+    def test_initiate_failure_marks_transaction_failed(self, mock_push):
+        section("Initiate refused by PayHero → FAILED")
+        mock_push.return_value = {'success': False, 'error': 'Invalid phone'}
+
+        res = self.client.post('/api/subscriptions/initiate/',
+                               {'phone_number': '0700000000', 'target_tier': 'mentor_elite'}, format='json')
+
+        self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(res.data['error'], 'Invalid phone')
+        self.assertEqual(Transaction.objects.get(user=self.user).status, 'FAILED')
+        ok("Transaction closed so polling reports the failure")
+
+    def test_initiate_rejects_unknown_tier(self):
+        res = self.client.post('/api/subscriptions/initiate/',
+                               {'phone_number': '0700000000', 'target_tier': 'explorer'}, format='json')
+        self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
+
+    def test_callback_url_carries_secret(self):
+        self.assertIn(f'secret={SECRET}', build_callback_url())
+
+    # ── Callback security ─────────────────────────────────────────────
+    def test_callback_without_secret_is_rejected(self):
+        section("Forged callback (no secret) → 403")
+        self._pending_txn()
+        anon = APIClient()
+
+        res = anon.post(CALLBACK, payhero_callback('PH-TEST0001'), format='json')
+
+        self.assertEqual(res.status_code, status.HTTP_403_FORBIDDEN)
         self.user.refresh_from_db()
         self.assertEqual(self.user.subscription_tier, 'explorer')
-        
-        ok("Failed payment correctly handled (status='failed')")
-        ok("Tier unchanged as expected")
+        self.assertEqual(Transaction.objects.get(ref_id='PH-TEST0001').status, 'PENDING')
+        ok("Tier unchanged")
+
+    def test_callback_with_wrong_secret_is_rejected(self):
+        self._pending_txn()
+        res = APIClient().post(f'{CALLBACK}?secret=wrong', payhero_callback('PH-TEST0001'), format='json')
+        self.assertEqual(res.status_code, status.HTTP_403_FORBIDDEN)
+
+    @override_settings(MPESA_CALLBACK_SECRET='')
+    def test_callback_rejected_when_secret_not_configured(self):
+        self._pending_txn()
+        res = APIClient().post(f'{CALLBACK}?secret=', payhero_callback('PH-TEST0001'), format='json')
+        self.assertEqual(res.status_code, status.HTTP_403_FORBIDDEN)
+
+    # ── Callback outcomes ─────────────────────────────────────────────
+    def test_callback_success_upgrades_user(self):
+        section("Valid callback → upgrade")
+        self._pending_txn()
+
+        res = APIClient().post(f'{CALLBACK}?secret={SECRET}', payhero_callback('PH-TEST0001'), format='json')
+
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        self.assertTrue(res.data['success'])
+        self.user.refresh_from_db()
+        self.assertEqual(self.user.subscription_tier, 'mentor_elite')
+        txn = Transaction.objects.get(ref_id='PH-TEST0001')
+        self.assertEqual(txn.status, 'SUCCESS')
+        self.assertEqual(txn.mpesa_receipt, 'SGR7XYZ123')
+        ok("User moved to mentor_elite")
+
+    def test_callback_failure_does_not_upgrade(self):
+        self._pending_txn()
+        res = APIClient().post(f'{CALLBACK}?secret={SECRET}',
+                               payhero_callback('PH-TEST0001', status_str='Failed', result_code=1032),
+                               format='json')
+        self.assertEqual(res.status_code, status.HTTP_200_OK)
+        self.assertFalse(res.data['success'])
+        self.user.refresh_from_db()
+        self.assertEqual(self.user.subscription_tier, 'explorer')
+        self.assertEqual(Transaction.objects.get(ref_id='PH-TEST0001').status, 'FAILED')
+
+    def test_underpaid_callback_is_marked_failed(self):
+        section("Underpaid callback → FAILED")
+        self._pending_txn(amount='499.00', tier='scholar_vvip')
+
+        APIClient().post(f'{CALLBACK}?secret={SECRET}', payhero_callback('PH-TEST0001', amount=1), format='json')
+
+        self.user.refresh_from_db()
+        self.assertEqual(self.user.subscription_tier, 'explorer')
+        self.assertEqual(Transaction.objects.get(ref_id='PH-TEST0001').status, 'FAILED')
+        ok("1 KES cannot buy a 499 KES plan")
+
+    def test_replayed_callback_is_not_reapplied(self):
+        coupon = Coupon.objects.create(code='PA1B2', marketer_email='m@example.com')
+        self._pending_txn(coupon=coupon)
+        url = f'{CALLBACK}?secret={SECRET}'
+
+        APIClient().post(url, payhero_callback('PH-TEST0001'), format='json')
+        res = APIClient().post(url, payhero_callback('PH-TEST0001', status_str='Failed', result_code=1),
+                               format='json')
+
+        self.assertEqual(res.data['message'], 'Already processed')
+        self.assertEqual(Transaction.objects.get(ref_id='PH-TEST0001').status, 'SUCCESS')
+        self.assertEqual(CouponUsed.objects.count(), 1)
+
+    def test_callback_unknown_reference(self):
+        res = APIClient().post(f'{CALLBACK}?secret={SECRET}', payhero_callback('PH-NOPE'), format='json')
+        self.assertEqual(res.status_code, status.HTTP_404_NOT_FOUND)
+
+    # ── Status polling ────────────────────────────────────────────────
+    def test_status_reports_pending_then_completed(self):
+        self._pending_txn()
+        self.assertEqual(self.client.get('/api/subscriptions/status/').data['status'], 'pending')
+
+        APIClient().post(f'{CALLBACK}?secret={SECRET}', payhero_callback('PH-TEST0001'), format='json')
+
+        res = self.client.get('/api/subscriptions/status/')
+        self.assertEqual(res.data['status'], 'completed')
+        self.assertEqual(res.data['tier'], 'mentor_elite')

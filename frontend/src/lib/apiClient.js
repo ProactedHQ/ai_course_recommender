@@ -1,7 +1,13 @@
 /**
  * Minimal API client that always attaches the current Supabase access token.
- * - Uses Authorization: Bearer <access_token>
+ * - Uses Authorization: Bearer <access_token> (verified by backend apps/users/auth/supabase.py)
  * - Always reads getSession() so token refresh is respected.
+ * - VITE_API_BASE_URL is baked in at build time (frontend/.env.production for cPanel builds).
+ *
+ * On a non-2xx response it throws an Error whose:
+ *   message = backend `detail` || `message` || `error` || "API Error <status>"
+ *   status  = HTTP status code (e.g. 403)
+ *   data    = parsed JSON body, if any (e.g. { error: 'PROMPT_LIMIT_REACHED', ... })
  */
 import { supabase } from './supabaseClient';
 
@@ -26,13 +32,17 @@ export async function apiFetch(path, { method = 'GET', headers = {}, body } = {}
     if (!res.ok) {
         const text = await res.text();
         let errorMsg = `API Error ${res.status}`;
+        let errorData = null;
         try {
-            const json = JSON.parse(text);
-            errorMsg = json.detail || json.message || errorMsg;
+            errorData = JSON.parse(text);
+            errorMsg = errorData.detail || errorData.message || errorData.error || errorMsg;
         } catch {
             errorMsg = text || errorMsg;
         }
-        throw new Error(errorMsg);
+        const err = new Error(errorMsg);
+        err.status = res.status;
+        err.data = errorData;
+        throw err;
     }
 
     const contentType = res.headers.get('content-type') || '';

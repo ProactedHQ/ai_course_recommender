@@ -13,7 +13,7 @@ import logging
 
 # Recommendation Engine Imports
 from apps.users.models import CustomUser
-from apps.users.services.subscription import sync_subscription_period, get_remaining_prompts
+from apps.users.services.subscription import sync_subscription_period, get_remaining_prompts, refund_prompt
 from apps.students.services.profile_persistence import persist_student_profile_from_wizard
 from .models import StudentProfile, Subject, AcademicResult, PromptSubmission
 from .serializers import StudentProfileSerializer, SubjectSerializer, AcademicResultSerializer, PromptSubmissionSerializer
@@ -26,7 +26,7 @@ from .eligibility_engine import (
     _build_user_profile_for_llm,
     _build_cluster_summary,
     _build_top_recommendations_from_llm,
-    _fallback_top_recommendations
+    _ground_recommendations_in_shortlist,
 )
 from apps.proacted_recommender_engine.langgraph_workflow import run_recommendation_graph
 from utils.rate_limit import rate_limit
@@ -192,7 +192,7 @@ class AcademicResultViewSet(viewsets.ModelViewSet):
 @extend_schema(
     tags=['AI Recommendations'],
     summary="Submit Wizard data and get recommendations",
-    description="Handles the submission of the multi-step prompt wizard. Currently returns dummy recommendations for UI testing.",
+    description="Runs eligibility filtering + the LangGraph advisor on a wizard submission and stores the result. Consumes one monthly prompt (refunded on failure).",
     examples=[
         OpenApiExample(
             'Wizard Submission Example',
@@ -237,30 +237,43 @@ class PromptSubmissionViewSet(viewsets.ModelViewSet):
 
     def create(self, request, *args, **kwargs):
         """
-        Create a new prompt submission and send real-time updates via WebSocket.
-        Includes rate limiting (5 per minute) and comprehensive logging.
+        POST /api/prompts/ - run the full recommendation pipeline for one wizard submission.
+
+        Body: {"payload": <wizard formData>} (see serializers_wizard.WizardPayloadSerializer)
+
+        Pipeline:
+          1. Quota     - lock the user row, reset the month if needed, reserve one prompt
+          2. Validate  - strict wizard serializer, extract KCSE grades (+ computed MEAN)
+          3. Eligible  - rule-based filter over the DB (cluster subjects, points, cutoffs)
+          4. LLM       - LangGraph batch filter + advisor (langgraph_workflow.py)
+          5. Ground    - replace LLM facts with DB values, drop invented programmes
+          6. Slice     - explorer 3 / mentor_elite 5 / scholar_vvip 10 (+ cluster summary)
+          7. Persist   - save PromptSubmission and update the StudentProfile
+
+        Responses:
+          201 {"received", "submission_id", "path_used": "llm", "recommendations": {"top_5": [...], ...}}
+          400 Validation Error / NO_GRADES
+          403 PROMPT_LIMIT_REACHED
+          422 NO_ELIGIBLE_PROGRAMMES
+          500 ADVISOR_FAILURE
+        Any 4xx/5xx after step 1 refunds the reserved prompt.
         """
         user_id = request.user.id
         user_tier = request.user.subscription_tier or 'explorer'
-        
+
         # 1. Subscription Tier & Usage Enforcement (Atomic)
         try:
             with transaction.atomic():
                 # Lock user record for atomic update to prevent concurrency issues
                 u = CustomUser.objects.select_for_update().get(id=request.user.id)
-                
+
                 # Sync period (resets usage if month changed)
-                logger.info("Syncing subscription period for user %s", user_id)
                 u = sync_subscription_period(u)
-                
+
                 # Check remaining prompts
                 remaining = get_remaining_prompts(u)
-                logger.info(
-                    "Remaining prompts for user %s after sync: %s",
-                    user_id,
-                    remaining,
-                )
-                
+                logger.info("Remaining prompts for user %s after sync: %s", user_id, remaining)
+
                 if remaining is not None and remaining <= 0:
                     logger.warning(f"Subscription limit reached for user {u.id} (Tier: {u.subscription_tier})")
                     return response.Response({
@@ -269,76 +282,78 @@ class PromptSubmissionViewSet(viewsets.ModelViewSet):
                         "reset_date": u.prompt_period_start,
                         "detail": f"You have reached your monthly AI prompt limit for the {u.get_subscription_tier_display()} plan."
                     }, status=status.HTTP_403_FORBIDDEN)
-                
-                # Increment usage atomically
+
+                # Reserve the prompt now (inside the lock) so parallel requests can't overspend
                 u.prompts_used_in_period += 1
                 u.save(update_fields=['prompts_used_in_period'])
-                
+
                 logger.info(f"Prompt usage incremented for user {u.id}. New count: {u.prompts_used_in_period}")
         except CustomUser.DoesNotExist:
             return response.Response({"error": "User profile not found"}, status=status.HTTP_404_NOT_FOUND)
 
-        # (debug DB logging removed for production safety)
-        
-        # 3. Get channel layer for WebSocket (if available)
+        # 2-7. Generate; give the prompt back if the student got no recommendations
+        try:
+            resp = self._generate_recommendations(request, user_tier)
+        except Exception:
+            refund_prompt(user_id)
+            raise
+        if resp.status_code >= 400:
+            refund_prompt(user_id)
+            logger.info("Refunded prompt for user %s after %s response", user_id, resp.status_code)
+        return resp
+
+    def _generate_recommendations(self, request, user_tier):
+        """Steps 2-7 of create(). Returns a Response; never touches the prompt quota."""
+        user_id = request.user.id
+
+        # Optional live progress over WebSocket. Only active when Redis/Channels are up;
+        # on cPanel Passenger (WSGI) this is off and the client just waits for the HTTP response.
         redis_available = CHANNELS_AVAILABLE and getattr(settings, 'REDIS_AVAILABLE', False)
-        if redis_available:
-            channel_layer = get_channel_layer()
-            user_group = f'recommendations_{request.user.id}'
-            
-            # Send initial status
+        channel_layer = get_channel_layer() if redis_available else None
+        user_group = f'recommendations_{user_id}'
+
+        def send_progress(progress, message):
+            if not redis_available:
+                return
+            time.sleep(0.5)  # pacing so the progress bar is visible
             async_to_sync(channel_layer.group_send)(
                 user_group,
                 {
                     'type': 'recommendation_status',
                     'submission_id': 'pending',
                     'status': 'processing',
-                    'progress': 0,
-                    'message': 'Starting recommendation engine...',
+                    'progress': progress,
+                    'message': message,
                 }
             )
-            logger.info(f"Sent initial WebSocket status for user {user_id}")
-        
-        # 4. Validate data using Strict Wizard Serializer
-        time.sleep(0.5)
-        if redis_available:
-            async_to_sync(channel_layer.group_send)(
-                user_group,
-                {
-                    'type': 'recommendation_status',
-                    'submission_id': 'pending',
-                    'status': 'processing',
-                    'progress': 25,
-                    'message': 'Analyzing your grades...',
-                }
-            )
-        
-        # [NEW] Strict Validation
-        # Extract payload from request (frontend sends { payload: ... })
+
+        send_progress(0, 'Starting recommendation engine...')
+        send_progress(25, 'Analyzing your grades...')
+
+        # 2. Strict validation (frontend sends { payload: ... })
         payload_data = request.data.get('payload', request.data)
         logger.info("Extracted payload_data keys for user %s: %s", user_id, list(payload_data.keys()))
-        
-        # ── FRONTEND PAYLOAD AUDIT ── (log the full raw payload for debugging)
-        import json as _json
+
+        # Payload audit (first 3000 chars) for debugging student reports
         try:
-            raw_payload_str = _json.dumps(payload_data, default=str)
-            # Truncate to 3000 chars to keep logs readable
+            raw_payload_str = json.dumps(payload_data, default=str)
             logger.info("[PAYLOAD AUDIT] User %s raw payload (first 3000 chars):\n%s",
                         user_id, raw_payload_str[:3000])
         except Exception as _e:
             logger.warning("[PAYLOAD AUDIT] Could not serialize payload for user %s: %s", user_id, _e)
-        
+
         payload_serializer = WizardPayloadSerializer(data=payload_data)
         if not payload_serializer.is_valid():
             logger.error(f"Wizard Validation Failed: {payload_serializer.errors}")
             return response.Response({
                 'error': 'Validation Error',
+                'detail': 'Some of your answers are invalid. Please review the wizard and try again.',
                 'details': payload_serializer.errors
             }, status=status.HTTP_400_BAD_REQUEST)
-        
-        validated_payload = payload_serializer.validated_data
-        logger.info("Wizard payload validated successfully for user %s", user_id)
 
+        validated_payload = payload_serializer.validated_data
+
+        # {subject_code: grade, ..., 'MEAN': grade}
         student_grades = _extract_student_grades(validated_payload)
         if not student_grades:
             logger.error("No valid KCSE grades found in payload for user %s", user_id)
@@ -349,30 +364,31 @@ class PromptSubmissionViewSet(viewsets.ModelViewSet):
                 },
                 status=status.HTTP_400_BAD_REQUEST,
             )
-        
-        # ── GRADE EXTRACTION AUDIT ──
-        mean_in_grades = student_grades.get('MEAN', '*** NOT FOUND ***')
+
         subject_grades_only = {k: v for k, v in student_grades.items() if k != 'MEAN'}
         logger.info(
             "[GRADES AUDIT] User %s: MEAN Grade = %s | Subject grades: %s",
-            user_id, mean_in_grades, subject_grades_only
-        )
-        logger.info(
-            "Extracted %s KCSE subjects + MEAN for user %s: %s",
-            len(subject_grades_only),
-            user_id,
-            sorted(subject_grades_only.keys()),
+            user_id, student_grades.get('MEAN'), subject_grades_only
         )
 
+        # 3. Rule-based eligibility (no LLM involved)
         eligible_programmes_all = get_eligible_programmes(student_grades)
         eligible_programmes = filter_eligible_only(eligible_programmes_all)
 
         logger.info(
             "Eligibility engine returned %s total programmes, %s eligible for user %s",
-            len(eligible_programmes_all),
-            len(eligible_programmes),
-            user_id,
+            len(eligible_programmes_all), len(eligible_programmes), user_id,
         )
+
+        if not eligible_programmes:
+            return response.Response({
+                "error": "NO_ELIGIBLE_PROGRAMMES",
+                "detail": (
+                    "We could not find any KUCCPS programmes that match your grades. "
+                    "Please double-check the subjects and grades you entered."
+                ),
+                "path_used": "error",
+            }, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
         eligibility_meta = {
             "total_programmes_analyzed": len(eligible_programmes_all),
@@ -380,151 +396,87 @@ class PromptSubmissionViewSet(viewsets.ModelViewSet):
         }
 
         shortlisted_programmes = _serialize_programmes_for_llm(eligible_programmes)
-        logger.info(
-            "Serialized %s shortlisted programmes for LLM for user %s",
-            len(shortlisted_programmes),
-            user_id,
-        )
         user_profile_for_llm = _build_user_profile_for_llm(
             validated_payload, eligibility_meta, student_grades, user_tier=user_tier
         )
-        logger.info(
-            "Built user_profile_for_llm for user %s with keys: %s",
-            user_id,
-            list(user_profile_for_llm.keys()),
-        )
 
+        # 4. LLM ranking + personalised insights
+        send_progress(50, 'Matching with programmes...')
         llm_result = None
-        if shortlisted_programmes:
-            time.sleep(0.5)
-            if redis_available:
-                async_to_sync(channel_layer.group_send)(
-                    user_group,
-                    {
-                        'type': 'recommendation_status',
-                        'submission_id': 'pending',
-                        'status': 'processing',
-                        'progress': 50,
-                        'message': 'Matching with programmes...',
-                    }
-                )
-
-            try:
-                llm_result = run_recommendation_graph(
-                    user_profile=user_profile_for_llm,
-                    shortlisted_programs=shortlisted_programmes,
-                    user_tier=user_tier
-                )
-                logger.info("LangGraph recommendations generated for user %s", user_id)
-            except Exception as e:
-                logger.error(
-                    "LangGraph recommendation failed for user %s: %s",
-                    user_id,
-                    str(e),
-                    exc_info=True,
-                )
-                print("\n\nthe llm returned the following\n: ", llm_result)
-        else:
-            logger.warning(
-                "No shortlisted programmes available for LLM for user %s", user_id
+        try:
+            llm_result = run_recommendation_graph(
+                user_profile=user_profile_for_llm,
+                shortlisted_programs=shortlisted_programmes,
+                user_tier=user_tier
             )
+            logger.info("LangGraph recommendations generated for user %s", user_id)
+        except Exception as e:
+            logger.error("LangGraph recommendation failed for user %s: %s", user_id, str(e), exc_info=True)
 
-        if redis_available:
-            time.sleep(0.5)
-            async_to_sync(channel_layer.group_send)(
-                user_group,
-                {
-                    'type': 'recommendation_status',
-                    'submission_id': 'pending',
-                    'status': 'processing',
-                    'progress': 75,
-                    'message': 'Calculating match scores...',
-                }
-            )
+        send_progress(75, 'Calculating match scores...')
 
-        # ── Strict LLM path guard ─────────────────────────────────────────────
-        # Enter LLM path ONLY when the result contains at least one recommendation.
-        # A truthy-only check (if llm_result:) is insufficient - an empty dict or
-        # a dict with an empty recommendations list would still pass.
+        # 5. Normalise LLM output, then ground every factual field in the DB shortlist
         llm_recs = (
             llm_result.get('recommendations', [])
             if (llm_result and isinstance(llm_result, dict))
             else []
         )
-        if llm_recs and len(llm_recs) > 0:
-            path_used = 'llm'
-            top_recommendations = _build_top_recommendations_from_llm(llm_result)
-            logger.info(
-                "LLM path used for user %s - %s recommendations returned by model",
-                user_id,
-                len(llm_recs),
+        top_recommendations = []
+        if llm_recs:
+            top_recommendations = _ground_recommendations_in_shortlist(
+                _build_top_recommendations_from_llm(llm_result), shortlisted_programmes
             )
-        else:
-            logger.error("LLM failed to return recommendations for user %s and fallback is disabled.", user_id)
+
+        if not top_recommendations:
+            logger.error("LLM returned no usable recommendations for user %s (fallback is disabled).", user_id)
             return response.Response({
                 "error": "ADVISOR_FAILURE",
                 "detail": "Our AI advisor could not generate recommendations for your profile at this time. Please try again later.",
                 "path_used": "error"
             }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-        # ── Tier-based Slicing ──────────────────────────────────────────────
+        path_used = 'llm'
+
+        # 6. Tier-based slicing
         if user_tier == 'scholar_vvip':
             slice_count = 10
         elif user_tier == 'mentor_elite':
             slice_count = 5
         else:
             slice_count = 3
-        
-        sliced_recs = top_recommendations[:slice_count]
 
-        # ── Correlation Data ────────────────────────────────────────────────
-        # Include metadata in the recommendations dict so the UI can log/find it easily.
+        # 'top_5' is the historical key name; it holds 3, 5 or 10 items depending on tier.
         final_recommendations = {
-            "top_5": sliced_recs,
-            "submission_id": "pending", # will be updated after save
+            "top_5": top_recommendations[:slice_count],
+            "submission_id": "pending",  # updated after save
             "path_used": path_used,
         }
 
-        # ── VVIP Premium Injection ──────────────────────────────────────────
         if user_tier == 'scholar_vvip':
             final_recommendations["cluster_summary"] = _build_cluster_summary(eligible_programmes)
 
-        if top_recommendations:
-            first = top_recommendations[0]
-            logger.info("TOP RECOMMENDATION [0] PREPARED: Course='%s', Uni='%s', Keys=%s", 
-                        first.get('course'), first.get('university'), list(first.keys()))
-            logger.info("TOP RECOMMENDATION [0] INSIGHT: %s", first.get('insight'))
-
         logger.info(
             "Final recommendations prepared for user %s via '%s' path: %s",
-            user_id,
-            path_used,
-            [item.get("course") for item in top_recommendations],
+            user_id, path_used, [item.get("course") for item in final_recommendations["top_5"]],
         )
 
+        # 7. Persist
         serializer = self.get_serializer(data={'payload': request.data.get('payload', request.data)})
         serializer.is_valid(raise_exception=True)
-        
-        # 5. Persist Profile Changes (Service Layer)
+
+        # Profile update is best-effort: a failure here must not lose the recommendations
         try:
-            profile = persist_student_profile_from_wizard(request.user, request.data)
-            logger.debug(f"Profile persisted for user {user_id}")
+            persist_student_profile_from_wizard(request.user, request.data)
         except Exception as e:
             logger.warning(f"Profile persistence failed for user {user_id}: {e}")
-            # We continue anyway as per local logic
-            pass
-        
-        # Create instance first to get ID
+
         instance = serializer.save(user=self.request.user, result=final_recommendations)
-        
-        # Update metadata for future-proofing (though not strictly needed if we return correctly)
         final_recommendations["submission_id"] = str(instance.id)
         instance.result = final_recommendations
         instance.save(update_fields=['result'])
 
         logger.info("Created submission %s for user %s", instance.id, user_id)
-        
-        # 8. Send completion via WebSocket
+
         if redis_available:
             async_to_sync(channel_layer.group_send)(
                 user_group,
@@ -534,15 +486,11 @@ class PromptSubmissionViewSet(viewsets.ModelViewSet):
                     'recommendations': final_recommendations,
                 }
             )
-            logger.info(
-                "Sent completion WebSocket for submission %s", instance.id
-            )
-        
-        # 9. Return custom response format
+
         return response.Response({
             "received": True,
             "submission_id": instance.id,
-            "path_used": path_used,   # 'llm' | 'fallback'
+            "path_used": path_used,
             "recommendations": final_recommendations
         }, status=status.HTTP_201_CREATED)
 

@@ -1,3 +1,10 @@
+"""
+cPanel entry point. Phusion Passenger imports `application` from this file.
+
+- Environment variables come from cPanel > Setup Python App (settings.py does not read .env).
+- Restart after deploying: touch tmp/restart.txt (or "Restart" in the cPanel UI).
+- Passenger is WSGI-only: WebSockets (asgi.py / Channels) are not served here.
+"""
 import os
 import sys
 

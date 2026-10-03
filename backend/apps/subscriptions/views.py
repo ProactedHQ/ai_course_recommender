@@ -1,19 +1,34 @@
-from django.http import JsonResponse, HttpResponse
-from django.views.decorators.csrf import csrf_exempt
-from django.db import transaction
+"""
+Subscription upgrades via PayHero (M-Pesa STK push) and referral coupons.
+
+Upgrade flow (frontend: pages/app/Subscription.jsx):
+  1. POST /api/subscriptions/initiate/      -> creates a PENDING Transaction, PayHero sends STK push
+  2. Student enters M-Pesa PIN on their phone
+  3. POST /api/subscriptions/confirmation/  <- PayHero callback (server-to-server, secret-checked)
+                                               marks the Transaction SUCCESS/FAILED and upgrades the user
+  4. GET  /api/subscriptions/status/        <- frontend polls every 3s until completed/failed
+
+Coupons: any logged-in user can mint a 5-char referral code (generate-coupon/);
+a valid code gives 10% off and is recorded in CouponUsed once the payment succeeds.
+"""
+import hmac
+import logging
+import random
+import string
+import uuid
+from decimal import Decimal, InvalidOperation
+
+from django.conf import settings
 from django.contrib.auth import get_user_model
+from django.db import transaction
+from django.views.decorators.csrf import csrf_exempt
+from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.response import Response
-from rest_framework import status
-import json
-import uuid
-import logging
-from .utils import initiate_payhero_stk_push
+
 from .models import Transaction, Coupon, CouponUsed
-import random
-import string
-from django.contrib.auth.decorators import login_required
+from .utils import initiate_payhero_stk_push
 
 User = get_user_model()
 logger = logging.getLogger(__name__)
@@ -22,7 +37,8 @@ logger = logging.getLogger(__name__)
 # --- Helper Functions ---
 
 def get_base_amount(target_tier):
-    """Returns the base price for each subscription tier (1 KES for testing)"""
+    """Return the KES price for a paid tier, or None for an unknown/free tier."""
+    # NOTE: mentor_elite is still at the 1 KES test price.
     amounts = {
         'mentor_elite': 1,
         'scholar_vvip': 499,
@@ -31,7 +47,7 @@ def get_base_amount(target_tier):
 
 
 def validate_coupon(coupon_code):
-    """Checks if a coupon exists and is valid"""
+    """Return the Coupon for `coupon_code`, or None if it is empty or unknown."""
     if not coupon_code:
         return None
     try:
@@ -41,7 +57,7 @@ def validate_coupon(coupon_code):
 
 
 def calculate_discounted_amount(base_amount, coupon_obj):
-    """Applies a 10% discount if a valid coupon is provided"""
+    """Apply the flat 10% coupon discount (rounded to 2dp) when a coupon is present."""
     if coupon_obj:
         discount = float(base_amount) * 0.10
         return round(float(base_amount) - discount, 2)
@@ -49,19 +65,42 @@ def calculate_discounted_amount(base_amount, coupon_obj):
 
 
 def record_coupon_usage(txn):
-    """Records coupon usage in the CouponUsed table after successful payment"""
+    """Record one CouponUsed row for a successful transaction that used a coupon (idempotent)."""
     if txn.coupon:
         try:
-            # Check if usage already recorded for this transaction to avoid duplicates
             if not CouponUsed.objects.filter(transaction=txn).exists():
                 CouponUsed.objects.create(
                     coupon=txn.coupon,
                     transaction=txn
                 )
-                print(f"[OK] [COUPON] Usage recorded: {txn.coupon.code} for transaction {txn.ref_id}")
+                logger.info(f"[COUPON] Usage recorded: {txn.coupon.code} for transaction {txn.ref_id}")
         except Exception as e:
-            print(f"[ERROR] [COUPON] Failed to record usage: {str(e)}")
-            logger.error(f"Coupon usage recording failed: {str(e)}")
+            logger.error(f"[COUPON] Coupon usage recording failed: {str(e)}")
+
+
+def _callback_secret_is_valid(request):
+    """
+    True if the callback carries ?secret= matching MPESA_CALLBACK_SECRET.
+
+    utils.build_callback_url() puts the secret on the URL we hand to PayHero, so only
+    callbacks for pushes we started can pass. With no secret configured, nothing passes.
+    """
+    expected = settings.MPESA_CALLBACK_SECRET
+    if not expected:
+        logger.error("[confirmation] MPESA_CALLBACK_SECRET is not set - rejecting all payment callbacks.")
+        return False
+    provided = request.query_params.get('secret', '')
+    return hmac.compare_digest(str(provided), str(expected))
+
+
+def _paid_amount_covers(txn, amount):
+    """True if the amount PayHero reports is at least what we charged (missing amount = trust status)."""
+    if amount in (None, ''):
+        return True
+    try:
+        return Decimal(str(amount)) >= txn.amount
+    except (InvalidOperation, TypeError):
+        return False
 
 
 # --- Views ---
@@ -70,44 +109,42 @@ def record_coupon_usage(txn):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def initiate_payment(request):
-    print("\n--- [initiate_payment] Starting payment initiation ---")
+    """
+    Start an upgrade: price the tier (minus coupon), store a PENDING Transaction,
+    and ask PayHero to send the STK push.
+
+    Body: {"phone_number": "07...", "target_tier": "mentor_elite"|"scholar_vvip", "coupon": "AB12C"?}
+    200:  {"success": true, "external_reference": "PH-XXXXXXXX", "message": ...}
+    400:  {"error": "..."}  (missing phone, bad tier, or PayHero refused the push)
+    """
     try:
-        data = request.data # DRF handles JSON parsing
+        data = request.data
         phone_number = data.get('phone_number')
-        target_tier = data.get('target_tier') # explorer, mentor_elite, scholar_vvip
-        coupon_code = data.get('coupon') # Optional coupon from frontend
-        
-        print(f"[initiate_payment] Data received: phone={phone_number}, tier={target_tier}, coupon={coupon_code}")
+        target_tier = data.get('target_tier')  # mentor_elite | scholar_vvip
+        coupon_code = data.get('coupon')  # Optional referral coupon
 
         # 1. Get base amount
         base_amount = get_base_amount(target_tier)
-        
+
         if not phone_number:
-            print("[initiate_payment] Error: Phone number is missing")
             return Response({'error': 'Phone number is required'}, status=status.HTTP_400_BAD_REQUEST)
         if base_amount is None:
-            print("[initiate_payment] Error: Invalid tier selected")
             return Response({'error': 'Invalid tier selected'}, status=status.HTTP_400_BAD_REQUEST)
 
-        # 2. Check for coupon and calculate discount
+        # 2. Check for coupon and calculate discount (an unknown coupon just means full price)
         coupon_obj = validate_coupon(coupon_code)
         amount = calculate_discounted_amount(base_amount, coupon_obj)
-        
-        if coupon_code and not coupon_obj:
-            print(f"[initiate_payment] Warning: Invalid coupon code '{coupon_code}' provided")
-            # Optionally, you could return an error here, but typically we just proceed with the full amount
 
-        print(f"\n--- [initiate_payment] REQUEST ---")
-        print(f"User: {request.user.username} | Current Tier: {request.user.subscription_tier}")
-        print(f"Target Tier: {target_tier}")
-        print(f"Base Amount: {base_amount} | Final Amount: {amount}")
-        if coupon_obj:
-            print(f"Applied Coupon: {coupon_obj.code} (10% Discount)")
+        logger.info(
+            "[initiate_payment] user=%s current_tier=%s target_tier=%s amount=%s coupon=%s",
+            request.user.id, request.user.subscription_tier, target_tier, amount,
+            coupon_obj.code if coupon_obj else None,
+        )
 
-        # 3. Create a pending transaction record
+        # 3. Create a pending transaction record; its ref_id is how the callback finds it
         external_reference = f"PH-{uuid.uuid4().hex[:8].upper()}"
         customer_name = request.user.get_full_name() or request.user.username
-        
+
         Transaction.objects.create(
             user=request.user,
             phone=phone_number,
@@ -117,9 +154,8 @@ def initiate_payment(request):
             coupon=coupon_obj,
             status='PENDING'
         )
-        print("[initiate_payment] Pending transaction record created in DB")
 
-        print("[initiate_payment] Calling initiate_payhero_stk_push...")
+        # 4. Ask PayHero to push the M-Pesa prompt to the phone
         response = initiate_payhero_stk_push(
             phone_number=phone_number,
             amount=amount,
@@ -127,10 +163,9 @@ def initiate_payment(request):
             customer_name=customer_name,
             provider="m-pesa"
         )
-        print(f"[initiate_payment] PayHero Response: {response}")
+        logger.info("[initiate_payment] PayHero response for %s: %s", external_reference, response)
 
         if response.get('success') and response.get('status') == 'QUEUED':
-            print("[initiate_payment] STK push queued successfully")
             return Response({
                 'success': True,
                 'reference': response.get('reference'),
@@ -139,88 +174,92 @@ def initiate_payment(request):
                 'message': 'Payment request sent. Check your phone.'
             })
 
-        print(f"[initiate_payment] STK push failed: {response.get('error', 'Payment initiation failed')}")
+        # Push was not queued: close the transaction so status polling reports it
+        Transaction.objects.filter(ref_id=external_reference).update(
+            status='FAILED', failure_reason=str(response.get('error', 'Payment initiation failed'))
+        )
         return Response({
             'error': response.get('error', 'Payment initiation failed')
         }, status=status.HTTP_400_BAD_REQUEST)
 
     except Exception as e:
-        print(f"[initiate_payment] Exception occurred: {str(e)}")
         logger.error(f"Payment initiation failed: {str(e)}", exc_info=True)
-        return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+        return Response({'error': 'Payment initiation failed. Please try again.'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 @csrf_exempt
 @api_view(['POST'])
 @permission_classes([AllowAny])
 def confirmation(request):
-    print("\n--- [confirmation] Received callback from PayHero ---")
+    """
+    PayHero callback (server-to-server). Not called by the frontend.
+
+    Security checks, in order:
+      1. ?secret= must match MPESA_CALLBACK_SECRET            -> else 403
+      2. ExternalReference must match a Transaction we created  -> else 404
+      3. Only PENDING transactions are processed (replays are acknowledged, not re-applied)
+      4. A "success" must report an Amount >= what we charged   -> else marked FAILED
+
+    On success the user's subscription_tier is set to the transaction's target_tier.
+    """
+    if not _callback_secret_is_valid(request):
+        logger.warning("[confirmation] Rejected callback with missing/invalid secret from %s",
+                       request.META.get('REMOTE_ADDR'))
+        return Response({'success': False, 'message': 'Forbidden'}, status=status.HTTP_403_FORBIDDEN)
+
     try:
         payload = request.data
-        print(f"[confirmation] Full payload received: {payload}")
-        
-        # PayHero usually sends data in a 'response' or directly
-        response_data = payload.get('response', payload) 
+        logger.info(f"[confirmation] Payload received: {payload}")
+
+        # PayHero usually nests the data under 'response'
+        response_data = payload.get('response', payload)
 
         amount = response_data.get('Amount')
-        checkout_request_id = response_data.get('CheckoutRequestID')
         external_reference = response_data.get('ExternalReference')
         mpesa_receipt = response_data.get('MpesaReceiptNumber')
-        phone = response_data.get('Phone')
         result_code = response_data.get('ResultCode')
         status_str = response_data.get('Status')
         result_desc = response_data.get('ResultDesc', response_data.get('Description', ''))
-        
-        print(f"[confirmation] Extracted: ref={external_reference}, status={status_str}, result={result_code}, receipt={mpesa_receipt}, desc={result_desc}")
 
         if not external_reference:
-            print("[confirmation] Error: Missing external reference in payload")
-            logger.error(f"Missing external reference in payload: {payload}")
+            logger.error(f"[confirmation] Missing external reference in payload: {payload}")
             return Response({'success': False, 'message': 'Missing external reference'}, status=status.HTTP_400_BAD_REQUEST)
 
-        payment_success = (status_str == 'Success' or status_str == 'SUCCESS' or result_code == 0)
-        print(f"[confirmation] Payment success status: {payment_success}")
+        payment_success = (status_str in ('Success', 'SUCCESS') or result_code == 0)
 
         with transaction.atomic():
             try:
-                txn = Transaction.objects.get(ref_id=external_reference)
-                print(f"[confirmation] Found transaction in DB for ref: {external_reference}")
-                
-                txn.status = 'SUCCESS' if payment_success else 'FAILED'
-                txn.mpesa_receipt = mpesa_receipt
-                if not payment_success:
-                    txn.failure_reason = result_desc
-                txn.save()
-                print(f"[confirmation] Updated transaction status to: {txn.status}")
-
-                if payment_success and txn.user:
-                    user = txn.user
-                    print(f"[UPGRADE_FLOW] Processing successful payment for {user.username}")
-                    
-                    # Record coupon usage if applicable
-                    record_coupon_usage(txn)
-                    
-                    print(f"[UPGRADE_FLOW] Stored target_tier in txn: {txn.target_tier}")
-                    
-                    # Use the stored target tier instead of guessing from amount
-                    user.subscription_tier = txn.target_tier
-                    user.save(update_fields=['subscription_tier'])
-                    
-                    # Force refresh from DB to verify
-                    user.refresh_from_db()
-                    print(f"[UPGRADE_FLOW] User tier AFTER save: {user.subscription_tier}")
-                    
-                    if user.subscription_tier == txn.target_tier:
-                        print(f"[OK] [UPGRADE_FLOW] SUCCESS: User {user.username} successfully moved to {user.subscription_tier}")
-                    else:
-                        print(f"[ERROR] [UPGRADE_FLOW] ERROR: User tier mismatch! Expected {txn.target_tier}, got {user.subscription_tier}")
-                    
-                    logger.info(f"User {user.id} upgraded to {user.subscription_tier} via PayHero")
-
+                # Lock the row so two callbacks for the same payment can't both apply
+                txn = Transaction.objects.select_for_update().get(ref_id=external_reference)
             except Transaction.DoesNotExist:
-                print(f"[confirmation] Error: Transaction not found for ref: {external_reference}")
-                logger.error(f"Transaction not found: {external_reference}")
+                logger.error(f"[confirmation] Transaction not found: {external_reference}")
                 return Response({'success': False, 'message': 'Transaction not found'}, status=status.HTTP_404_NOT_FOUND)
+
+            if txn.status != 'PENDING':
+                logger.info("[confirmation] %s already %s - ignoring repeat callback", txn.ref_id, txn.status)
+                return Response({'success': txn.status == 'SUCCESS', 'message': 'Already processed'},
+                                status=status.HTTP_200_OK)
+
+            if payment_success and not _paid_amount_covers(txn, amount):
+                logger.error("[confirmation] %s reported Amount=%s but we charged %s - marking FAILED",
+                             txn.ref_id, amount, txn.amount)
+                payment_success = False
+                result_desc = 'Paid amount does not match the subscription price.'
+
+            txn.status = 'SUCCESS' if payment_success else 'FAILED'
+            txn.mpesa_receipt = mpesa_receipt
+            if not payment_success:
+                txn.failure_reason = result_desc
+            txn.save()
+
+            if payment_success and txn.user:
+                user = txn.user
+                record_coupon_usage(txn)
+
+                # Use the tier stored at initiation, never one guessed from the amount
+                user.subscription_tier = txn.target_tier
+                user.save(update_fields=['subscription_tier'])
+                logger.info(f"[confirmation] User {user.id} upgraded to {user.subscription_tier} via {txn.ref_id}")
 
         return Response({
             'success': payment_success,
@@ -228,49 +267,48 @@ def confirmation(request):
         }, status=status.HTTP_200_OK)
 
     except Exception as e:
-        print(f"[confirmation] Exception occurred: {str(e)}")
-        logger.error(f"Confirmation error: {str(e)}", exc_info=True)
+        logger.error(f"[confirmation] Confirmation error: {str(e)}", exc_info=True)
         return Response({'success': False, 'message': 'Server error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def payment_status(request):
-    print(f"\n--- [payment_status] Checking status for user: {request.user.username} ---")
+    """
+    Report the state of the user's most recent Transaction.
+
+    Polled every 3s by the frontend after initiate/. Returns
+    {"status": "completed"|"failed"|"pending"|"not_found", "message": ..., "tier"?: ...}.
+    Also self-heals: a SUCCESS transaction whose tier was not applied gets applied here.
+    """
     txn = Transaction.objects.filter(user=request.user).order_by('-created_at').first()
 
     if txn:
-        print(f"[payment_status] Latest transaction found: ref={txn.ref_id}, status={txn.status}, target={txn.target_tier}")
-        
         # Self-healing: If txn is SUCCESS but user tier doesn't match, fix it now
         if txn.status == 'SUCCESS' and txn.target_tier and request.user.subscription_tier != txn.target_tier:
-            print(f"[WARN] [payment_status] Tier mismatch detected! Repairing: {request.user.subscription_tier} -> {txn.target_tier}")
+            logger.warning("[payment_status] Repairing tier for user %s: %s -> %s",
+                           request.user.id, request.user.subscription_tier, txn.target_tier)
             request.user.subscription_tier = txn.target_tier
             request.user.save(update_fields=['subscription_tier'])
-            print(f"[OK] [payment_status] Repair successful")
 
         if txn.status == 'SUCCESS':
-            print(f"[payment_status] Returning success. Current user tier: {request.user.subscription_tier}")
             return Response({
                 'status': 'completed',
                 'message': 'Payment completed',
                 'tier': request.user.subscription_tier
             })
         elif txn.status == 'FAILED':
-            print("[payment_status] Returning failed status")
             return Response({'status': 'failed', 'message': txn.failure_reason or 'Payment failed. Please try again.'})
-        
-        print("[payment_status] Returning pending status")
+
         return Response({'status': 'pending', 'message': 'Waiting for confirmation'})
 
-    print("[payment_status] No transaction found for user")
     return Response({'status': 'not_found', 'message': 'No transaction found'})
 
 
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
 def test_stk(request):
-
+    """DEBUG-only (see urls.py): send a 10 KES test push to a hardcoded number."""
     phone_number = '[REDACTED_PHONE]'  # change for real testing
     amount = 10
     external_reference = str(request.user.id)
@@ -303,6 +341,7 @@ def test_stk(request):
 @permission_classes([AllowAny])
 @csrf_exempt
 def debug_headers(request):
+    """DEBUG-only (see urls.py): echo request headers to diagnose proxy/header stripping."""
     headers = {k: v for k, v in request.META.items() if k.startswith('HTTP_')}
     return Response({
         'headers': headers,
@@ -312,7 +351,6 @@ def debug_headers(request):
         'is_secure': request.is_secure(),
         'csrf_cookie': request.COOKIES.get('csrftoken'),
     })
-
 
 
 def generate_unique_coupon(marketer_email: str):
@@ -336,12 +374,11 @@ def generate_unique_coupon(marketer_email: str):
             return coupon
 
 
-
 @csrf_exempt
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def generate_my_coupon(request):
-    # Use logged-in user's email as marketer ID
+    """Mint a new referral coupon tied to the caller's email. Returns {"success": true, "coupon": "AB12C"}."""
     marketer_email = request.user.email
 
     if not marketer_email:
@@ -353,4 +390,4 @@ def generate_my_coupon(request):
         'success': True,
         'coupon': coupon.code,
         'message': 'Your referral coupon has been created successfully!'
-    }, status=status.HTTP_201_CREATED)
+    })

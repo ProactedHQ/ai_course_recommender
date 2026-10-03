@@ -1,5 +1,9 @@
 /**
  * WebSocket connector for AI Course Recommender frontend.
+ *
+ * NOTE: not imported anywhere at the moment. Production runs on cPanel Passenger
+ * (WSGI), which cannot serve WebSockets, so recommendation progress is not streamed;
+ * the app waits for the POST /api/prompts/ response instead.
  * Provides React hooks and utilities for WebSocket connections.
  *
  * Usage in React:

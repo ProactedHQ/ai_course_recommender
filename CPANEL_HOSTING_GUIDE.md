@@ -104,6 +104,10 @@ To host this project successfully on cPanel, ensure your hosting plan meets thes
 
 ### **Step 3: Configure Environment Variables**
 
+> The complete, current list (including `OPENAI_API_KEY`, the `PAYHERO_*` variables and
+> `MPESA_CALLBACK_SECRET`) is in [SYSTEM_REFERENCE.md §2](./SYSTEM_REFERENCE.md#2-configuration-environment-variables).
+> The live `settings.py` reads only the cPanel Python App variables, not `backend/.env`.
+
 Create these variables in your cPanel Python App interface or upload a `.env` file to each directory:
 
 #### **Backend (.env)**

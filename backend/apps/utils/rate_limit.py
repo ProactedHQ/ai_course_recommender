@@ -1,6 +1,10 @@
 """
 Rate limiting decorators for API views.
 Prevents abuse and ensures fair resource usage.
+
+NOTE: limits are only enforced when settings.REDIS_AVAILABLE is True (shared Redis
+counter). Without Redis the decorator is a no-op, because per-process memory would
+give each Passenger worker its own counter.
 """
 from functools import wraps
 from django.core.cache import cache

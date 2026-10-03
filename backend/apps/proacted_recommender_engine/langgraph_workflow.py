@@ -1,4 +1,20 @@
-# python_scripts/langgraph_workflow.py
+"""
+LangGraph recommendation workflow (the only place the backend talks to OpenAI).
+
+Called from students.views.PromptSubmissionViewSet via run_recommendation_graph().
+Input is the list of programmes the student is ALREADY eligible for (rule-based,
+see students/eligibility_engine.py) plus their wizard profile.
+
+Graph:  filter_batches -> advisor -> END
+  filter_batches  Split the eligible list into batches of 500; one LLM call per batch
+                  picks 15 programme codes. A failed batch falls back to its first 5.
+  advisor         One LLM call ranks the collected candidates into the final top N (<=10)
+                  and writes the personalised insight / career_preview / action_plan.
+
+Transport: langchain_openai.ChatOpenAI -> POST https://api.openai.com/v1/chat/completions,
+authenticated with OPENAI_API_KEY (from the process env, or backend/.env via load_dotenv below).
+Typical cost per submission: (ceil(eligible/500) + 1) chat completions.
+"""
 from typing import TypedDict, List, Dict, Any, Optional
 from dotenv import load_dotenv
 from langgraph.graph import StateGraph, END
@@ -14,8 +30,9 @@ load_dotenv()
 
 logger = logging.getLogger(__name__)
 
-# LLM setup
-llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.2, max_tokens=3000)
+# LLM setup. The whole graph runs inside one HTTP request on cPanel/Passenger, so each
+# call is capped (timeout seconds, one retry) instead of the SDK default of waiting indefinitely.
+llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.2, max_tokens=3000, timeout=60, max_retries=1)
 
 # Structured output definition
 class Recommendation(BaseModel):
@@ -212,6 +229,7 @@ class GraphState(TypedDict):
 
 # Nodes
 def filter_batches_node(state: GraphState) -> GraphState:
+    """Stage 1: narrow each 500-programme batch to ~15 candidates (state['batch_candidates'])."""
     all_programs = state["shortlisted_programs"]
     batch_size = 500
     candidates = []
@@ -289,6 +307,12 @@ def filter_batches_node(state: GraphState) -> GraphState:
     return state
 
 def advisor_node(state: GraphState) -> GraphState:
+    """
+    Stage 2: rank candidates into the final list (state['final_result']).
+
+    Output shape: {"recommendations": [...], "premium_details": [...]} - on any failure
+    both lists are empty, which the view turns into an ADVISOR_FAILURE response.
+    """
     logger.info("GENERATING FINAL RECOMMENDATIONS FROM CANDIDATES...")
     raw_response = None
     try:
@@ -363,6 +387,13 @@ def run_recommendation_graph(
     shortlisted_programs: List[Dict[str, Any]],
     user_tier: str = 'explorer'
 ) -> dict:
+    """
+    Entry point used by the prompts view.
+
+    user_profile          output of eligibility_engine._build_user_profile_for_llm
+    shortlisted_programs  output of eligibility_engine._serialize_programmes_for_llm
+    Returns the advisor's {"recommendations": [...], "premium_details": [...]} dict.
+    """
     initial_state = {
         "user_profile": user_profile,
         "shortlisted_programs": shortlisted_programs,

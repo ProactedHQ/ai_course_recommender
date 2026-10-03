@@ -22,6 +22,9 @@ const MPesaIcon = () => (
     </div>
 );
 
+// How long to wait for PayHero's callback before giving up on a payment.
+const POLL_TIMEOUT_MS = 2 * 60 * 1000;
+
 const Subscription = () => {
     const { subscription, refreshAuth, loading: authLoading } = useAuth();
     const [upgrading, setUpgrading] = useState(null);
@@ -84,12 +87,22 @@ const Subscription = () => {
         }
     };
 
-    // Polling effect
+    // Polling effect: after initiate/, ask the backend every 3s whether PayHero's
+    // callback has arrived (GET /api/subscriptions/status/). Gives up after
+    // POLL_TIMEOUT_MS so an unanswered STK push doesn't poll forever.
     useEffect(() => {
         let interval;
         if (pollingTxn) {
             console.log("[Subscription] Polling started for transaction status...");
+            const startedAt = Date.now();
             interval = setInterval(async () => {
+                if (Date.now() - startedAt > POLL_TIMEOUT_MS) {
+                    clearInterval(interval);
+                    setPollingTxn(null);
+                    setUpgrading(null);
+                    setError('We did not receive a payment confirmation. If you completed the M-Pesa prompt, refresh this page in a minute to see your plan.');
+                    return;
+                }
                 try {
                     // Changed to GET as per the refactored backend view
                     const statusRes = await apiFetch('/api/subscriptions/status/', {

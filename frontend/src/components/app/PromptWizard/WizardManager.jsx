@@ -154,7 +154,8 @@ const WizardManager = ({ onComplete, isSubmitting, result, onRestart, submitErro
 
                 // Fallback: No history, try core profile pre-fill (KCSE subjects)
                 console.log("[Sync] No history found. Falling back to core profile pre-fill.");
-                const profileData = await apiFetch('/api/students/profile/full/');
+                // Backend route: course_recomeder_backend/urls.py -> StudentProfileViewSet.full
+                const profileData = await apiFetch('/api/profile/');
                 if (profileData?.academic_results?.length > 0) {
                     const sortedResults = [...profileData.academic_results].sort((a, b) => {
                         const score = (n) => n === 'English' ? 1 : n === 'Kiswahili' ? 2 : n.toLowerCase().includes('math') ? 3 : 99;

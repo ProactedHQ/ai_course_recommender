@@ -1,6 +1,10 @@
 """
 Redis availability detection and configuration.
 Provides graceful fallback for development environments without Redis.
+
+Used by settings.py at startup. REDIS_URL (Upstash in production) or REDIS_HOST/PORT.
+When Redis is reachable: django-redis cache, Channels layer, rate limiting on.
+When it is not: LocMem cache (per process), no WebSocket progress, no rate limiting.
 """
 import os
 import sys

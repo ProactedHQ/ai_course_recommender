@@ -49,40 +49,88 @@ class PromptUsageTests(TestCase):
         # We don't mock 'create' globally anymore, as we want to test its internal usage enforcement logic.
         # Instead, we mock the heavy components inside it during tests.
 
-    @patch('apps.students.views.WizardPayloadSerializer')
-    @patch('apps.students.views.PromptSubmissionViewSet.get_serializer')
-    @patch('apps.students.views.async_to_sync', side_effect=lambda x: x)
-    @patch('channels.layers.get_channel_layer')
-    def test_prompt_usage_increments(self, mock_get_channel, mock_async, mock_ser, mock_wizard):
-        section("Usage counter increments after successful submission")
-        
-        # Setup mocks to let create() succeed
-        mock_get_channel.return_value = MagicMock()
-        mock_wizard.return_value.is_valid.return_value = True
-        mock_ser.return_value.is_valid.return_value = True
-        mock_ser.return_value.save.return_value = MagicMock(id=101)
-        
-        # Payload must match WizardPayloadSerializer structure
-        data = {
-            "payload": {
-                "student_profile": {
-                    "kcse": {"subjects": []},
-                    "personal_cognitive": {},
-                    "practical_factors": {},
-                    "interests_exposure": {},
-                    "decision_priorities": {"items": []}
-                }
-            }
+    # The recommendation pipeline with every heavy step mocked out:
+    # one eligible programme (code 1234567) and an LLM that recommends it.
+    SHORTLIST = [{
+        'course': 'Bachelor of Science (Computer Science)', 'university': 'University of Nairobi',
+        'public_private': 'PUBLIC_UNIVERSITY', 'level': 'DEGREE', 'cluster': 'Engineering',
+        'location': 'Nairobi', 'latest_cutoff': 40.1, 'latest_year': 2024,
+        'prev_cutoff': 39.5, 'prev_year': 2023, 'student_cluster_points': 42.0,
+        'programme_code': '1234567',
+    }]
+
+    def _llm_result(self, code='1234567'):
+        return {
+            'recommendations': [{
+                'rank': 1, 'course': 'Made-up name', 'university': 'University of Nairobi',
+                'latest_cutoff': 99.9, 'programme_code': code, 'insight': 'Fits your maths strength.',
+            }],
+            'premium_details': [],
         }
-        
+
+    def _post_with_pipeline_mocked(self, eligible=True, llm_result=None, submission_id=101):
+        payload = {"payload": {"student_profile": {}}}
+        with patch('apps.students.views.WizardPayloadSerializer') as mock_wizard, \
+             patch('apps.students.views.PromptSubmissionViewSet.get_serializer') as mock_ser, \
+             patch('apps.students.views._extract_student_grades', return_value={'121': 'A', 'MEAN': 'A'}), \
+             patch('apps.students.views.get_eligible_programmes', return_value=[{}] if eligible else []), \
+             patch('apps.students.views.filter_eligible_only', side_effect=lambda progs: progs), \
+             patch('apps.students.views._serialize_programmes_for_llm', return_value=self.SHORTLIST), \
+             patch('apps.students.views._build_user_profile_for_llm', return_value={}), \
+             patch('apps.students.views._build_cluster_summary', return_value=[]), \
+             patch('apps.students.views.persist_student_profile_from_wizard'), \
+             patch('apps.students.views.run_recommendation_graph',
+                   return_value=llm_result if llm_result is not None else self._llm_result()):
+            mock_wizard.return_value.is_valid.return_value = True
+            mock_wizard.return_value.validated_data = {}
+            mock_ser.return_value.is_valid.return_value = True
+            mock_ser.return_value.save.return_value = MagicMock(id=submission_id)
+            return self.client.post('/api/prompts/', payload, format='json')
+
+    # ── 1. Usage Tracking ─────────────────────────────────────────────
+    def test_prompt_usage_increments(self):
+        section("Usage counter increments after successful submission")
+
         initial_usage = self.user.prompts_used_in_period
-        response = self.client.post('/api/prompts/', data, format='json')
-        
-        # We need to refresh from DB
+        response = self._post_with_pipeline_mocked()
+
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.user.refresh_from_db()
-        
         self.assertEqual(self.user.prompts_used_in_period, initial_usage + 1)
         ok(f"Usage: {initial_usage} → {self.user.prompts_used_in_period} ✔")
+
+    def test_failed_submission_refunds_prompt(self):
+        section("No eligible programmes → 422 and prompt refunded")
+
+        response = self._post_with_pipeline_mocked(eligible=False)
+
+        self.assertEqual(response.status_code, status.HTTP_422_UNPROCESSABLE_ENTITY)
+        self.assertEqual(response.data['error'], 'NO_ELIGIBLE_PROGRAMMES')
+        self.user.refresh_from_db()
+        self.assertEqual(self.user.prompts_used_in_period, 0)
+        ok("Student keeps their prompt ✔")
+
+    def test_llm_facts_are_replaced_with_db_values(self):
+        section("LLM course/cutoff text is overwritten by DB values")
+
+        response = self._post_with_pipeline_mocked()
+
+        rec = response.data['recommendations']['top_5'][0]
+        self.assertEqual(rec['course'], 'Bachelor of Science (Computer Science)')
+        self.assertEqual(rec['cutoff_points'], 40.1)
+        self.assertEqual(rec['insight'], 'Fits your maths strength.')
+        ok("Grounded in shortlist ✔")
+
+    def test_invented_programme_is_dropped(self):
+        section("LLM-invented programme code → ADVISOR_FAILURE and refund")
+
+        response = self._post_with_pipeline_mocked(llm_result=self._llm_result(code='0000000'))
+
+        self.assertEqual(response.status_code, status.HTTP_500_INTERNAL_SERVER_ERROR)
+        self.assertEqual(response.data['error'], 'ADVISOR_FAILURE')
+        self.user.refresh_from_db()
+        self.assertEqual(self.user.prompts_used_in_period, 0)
+        ok("Nothing invented reaches the student ✔")
 
     # ── 2. Limit Enforcement ──────────────────────────────────────────
     def test_explorer_limit_reached(self):
@@ -103,67 +151,28 @@ class PromptUsageTests(TestCase):
     # ── 3. Higher Tiers have higher limits ──────────────────────────
     def test_mentor_elite_handles_more_prompts(self):
         section("High tier (Mentor Elite) allowed more prompts")
-        
+
         self.user.subscription_tier = 'mentor_elite'
         self.user.prompts_used_in_period = 4 # Limit is 5
         self.user.save()
-        
-        # Using a minimal mock to avoid full AI call
-        with patch('apps.students.views.WizardPayloadSerializer') as mock_wizard:
-            with patch('apps.students.views.PromptSubmissionViewSet.get_serializer') as mock_ser:
-                with patch('apps.students.views.async_to_sync', side_effect=lambda x: x):
-                    with patch('channels.layers.get_channel_layer'):
-                        mock_wizard.return_value.is_valid.return_value = True
-                        mock_ser.return_value.is_valid.return_value = True
-                        mock_ser.return_value.save.return_value = MagicMock(id=202)
-                        
-                        # Valid payload
-                        payload = {
-                            "payload": {
-                                "student_profile": {
-                                    "kcse": {"subjects": []},
-                                    "personal_cognitive": {},
-                                    "practical_factors": {},
-                                    "interests_exposure": {},
-                                    "decision_priorities": {"items": []}
-                                }
-                            }
-                        }
-                        response = self.client.post('/api/prompts/', payload, format='json')
-                        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-            
+
+        response = self._post_with_pipeline_mocked(submission_id=202)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
         ok("Mentor Elite allowed at 4 prompts (limit is 5) ✔")
 
     def test_scholar_vvip_is_unlimited(self):
         section("Scholar VVIP is unlimited")
-        
+
         self.user.subscription_tier = 'scholar_vvip'
         self.user.prompts_used_in_period = 100 # Way beyond others
         self.user.save()
-        
-        with patch('apps.students.views.WizardPayloadSerializer') as mock_wizard:
-            with patch('apps.students.views.PromptSubmissionViewSet.get_serializer') as mock_ser:
-                with patch('apps.students.views.async_to_sync', side_effect=lambda x: x):
-                    with patch('channels.layers.get_channel_layer'):
-                        mock_wizard.return_value.is_valid.return_value = True
-                        mock_ser.return_value.is_valid.return_value = True
-                        mock_ser.return_value.save.return_value = MagicMock(id=303)
-                        
-                        payload = {
-                            "payload": {
-                                "student_profile": {
-                                    "kcse": {"subjects": []},
-                                    "personal_cognitive": {},
-                                    "practical_factors": {},
-                                    "interests_exposure": {},
-                                    "decision_priorities": {"items": []}
-                                }
-                            }
-                        }
-                        response = self.client.post('/api/prompts/', payload, format='json')
-                        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
-        
+
+        response = self._post_with_pipeline_mocked(submission_id=303)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+
         ok("Scholar VVIP allowed even at 100 prompts ✔")
+
 
     # ── 4. Usage Reset Logic ───────────────────────────────────────────
     def test_usage_reset_at_start_of_month(self):

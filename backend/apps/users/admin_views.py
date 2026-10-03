@@ -225,10 +225,16 @@ class AdminUserListView(APIView):
         summary="List/Manage Users",
         description="Returns a list of all registered users or updates a user's status/roles.",
     )
-    def get(self, request):
+    def get(self, request, pk=None):
         """
-        Returns a list of all users.
+        Returns a list of all users, or one user when called as /api/admin/users/<pk>.
         """
+        if pk is not None:
+            try:
+                return Response(AdminUserSerializer(User.objects.get(pk=pk)).data)
+            except User.DoesNotExist:
+                return Response({"error": "User not found"}, status=status.HTTP_404_NOT_FOUND)
+
         users = User.objects.all().order_by('-date_joined')
         serializer = AdminUserSerializer(users, many=True)
         return Response(serializer.data)

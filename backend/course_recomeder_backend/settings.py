@@ -329,6 +329,18 @@ if env_bool("REQUIRE_MPESA", False):
     if missing:
         raise RuntimeError(f"Missing required M-Pesa environment variables: {', '.join(missing)}")
 
+# -----------------------------------------------------------------------------
+# PayHero (env only; the live payment provider used by apps/subscriptions)
+# -----------------------------------------------------------------------------
+# PAYHERO_CALLBACK_URL must point at /api/subscriptions/confirmation/.
+# The callback is authenticated with MPESA_CALLBACK_SECRET (above): it is appended
+# to the callback URL as ?secret=... when an STK push is started, and checked again
+# when PayHero calls back. If MPESA_CALLBACK_SECRET is empty, every callback is rejected.
+PAYHERO_CHANNEL_ID = os.environ.get("PAYHERO_CHANNEL_ID", "").strip()
+PAYHERO_API_USERNAME = os.environ.get("PAYHERO_API_USERNAME", "").strip()
+PAYHERO_API_PASSWORD = os.environ.get("PAYHERO_API_PASSWORD", "").strip()
+PAYHERO_CALLBACK_URL = os.environ.get("PAYHERO_CALLBACK_URL", "").strip()
+
 CACHE_TTL = {
     'SUBJECTS': 60 * 60 * 24,      # 24 hours
     'INSTITUTIONS': 60 * 60 * 12,   # 12 hours

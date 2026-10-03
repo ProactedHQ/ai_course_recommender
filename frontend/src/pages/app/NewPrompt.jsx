@@ -55,16 +55,23 @@ const NewPrompt = () => {
             return true; // Notify success
         } catch (err) {
             console.error('Submission error:', err);
-            let rawMsg = err.message || '';
+            // apiFetch sets err.status / err.data (see lib/apiClient.js);
+            // the backend error codes come from PromptSubmissionViewSet.create.
+            const rawMsg = err.message || '';
+            const code = err.data?.error;
             let friendlyError = 'Our servers are currently busy. Please try again soon.';
-            
-            if (rawMsg.includes('Failed to fetch') || rawMsg.includes('NetworkError')) {
+
+            if (!err.status && (rawMsg.includes('Failed to fetch') || rawMsg.includes('NetworkError'))) {
                 friendlyError = 'Internet connection error. Please verify your network and try again.';
-            } else if (rawMsg.includes('400') || rawMsg.includes('Validation')) {
+            } else if (code === 'PROMPT_LIMIT_REACHED') {
+                friendlyError = `${err.data.detail} Upgrade your plan to get more recommendations.`;
+            } else if (code === 'NO_ELIGIBLE_PROGRAMMES' || code === 'NO_GRADES') {
+                friendlyError = err.data.detail;
+            } else if (err.status === 400) {
                 friendlyError = 'There was an issue processing your profile. Please check your answers and try again.';
-            } else if (rawMsg.includes('429')) {
+            } else if (err.status === 429) {
                 friendlyError = 'Too many requests. Please wait a moment and try again.';
-            } else if (rawMsg.includes('50') || rawMsg.includes('Technical')) {
+            } else if (err.status >= 500) {
                 friendlyError = 'A technical error occurred on our end. Please try again shortly.';
             }
 

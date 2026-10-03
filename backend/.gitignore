@@ -41,3 +41,6 @@ Thumbs.db
 /extraction_output/
 *.csv
 *.xlsx
+
+# Archived env files (contain secrets)
+*env*.zip

@@ -3,6 +3,16 @@ eligibility_engine.py - Bridge for Student KCSE eligibility checking.
 
 Bridges the Student View logic with the robust, optimized eligibility filter
 living in backend/apps/universities/utils/eligibility_filter.py.
+
+Order of use in students.views.PromptSubmissionViewSet:
+  _extract_student_grades          wizard payload -> {subject_code: grade, 'MEAN': grade}
+  get_eligible_programmes          pick level from MEAN, run the DB filter, diversity/prestige sort
+  filter_eligible_only             keep is_eligible=True
+  _serialize_programmes_for_llm    plain dicts the LLM sees (and grounding reuses)
+  _build_user_profile_for_llm      the 6 wizard sections as one dict for the prompt
+  _build_top_recommendations_from_llm  normalise LLM field names
+  _ground_recommendations_in_shortlist overwrite facts with DB values, drop invented codes
+  _build_cluster_summary           Scholar VVIP extra
 """
 
 import logging
@@ -491,6 +501,61 @@ def _build_top_recommendations_from_llm(llm_result: Any) -> List[Dict[str, Any]]
         
         # Note: 'match_score' is explicitly OMITTED to prevent fabrication.
     return result
+
+
+def _ground_recommendations_in_shortlist(
+    recommendations: List[Dict[str, Any]],
+    shortlisted_programmes: List[Dict[str, Any]],
+) -> List[Dict[str, Any]]:
+    """
+    Make the database, not the LLM, the source of every factual field.
+
+    The LLM only chooses programmes and writes the insight/career/action-plan text.
+    For each recommendation we look its programme_code up in the shortlist that was
+    sent to the LLM (output of _serialize_programmes_for_llm) and overwrite course,
+    university, location, level, cluster and cutoff numbers with the DB values.
+
+    Recommendations whose code is not in the shortlist were invented by the model
+    and are dropped. Ranks are renumbered 1..N afterwards.
+    """
+    by_code = defaultdict(list)
+    for prog in shortlisted_programmes:
+        by_code[str(prog.get('programme_code', '')).strip()].append(prog)
+
+    grounded = []
+    for rec in recommendations:
+        candidates = by_code.get(str(rec.get('programme_code', '')).strip())
+        if not candidates:
+            logger.warning("[GROUNDING] Dropping LLM recommendation not in shortlist: code=%r course=%r",
+                           rec.get('programme_code'), rec.get('course'))
+            continue
+
+        # Same code can be offered at several institutions; prefer the one the LLM named
+        named_uni = str(rec.get('university', '')).strip().lower()
+        prog = next((c for c in candidates if c.get('university', '').strip().lower() == named_uni), candidates[0])
+
+        db_fields = {
+            'course': prog.get('course'),
+            'university': prog.get('university'),
+            'public_private': prog.get('public_private'),
+            'level': prog.get('level'),
+            'location': prog.get('location'),
+            'cluster': prog.get('cluster'),
+            'cutoff_points': prog.get('latest_cutoff'),
+            'cutoff_year': prog.get('latest_year'),
+            'prev_cutoff': prog.get('prev_cutoff'),
+            'prev_cutoff_year': prog.get('prev_year'),
+            'student_cluster_points': prog.get('student_cluster_points'),
+        }
+        rec.update({k: v for k, v in db_fields.items() if v is not None})
+        grounded.append(rec)
+
+    for i, rec in enumerate(grounded, start=1):
+        rec['rank'] = i
+
+    logger.info("[GROUNDING] %d of %d LLM recommendations matched the shortlist",
+                len(grounded), len(recommendations))
+    return grounded
 
 
 # ---------------------------------------------------------------------------
