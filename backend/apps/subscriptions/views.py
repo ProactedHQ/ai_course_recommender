@@ -80,14 +80,14 @@ def record_coupon_usage(txn):
 
 def _callback_secret_is_valid(request):
     """
-    True if the callback carries ?secret= matching MPESA_CALLBACK_SECRET.
+    True if the callback carries ?secret= matching PAYHERO_CALLBACK_SECRET.
 
     utils.build_callback_url() puts the secret on the URL we hand to PayHero, so only
     callbacks for pushes we started can pass. With no secret configured, nothing passes.
     """
-    expected = settings.MPESA_CALLBACK_SECRET
+    expected = settings.PAYHERO_CALLBACK_SECRET
     if not expected:
-        logger.error("[confirmation] MPESA_CALLBACK_SECRET is not set - rejecting all payment callbacks.")
+        logger.error("[confirmation] PAYHERO_CALLBACK_SECRET is not set - rejecting all payment callbacks.")
         return False
     provided = request.query_params.get('secret', '')
     return hmac.compare_digest(str(provided), str(expected))
@@ -195,7 +195,7 @@ def confirmation(request):
     PayHero callback (server-to-server). Not called by the frontend.
 
     Security checks, in order:
-      1. ?secret= must match MPESA_CALLBACK_SECRET            -> else 403
+      1. ?secret= must match PAYHERO_CALLBACK_SECRET            -> else 403
       2. ExternalReference must match a Transaction we created  -> else 404
       3. Only PENDING transactions are processed (replays are acknowledged, not re-applied)
       4. A "success" must report an Amount >= what we charged   -> else marked FAILED

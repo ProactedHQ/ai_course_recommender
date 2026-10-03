@@ -20,7 +20,7 @@ The project follows a modern decoupled architecture:
 - **Authentication:** Custom Supabase JWT Authentication for protected endpoints.
 - **Features:**
   - AI Recommendation Engine.
-  - M-Pesa Daraja API Integration for subscriptions.
+  - PayHero integration (M-Pesa STK push) for subscriptions.
   - Redis for caching and WebSockets (optional support).
   - Swagger/OpenAPI documentation (drf-spectacular).
 
@@ -105,7 +105,7 @@ To host this project successfully on cPanel, ensure your hosting plan meets thes
 ### **Step 3: Configure Environment Variables**
 
 > The complete, current list (including `OPENAI_API_KEY`, the `PAYHERO_*` variables and
-> `MPESA_CALLBACK_SECRET`) is in [SYSTEM_REFERENCE.md §2](./SYSTEM_REFERENCE.md#2-configuration-environment-variables).
+> `PAYHERO_CALLBACK_SECRET`) is in [SYSTEM_REFERENCE.md §2](./SYSTEM_REFERENCE.md#2-configuration-environment-variables).
 > The live `settings.py` reads only the cPanel Python App variables, not `backend/.env`.
 
 Create these variables in your cPanel Python App interface or upload a `.env` file to each directory:
@@ -118,12 +118,12 @@ Create these variables in your cPanel Python App interface or upload a `.env` fi
 | `ALLOWED_HOSTS` | Comma-separated domains (e.g., `api.yourdomain.com,yourdomain.com`). |
 | `DATABASE_URL` | PostgreSQL connection string (from Supabase). |
 | `SUPABASE_JWT_SECRET` | Secret key for JWT verification (from Supabase settings). |
-| `MPESA_CONSUMER_KEY` | Daraja API Consumer Key. |
-| `MPESA_CONSUMER_SECRET` | Daraja API Consumer Secret. |
-| `MPESA_SHORTCODE` | Your Paybill or Till number. |
-| `MPESA_PASSKEY` | LNM Passkey. |
-| `MPESA_CALLBACK_URL` | Your public API endpoint for M-Pesa callbacks. |
-| `MPESA_CALLBACK_SECRET` | Secret to secure the callback endpoint. |
+| `OPENAI_API_KEY` | OpenAI key for the recommendation engine. |
+| `PAYHERO_CHANNEL_ID` | PayHero payment channel ID. |
+| `PAYHERO_API_USERNAME` | PayHero API username. |
+| `PAYHERO_API_PASSWORD` | PayHero API password. |
+| `PAYHERO_CALLBACK_URL` | `https://api.yourdomain.com/api/subscriptions/confirmation/` |
+| `PAYHERO_CALLBACK_SECRET` | Long random string that authenticates PayHero callbacks. |
 
 #### **Frontend (.env)**
 | Key | Description |

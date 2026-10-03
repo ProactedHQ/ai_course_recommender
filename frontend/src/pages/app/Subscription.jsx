@@ -474,7 +474,7 @@ const Subscription = () => {
                             Pay KES {selectedPlanForUpgrade === 'standard' ? '199' : '499'} Now
                         </button>
                         <p className="mpesa-secure-note">
-                            <ShieldCheck size={14} /> Secure transaction via Safaricom Daraja
+                            <ShieldCheck size={14} /> Secure M-Pesa payment via PayHero
                         </p>
                     </div>
                 </div>

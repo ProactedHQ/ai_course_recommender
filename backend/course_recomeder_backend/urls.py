@@ -41,11 +41,6 @@ urlpatterns = [
     path('api/auth/me/', me, name='auth_me'),  # Backend-verified role (source of truth)
     path('api/auth/profile/', profile, name='auth_profile'),
     
-    # SUBSCRIPTION & PAYMENTS (Old Daraja - Hashed out)
-    # path('api/subscription/upgrade/', upgrade_plan, name='subscription_upgrade'),
-    # path('api/subscription/confirm/', confirm_payment, name='subscription_confirm'),
-    # path('api/subscription/callback/', mpesa_callback, name='subscription_callback'),
-
     # STUDENT PROFILE (Wizard Prefill)
     path('api/profile/', student_views.StudentProfileViewSet.as_view({'get': 'full'}), name='student_profile_full'),
 

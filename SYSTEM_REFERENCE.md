@@ -55,10 +55,8 @@ call `load_dotenv()`, so management commands and the OpenAI client *also* see `.
 | `DEBUG` | no (default False) | also controls whether debug payment endpoints exist |
 | `PAYHERO_CHANNEL_ID`, `PAYHERO_API_USERNAME`, `PAYHERO_API_PASSWORD` | **yes** for payments | `subscriptions/utils.py` |
 | `PAYHERO_CALLBACK_URL` | **yes** for payments | `https://api.proactedai.co.ke/api/subscriptions/confirmation/` |
-| `MPESA_CALLBACK_SECRET` | **yes** for payments | long random string; authenticates PayHero callbacks. Empty = every callback rejected |
+| `PAYHERO_CALLBACK_SECRET` | **yes** for payments | long random string; authenticates PayHero callbacks. Empty = every callback rejected |
 | `REDIS_URL` | optional | Upstash URL; enables shared cache + rate limiting |
-| `REQUIRE_MPESA` | optional | if `True`, startup fails unless all `MPESA_*` vars are set. Those are the **old Daraja** credentials — leave this `False` |
-| `MPESA_CONSUMER_KEY/SECRET/SHORTCODE/PASSKEY/CALLBACK_URL` | no | legacy Daraja, unused |
 | `ALLOW_LOCALHOST_CORS` | no | adds `http://localhost:5173` to CORS |
 | `DB_CONN_MAX_AGE`, `SECURE_HSTS_SECONDS` | no | tuning |
 
@@ -232,7 +230,7 @@ Subscription.jsx ── POST initiate/ ──► initiate_payment
                                          └─ initiate_payhero_stk_push(callback_url = PAYHERO_CALLBACK_URL?secret=…)
 Student phone ◄── STK push ── PayHero
 PayHero ── POST confirmation/?secret=… ──► confirmation
-                                         ├─ 403 unless secret == MPESA_CALLBACK_SECRET
+                                         ├─ 403 unless secret == PAYHERO_CALLBACK_SECRET
                                          ├─ 404 unless ExternalReference is a Transaction we created
                                          ├─ already processed? → 200 "Already processed" (no re-apply)
                                          ├─ success but Amount < txn.amount → FAILED
@@ -294,7 +292,7 @@ management commands in `apps/*/management/commands/` (see `backend/project_docum
    The SPA needs an `.htaccess` rewrite to `index.html` for deep links such as `/app/new`.
 3. Smoke test: sign in → `/app/new` wizard → result; Subscription page → STK push → plan updates.
 
-`manage.py` loads `backend/.env`; if that file has `REQUIRE_MPESA=True` without the `MPESA_*` values, management commands will refuse to start.
+`manage.py` loads `backend/.env` (template: `backend/.env.example`); the live app does not.
 
 ---
 
@@ -307,7 +305,7 @@ stderr log in cPanel.
 |---|---|---|
 | Every API call 401 | `[AUTH] Token decode failed` | wrong `SUPABASE_JWT_SECRET` / `SUPABASE_URL`, or the `Authorization` header stripped by the proxy |
 | "AI advisor could not generate…" | `Batch N failed`, `Final advisor node failed` | OpenAI key/credit/timeout |
-| Payments never complete | `Rejected callback with missing/invalid secret` | `MPESA_CALLBACK_SECRET` unset or changed between push and callback |
+| Payments never complete | `Rejected callback with missing/invalid secret` | `PAYHERO_CALLBACK_SECRET` unset or changed between push and callback |
 | Payment start fails | `PayHero is not configured` | missing `PAYHERO_*` vars |
 | Slow prompts | `PROCESSING BATCH` count | very large eligible lists → more OpenAI calls |
 | Rate limits not applied | `Redis not available` at startup | expected without `REDIS_URL` |
@@ -321,7 +319,7 @@ Run locally against SQLite. **Do not** run `run_tests.py` as-is: it uses `DATABA
 ```bash
 cd backend
 # point Django at a throwaway settings module that swaps DATABASES for sqlite3 :memory:
-DATABASE_URL=sqlite:///x SECRET_KEY=test SUPABASE_JWT_SECRET=test OPENAI_API_KEY=sk-test REQUIRE_MPESA=False REDIS_URL= \
+DATABASE_URL=sqlite:///x SECRET_KEY=test SUPABASE_JWT_SECRET=test OPENAI_API_KEY=sk-test REDIS_URL= \
   DJANGO_SETTINGS_MODULE=<your sqlite test settings> python manage.py test apps.users.tests.test_payments
 ```
 
@@ -363,3 +361,6 @@ Ordered by impact. None of these needed new features to document; they are decis
 - Frontend: errors carry status/body; limit-reached and no-eligible messages shown correctly; wizard pre-fill URL fixed;
   payment polling stops after 2 minutes.
 - `*env*.zip` ignored by git.
+- Removed the unused Safaricom Daraja integration (`MPESA_*` settings, `REQUIRE_MPESA`, `users/utils/mpesa.py`, commented-out
+  Daraja views/routes/model). The callback secret is now `PAYHERO_CALLBACK_SECRET`. M-Pesa remains the payment method students
+  see, delivered by PayHero; the `mpesa_receipt` column keeps its name.

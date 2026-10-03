@@ -390,12 +390,12 @@ if not DEBUG:
 else:
     SESSION_COOKIE_SECURE = False
     CSRF_COOKIE_SECURE = False
+
 # ============================================================================
-# M-PESA DARAJA API CONFIGURATION
+# PAYHERO (env only)
 # ============================================================================
-MPESA_CONSUMER_KEY = os.environ.get('MPESA_CONSUMER_KEY', '')
-MPESA_CONSUMER_SECRET = os.environ.get('MPESA_CONSUMER_SECRET', '')
-MPESA_SHORTCODE = os.environ.get('MPESA_SHORTCODE', '174379')
-MPESA_PASSKEY = os.environ.get('MPESA_PASSKEY', 'bfb277250900d92b4667cc4f8b403f9a700595340a48348591ffc2c1e0283f67')
-MPESA_CALLBACK_URL = os.environ.get('MPESA_CALLBACK_URL', 'https://example.com/api/subscription/callback/')
-MPESA_CALLBACK_SECRET = os.environ.get('MPESA_CALLBACK_SECRET', 'd0_not_use_1n_product1on')
+PAYHERO_CHANNEL_ID = os.environ.get('PAYHERO_CHANNEL_ID', '')
+PAYHERO_API_USERNAME = os.environ.get('PAYHERO_API_USERNAME', '')
+PAYHERO_API_PASSWORD = os.environ.get('PAYHERO_API_PASSWORD', '')
+PAYHERO_CALLBACK_URL = os.environ.get('PAYHERO_CALLBACK_URL', '')
+PAYHERO_CALLBACK_SECRET = os.environ.get('PAYHERO_CALLBACK_SECRET', '')

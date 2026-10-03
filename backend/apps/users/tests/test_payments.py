@@ -13,6 +13,7 @@
 =======================================================================
 """
 
+import base64
 from decimal import Decimal
 from unittest.mock import patch
 
@@ -22,7 +23,7 @@ from rest_framework import status
 from rest_framework.test import APIClient
 
 from apps.subscriptions.models import Transaction, Coupon, CouponUsed
-from apps.subscriptions.utils import build_callback_url
+from apps.subscriptions.utils import build_callback_url, initiate_payhero_stk_push
 
 User = get_user_model()
 
@@ -55,7 +56,7 @@ def payhero_callback(ref, status_str='Success', amount=1, result_code=0):
 
 
 @override_settings(
-    MPESA_CALLBACK_SECRET=SECRET,
+    PAYHERO_CALLBACK_SECRET=SECRET,
     PAYHERO_CALLBACK_URL='https://api.example.com/api/subscriptions/confirmation/',
     PAYHERO_CHANNEL_ID='123',
 )
@@ -114,6 +115,30 @@ class PaymentFlowTests(TestCase):
     def test_callback_url_carries_secret(self):
         self.assertIn(f'secret={SECRET}', build_callback_url())
 
+    @override_settings(PAYHERO_CHANNEL_ID='4321', PAYHERO_API_USERNAME='new-user', PAYHERO_API_PASSWORD='new-pass')
+    @patch('apps.subscriptions.utils.requests.post')
+    def test_stk_push_uses_configured_credentials(self, mock_post):
+        section("STK push is built from settings (env), not code")
+        mock_post.return_value.json.return_value = {'success': True, 'status': 'QUEUED'}
+
+        initiate_payhero_stk_push('0700000000', 1, 'PH-TEST0001', 'Test User')
+
+        sent = mock_post.call_args.kwargs
+        self.assertEqual(sent['json']['channel_id'], 4321)
+        self.assertEqual(sent['json']['phone_number'], '+254700000000')
+        self.assertTrue(sent['json']['callback_url'].startswith(
+            'https://api.example.com/api/subscriptions/confirmation/?secret='))
+        self.assertEqual(sent['headers']['Authorization'],
+                         'Basic ' + base64.b64encode(b'new-user:new-pass').decode())
+        ok("Channel ID, API user/password and callback URL all come from configuration")
+
+    @override_settings(PAYHERO_CHANNEL_ID='')
+    @patch('apps.subscriptions.utils.requests.post')
+    def test_stk_push_refuses_when_unconfigured(self, mock_post):
+        result = initiate_payhero_stk_push('0700000000', 1, 'PH-TEST0001', 'Test User')
+        self.assertFalse(result['success'])
+        mock_post.assert_not_called()
+
     # ── Callback security ─────────────────────────────────────────────
     def test_callback_without_secret_is_rejected(self):
         section("Forged callback (no secret) → 403")
@@ -133,7 +158,7 @@ class PaymentFlowTests(TestCase):
         res = APIClient().post(f'{CALLBACK}?secret=wrong', payhero_callback('PH-TEST0001'), format='json')
         self.assertEqual(res.status_code, status.HTTP_403_FORBIDDEN)
 
-    @override_settings(MPESA_CALLBACK_SECRET='')
+    @override_settings(PAYHERO_CALLBACK_SECRET='')
     def test_callback_rejected_when_secret_not_configured(self):
         self._pending_txn()
         res = APIClient().post(f'{CALLBACK}?secret=', payhero_callback('PH-TEST0001'), format='json')

@@ -19,13 +19,13 @@ PAYHERO_PAYMENTS_URL = 'https://backend.payhero.co.ke/api/v2/payments'
 
 def build_callback_url():
     """
-    Return PAYHERO_CALLBACK_URL with ?secret=<MPESA_CALLBACK_SECRET> appended.
+    Return PAYHERO_CALLBACK_URL with ?secret=<PAYHERO_CALLBACK_SECRET> appended.
 
     PayHero calls this exact URL back, so the secret proves the callback came from
     a push we started. views.confirmation rejects callbacks without it.
     """
     callback_url = settings.PAYHERO_CALLBACK_URL
-    secret = settings.MPESA_CALLBACK_SECRET
+    secret = settings.PAYHERO_CALLBACK_SECRET
     if not secret:
         return callback_url
 

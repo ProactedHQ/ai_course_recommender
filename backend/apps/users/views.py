@@ -4,7 +4,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from drf_spectacular.utils import extend_schema
-from .models import CustomUser # SubscriptionTransaction removed
+from .models import CustomUser
 from .serializers import (
     UserSerializer,
     UserUpdateSerializer,
@@ -141,29 +141,3 @@ def profile(request):
         "email": getattr(user, "email", ""),
         "is_student": getattr(user, "is_student", False),
     })
-# ============================================================================
-# SUBSCRIPTION: Upgrades & Payments
-# ============================================================================
-
-"""
-# Hashed out old Daraja M-Pesa initiation
-@extend_schema(
-    summary="Initiate a real M-Pesa STK Push upgrade",
-...
-"""
-
-
-"""
-# Hashed out old Daraja callback
-@extend_schema(
-    summary="M-Pesa Callback (Safaricom calls this)",
-...
-"""
-
-
-"""
-# Hashed out old Daraja status confirm
-@extend_schema(
-    summary="Confirm payment status (Polling fallback)",
-...
-"""

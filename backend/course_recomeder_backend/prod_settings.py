@@ -294,27 +294,13 @@ from utils.logging_config import setup_logging
 LOGGING = setup_logging()
 
 # -----------------------------------------------------------------------------
-# M-Pesa (env only; required for payment features)
+# PayHero (env only)
 # -----------------------------------------------------------------------------
-MPESA_CONSUMER_KEY = os.environ.get("MPESA_CONSUMER_KEY", "").strip()
-MPESA_CONSUMER_SECRET = os.environ.get("MPESA_CONSUMER_SECRET", "").strip()
-MPESA_SHORTCODE = os.environ.get("MPESA_SHORTCODE", "").strip()
-MPESA_PASSKEY = os.environ.get("MPESA_PASSKEY", "").strip()
-MPESA_CALLBACK_URL = os.environ.get("MPESA_CALLBACK_URL", "").strip()
-MPESA_CALLBACK_SECRET = os.environ.get("MPESA_CALLBACK_SECRET", "").strip()
-
-# Optional: fail fast if you want to enforce M-Pesa config in production
-if env_bool("REQUIRE_MPESA", False):
-    missing = [k for k, v in {
-        "MPESA_CONSUMER_KEY": MPESA_CONSUMER_KEY,
-        "MPESA_CONSUMER_SECRET": MPESA_CONSUMER_SECRET,
-        "MPESA_SHORTCODE": MPESA_SHORTCODE,
-        "MPESA_PASSKEY": MPESA_PASSKEY,
-        "MPESA_CALLBACK_URL": MPESA_CALLBACK_URL,
-        "MPESA_CALLBACK_SECRET": MPESA_CALLBACK_SECRET,
-    }.items() if not v]
-    if missing:
-        raise RuntimeError(f"Missing required M-Pesa environment variables: {', '.join(missing)}")
+PAYHERO_CHANNEL_ID = os.environ.get("PAYHERO_CHANNEL_ID", "").strip()
+PAYHERO_API_USERNAME = os.environ.get("PAYHERO_API_USERNAME", "").strip()
+PAYHERO_API_PASSWORD = os.environ.get("PAYHERO_API_PASSWORD", "").strip()
+PAYHERO_CALLBACK_URL = os.environ.get("PAYHERO_CALLBACK_URL", "").strip()
+PAYHERO_CALLBACK_SECRET = os.environ.get("PAYHERO_CALLBACK_SECRET", "").strip()
 
 CACHE_TTL = {
     'SUBJECTS': 60 * 60 * 24,      # 24 hours
