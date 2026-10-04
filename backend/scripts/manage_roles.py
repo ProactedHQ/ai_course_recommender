@@ -30,6 +30,11 @@ def get_supabase_client_data():
         print("\n[!] Supabase credentials missing.")
         print("    Ensure SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY are in your .env file.")
         return None, None
+    # Only an explicit APP_ENV=production run may change users in the production Supabase project.
+    from utils.env_safety import points_at_production_supabase
+    if settings.APP_ENV != "production" and points_at_production_supabase(url):
+        print(f"\n[!] APP_ENV={settings.APP_ENV}: refusing to modify the PRODUCTION Supabase project.")
+        return None, None
     return url.rstrip('/'), key
 
 def update_supabase_metadata(email, role_data):

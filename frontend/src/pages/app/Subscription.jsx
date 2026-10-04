@@ -9,8 +9,8 @@ import {
 } from 'lucide-react';
 import './Subscription.css';
 
-const MPesaIcon = () => (
-    <div className="mpesa-logo-ultra">
+const PaymentMethodLogo = () => (
+    <div className="pay-logo-ultra">
         <svg viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 35V5H14L19 18L24 5H33V35H27V15L19 35H18L10 15V35H5Z" fill="#4fb347" />
             <circle cx="43" cy="20" r="5" fill="#ee1c25" />
@@ -28,7 +28,7 @@ const POLL_TIMEOUT_MS = 2 * 60 * 1000;
 const Subscription = () => {
     const { subscription, refreshAuth, loading: authLoading } = useAuth();
     const [upgrading, setUpgrading] = useState(null);
-    const [showMpesaModal, setShowMpesaModal] = useState(false);
+    const [showPhoneModal, setShowPhoneModal] = useState(false);
     const [selectedPlanForUpgrade, setSelectedPlanForUpgrade] = useState(null);
     const [phoneNumber, setPhoneNumber] = useState('');
     const [couponInput, setCouponInput] = useState('');
@@ -55,13 +55,14 @@ const Subscription = () => {
         'premium': 'scholar_vvip'
     };
 
-    const initiateSTKPush = async () => {
+    // Starts a payment through KeDira's backend only. The backend picks the price, talks to
+    // PayHero, and is the only thing that can mark the payment successful.
+    const initiatePayment = async () => {
         if (!phoneNumber || !selectedPlanForUpgrade) return;
 
-        console.log(`[Subscription] Initiating STK push: phone=${phoneNumber}, plan=${selectedPlanForUpgrade}`);
         setError(null);
         setUpgrading(selectedPlanForUpgrade);
-        setShowMpesaModal(false);
+        setShowPhoneModal(false);
 
         try {
             const targetTier = REVERSE_MAP[selectedPlanForUpgrade];
@@ -75,10 +76,8 @@ const Subscription = () => {
                 }
             });
 
-            console.log('[Subscription] Initiate response received:', response);
-            const txn = response.external_reference; // Match the new backend response field or use reference
-            console.log(`[Subscription] External Reference: ${txn}`);
-            setPollingTxn(response); // Store the whole response to have access to whatever field we need
+            // { external_reference, amount, provider? } - provider is only sent outside production
+            setPollingTxn(response);
 
         } catch (err) {
             console.error('[Subscription] Upgrade failed:', err);
@@ -87,9 +86,21 @@ const Subscription = () => {
         }
     };
 
+    // Development only: finish a mock payment through the backend (same path as a real callback).
+    const completeMockPayment = async (outcome) => {
+        try {
+            await apiFetch('/api/subscriptions/mock/complete/', {
+                method: 'POST',
+                body: { external_reference: pollingTxn.external_reference, outcome }
+            });
+        } catch (err) {
+            setError(err.message);
+        }
+    };
+
     // Polling effect: after initiate/, ask the backend every 3s whether PayHero's
     // callback has arrived (GET /api/subscriptions/status/). Gives up after
-    // POLL_TIMEOUT_MS so an unanswered STK push doesn't poll forever.
+    // POLL_TIMEOUT_MS so an unanswered payment prompt doesn't poll forever.
     useEffect(() => {
         let interval;
         if (pollingTxn) {
@@ -122,8 +133,8 @@ const Subscription = () => {
                         } else {
                             alert('Upgrade successful! Your account has been updated.');
                         }
-                    } else if (statusRes.status === 'failed') {
-                        console.log('[Subscription] Payment failed. Stopping polling.');
+                    } else if (['failed', 'cancelled', 'expired'].includes(statusRes.status)) {
+                        console.log(`[Subscription] Payment ${statusRes.status}. Stopping polling.`);
                         clearInterval(interval);
                         setPollingTxn(null);
                         setUpgrading(null);
@@ -156,7 +167,7 @@ const Subscription = () => {
 
     const handleUpgradeClick = (plan) => {
         setSelectedPlanForUpgrade(plan);
-        setShowMpesaModal(true);
+        setShowPhoneModal(true);
     };
 
     const handleGenerateCoupon = async () => {
@@ -231,8 +242,8 @@ const Subscription = () => {
                         {/* Static items for desktop, marquee for mobile */}
                         <div className="trust-items-wrapper">
                             <div className="trust-item">
-                                <div className="trust-icon-box mpesa">
-                                    <MPesaIcon />
+                                <div className="trust-icon-box mobile-money">
+                                    <PaymentMethodLogo />
                                 </div>
                                 <div className="trust-text">
                                     <span className="trust-label">Safe M-Pesa Checkout</span>
@@ -262,8 +273,8 @@ const Subscription = () => {
                         {/* Duplicated for mobile marquee only */}
                         <div className="trust-items-wrapper mobile-only-marquee">
                             <div className="trust-item">
-                                <div className="trust-icon-box mpesa">
-                                    <MPesaIcon />
+                                <div className="trust-icon-box mobile-money">
+                                    <PaymentMethodLogo />
                                 </div>
                                 <div className="trust-text">
                                     <span className="trust-label">Safe M-Pesa Checkout</span>
@@ -308,6 +319,18 @@ const Subscription = () => {
                         <h3>Awaiting Payment...</h3>
                         <p>Please check your phone for the M-Pesa prompt and enter your PIN.</p>
                         <span className="sub-text">Do not close this window.</span>
+                        {pollingTxn.provider === 'mock' && (
+                            // Local development only: the backend omits `provider` in production and
+                            // refuses mock completions unless PAYMENT_PROVIDER=mock.
+                            <div className="mock-payment-controls">
+                                <span className="sub-text">Mock payment (development)</span>
+                                {['success', 'failed', 'cancelled'].map((outcome) => (
+                                    <button key={outcome} type="button" onClick={() => completeMockPayment(outcome)}>
+                                        {outcome}
+                                    </button>
+                                ))}
+                            </div>
+                        )}
                     </div>
                 </div>
             )}
@@ -425,19 +448,19 @@ const Subscription = () => {
                 <p>Want to talk to sales? <a href="tel:+254743720033">+254 743 720 033</a></p>
             </div>
 
-            {/* M-Pesa Phone Modal */}
-            {showMpesaModal && (
-                <div className="mpesa-modal-backdrop" onClick={() => setShowMpesaModal(false)}>
-                    <div className="mpesa-modal-content" onClick={(e) => e.stopPropagation()}>
-                        <button className="modal-close" onClick={() => setShowMpesaModal(false)} aria-label="Close">
+            {/* Phone number modal (customer pays via the M-Pesa prompt PayHero sends) */}
+            {showPhoneModal && (
+                <div className="pay-modal-backdrop" onClick={() => setShowPhoneModal(false)}>
+                    <div className="pay-modal-content" onClick={(e) => e.stopPropagation()}>
+                        <button className="modal-close" onClick={() => setShowPhoneModal(false)} aria-label="Close">
                             <X size={20} strokeWidth={2.5} />
                         </button>
-                        <div className="mpesa-modal-header">
-                            <MPesaIcon />
+                        <div className="pay-modal-header">
+                            <PaymentMethodLogo />
                             <h2>Checkout with M-Pesa</h2>
                             <p>Enter your M-Pesa number to receive the payment prompt.</p>
                         </div>
-                        <div className="mpesa-input-group">
+                        <div className="pay-input-group">
                             <label>M-Pesa Number</label>
                             <div className="phone-input-wrapper">
                                 <Phone size={18} />
@@ -452,7 +475,7 @@ const Subscription = () => {
                             <span className="input-hint">Format: 07XXXXXXXX or 254XXXXXXXX</span>
                         </div>
 
-                        <div className="mpesa-input-group">
+                        <div className="pay-input-group">
                             <label>Coupon Code (Optional)</label>
                             <div className="phone-input-wrapper">
                                 <Ticket size={18} />
@@ -466,14 +489,14 @@ const Subscription = () => {
                             <span className="input-hint">Enter a code for a 10% discount</span>
                         </div>
                         <button
-                            className="mpesa-pay-btn"
+                            className="pay-submit-btn"
                             disabled={!phoneNumber || phoneNumber.length < 10}
-                            onClick={initiateSTKPush}
+                            onClick={initiatePayment}
                         >
                             <CreditCard size={18} />
                             Pay KES {selectedPlanForUpgrade === 'standard' ? '199' : '499'} Now
                         </button>
-                        <p className="mpesa-secure-note">
+                        <p className="pay-secure-note">
                             <ShieldCheck size={14} /> Secure M-Pesa payment via PayHero
                         </p>
                     </div>
@@ -517,8 +540,8 @@ const Subscription = () => {
 
             {/* VVIP Consent Modal */}
             {showVvipModal && (
-                <div className="mpesa-modal-backdrop vvip-success-backdrop">
-                    <div className="mpesa-modal-content vvip-success-card">
+                <div className="pay-modal-backdrop vvip-success-backdrop">
+                    <div className="pay-modal-content vvip-success-card">
                         <div className="vvip-success-icon">
                             <Crown size={48} className="text-amber-400" />
                         </div>

@@ -349,11 +349,11 @@
     justify-content: center;
 }
 
-.trust-icon-box.mpesa {
+.trust-icon-box.mobile-money {
     width: 90px;
 }
 
-.mpesa-logo-ultra svg {
+.pay-logo-ultra svg {
     width: 100%;
     height: auto;
     display: block;
@@ -750,9 +750,9 @@
     box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
 }
 
-/* --- M-Pesa Modal & Processing Styles --- */
+/* --- Payment Modal & Processing Styles --- */
 
-.mpesa-modal-backdrop {
+.pay-modal-backdrop {
     position: fixed;
     top: 0;
     left: 0;
@@ -767,7 +767,7 @@
     padding: 1.5rem;
 }
 
-.mpesa-modal-content {
+.pay-modal-content {
     background: var(--color-bg-card);
     width: 100%;
     max-width: 450px;
@@ -799,34 +799,34 @@
     transform: rotate(90deg) scale(1.1);
 }
 
-.mpesa-modal-header {
+.pay-modal-header {
     text-align: center;
     margin-bottom: 2.5rem;
 }
 
-.mpesa-modal-header .mpesa-logo-ultra {
+.pay-modal-header .pay-logo-ultra {
     width: 120px;
     margin: 0 auto 1.5rem;
 }
 
-.mpesa-modal-header h2 {
+.pay-modal-header h2 {
     font-size: 1.75rem;
     font-weight: 900;
     margin-bottom: 0.5rem;
     color: var(--color-text-main);
 }
 
-.mpesa-modal-header p {
+.pay-modal-header p {
     color: var(--color-text-muted);
     font-size: 0.95rem;
     font-weight: 500;
 }
 
-.mpesa-input-group {
+.pay-input-group {
     margin-bottom: 2rem;
 }
 
-.mpesa-input-group label {
+.pay-input-group label {
     display: block;
     margin-bottom: 0.75rem;
     font-weight: 700;
@@ -873,7 +873,7 @@
     color: var(--color-text-muted);
 }
 
-.mpesa-pay-btn {
+.pay-submit-btn {
     width: 100%;
     padding: 1.25rem;
     background: #10b981;
@@ -891,19 +891,19 @@
     box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
 }
 
-.mpesa-pay-btn:hover:not(:disabled) {
+.pay-submit-btn:hover:not(:disabled) {
     background: #059669;
     transform: translateY(-2px);
     box-shadow: 0 15px 30px rgba(16, 185, 129, 0.3);
 }
 
-.mpesa-pay-btn:disabled {
+.pay-submit-btn:disabled {
     opacity: 0.6;
     cursor: not-allowed;
     filter: grayscale(0.5);
 }
 
-.mpesa-secure-note {
+.pay-secure-note {
     margin-top: 1.5rem;
     text-align: center;
     font-size: 0.75rem;
@@ -1162,4 +1162,21 @@
     font-size: 0.8rem;
     color: var(--color-text-muted);
     font-style: italic;
+}
+/* Development-only mock payment buttons (shown only when the backend reports provider "mock") */
+.mock-payment-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.mock-payment-controls button {
+    padding: 0.35rem 0.8rem;
+    border-radius: 6px;
+    border: 1px dashed currentColor;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    text-transform: capitalize;
 }

@@ -4,7 +4,7 @@ import { CreditCard } from 'lucide-react';
 
 /**
  * Billing page — immediately redirects to /app/subscription
- * where all plan management and M-Pesa payments live.
+ * where plan management and payments (via KeDira's backend) live.
  */
 const Billing = () => {
     const navigate = useNavigate();

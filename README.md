@@ -49,7 +49,8 @@ ai-course-recommender/
    ```
 
 2. **Backend Setup**:
-   Refer to the [Backend README](./backend/README.md) for detailed instructions on setting up the Django environment, PostgreSQL database, and seeding data.
+   Quick start without any production credentials (SQLite + mock payments): see
+   [docs/PAYMENTS.md](./docs/PAYMENTS.md#5-local-setup). Full details: the [Backend README](./backend/README.md) for detailed instructions on setting up the Django environment, PostgreSQL database, and seeding data.
 
 3. **Frontend Setup**:
    Refer to the [Frontend README](./frontend/README.md) for instructions on installing dependencies and running the Vite development server.
@@ -80,12 +81,12 @@ As the frontend handles real-time WebSocket communication and complex UI states,
 **Checklist:**
 - [ ] **Auth**: Login via Supabase and verify dashboard access.
 - [ ] **AI Recommendation**: Complete the 6-step prompt wizard; verify WebSocket status updates (0% -> 100%).
-- [ ] **Payments**: Trigger an upgrade to "Mentor Elite" and verify M-Pesa STK push request is sent.
+- [ ] **Payments**: Trigger an upgrade to "Mentor Elite". Locally (mock provider) finish it with the on-screen mock buttons; on staging/production confirm the PayHero prompt arrives.
 - [ ] **Admin Dashboard**: Verify analytics cards (conversion rates, usage trends) load with live data.
 
 ### 3. Integration "Golden Path"
 The most critical test is the full flow:
-`Sign Up` -> `Submit AI Prompt` -> `Trigger Limit (Explorer)` -> `Upgrade via M-Pesa` -> `Unlock Unlimited Prompts`.
+`Sign Up` -> `Submit AI Prompt` -> `Trigger Limit (Explorer)` -> `Upgrade via PayHero` -> `Unlock Unlimited Prompts`.
 
 ---
 

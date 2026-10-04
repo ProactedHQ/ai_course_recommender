@@ -27,7 +27,7 @@ Last reviewed: 2026-10-03.
 |---|---|---|
 | Frontend | `frontend/` (React 19 + Vite) | `npm run build` → upload `dist/` to `public_html` |
 | Backend | `backend/` (Django 5.2, DRF) | entry point `backend/passenger_wsgi.py` |
-| Settings | `backend/course_recomeder_backend/settings.py` | the live one. `dev_settings.py` / `prod_settings.py` are older variants, not loaded |
+| Settings | `backend/course_recomeder_backend/settings.py` | one file for all environments, selected by `APP_ENV` (see [docs/PAYMENTS.md](./docs/PAYMENTS.md)) |
 | AI | `backend/apps/proacted_recommender_engine/langgraph_workflow.py` | the only code that calls OpenAI |
 
 **Not used in production:** WebSockets (`asgi.py`, `students/consumers.py`, `frontend/src/api/websocket.js`) — Passenger is WSGI-only.
@@ -43,22 +43,29 @@ and the `KnowledgeNode`/`KnowledgeLink` tables are an earlier embeddings/RAG exp
 *Setup Python App*. It does **not** read `backend/.env`. (`manage.py` and `langgraph_workflow.py`
 call `load_dotenv()`, so management commands and the OpenAI client *also* see `.env`.)
 
-| Variable | Required | Used by |
+`APP_ENV` (`development` | `test` | `staging` | `production`) is mandatory for `manage.py`/scripts; only the web-server
+entry points default it to production. It decides which of the
+values below are required, which database is used and which payment provider runs. The full
+per-environment matrix and the payment variables are in [docs/PAYMENTS.md](./docs/PAYMENTS.md); templates in
+`backend/.env.example` and `frontend/.env.example`.
+
+| Variable | Required (production) | Used by |
 |---|---|---|
-| `SECRET_KEY` | **yes** (startup fails without it) | Django |
-| `DATABASE_URL` | **yes** | Supabase Postgres (SSL forced) |
+| `APP_ENV` | web server: no (defaults to production); **`manage.py`: yes** (`APP_ENV=production`) | environment switch |
+| `SECRET_KEY` | **yes** | Django |
+| `DATABASE_URL` | **yes** | Supabase Postgres (SSL `require`; `DB_SSLMODE` overrides) |
 | `SUPABASE_JWT_SECRET` | **yes** | verifying HS256 tokens |
 | `SUPABASE_URL` | recommended | JWKS for RS256/ES256 tokens (falls back to the production project URL) |
 | `SUPABASE_JWT_AUDIENCE` | optional (`authenticated`) | token audience check |
-| `OPENAI_API_KEY` | **yes** for recommendations | `ChatOpenAI` — missing key = app fails to import the prompts view |
+| `OPENAI_API_KEY` | **yes** for recommendations | `ChatOpenAI`; without it requests fail with `ADVISOR_FAILURE` |
 | `ALLOWED_HOSTS` | yes | default `api.proactedai.co.ke` |
-| `DEBUG` | no (default False) | also controls whether debug payment endpoints exist |
-| `PAYHERO_CHANNEL_ID`, `PAYHERO_API_USERNAME`, `PAYHERO_API_PASSWORD` | **yes** for payments | `subscriptions/utils.py` |
-| `PAYHERO_CALLBACK_URL` | **yes** for payments | `https://api.proactedai.co.ke/api/subscriptions/confirmation/` |
-| `PAYHERO_CALLBACK_SECRET` | **yes** for payments | long random string; authenticates PayHero callbacks. Empty = every callback rejected |
+| `DEBUG` | no (default False when deployed) | Django debug |
+| `PAYMENT_PROVIDER` | no (production default `payhero`; `mock` refuses to start) | `subscriptions/providers.py` |
+| `PAYHERO_CHANNEL_ID`, `PAYHERO_API_USERNAME`, `PAYHERO_API_PASSWORD`, `PAYHERO_CALLBACK_URL`, `PAYHERO_CALLBACK_SECRET` | **yes** for payments (missing = `503 PAYMENTS_UNAVAILABLE`) | owner-controlled; see docs/PAYMENTS.md |
+| `PAYHERO_VERIFY_WITH_STATUS_API` | no (default off) | confirm callbacks with PayHero's status API |
 | `REDIS_URL` | optional | Upstash URL; enables shared cache + rate limiting |
-| `ALLOW_LOCALHOST_CORS` | no | adds `http://localhost:5173` to CORS |
-| `DB_CONN_MAX_AGE`, `SECURE_HSTS_SECONDS` | no | tuning |
+| `ALLOW_LOCALHOST_CORS` | no (default on in development) | adds `http://localhost:5173` to CORS |
+| `DB_CONN_MAX_AGE`, `SECURE_HSTS_SECONDS`, `PAYMENT_PENDING_TIMEOUT_MINUTES` | no | tuning |
 
 Frontend (baked in at build time from `frontend/.env.production`):
 `VITE_API_BASE_URL`, `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`.
@@ -125,11 +132,11 @@ prev_cutoff, prev_cutoff_year, student_cluster_points, insight, career_preview, 
 ### Payments (`/api/subscriptions/`)
 | Method | Path | Auth | Purpose |
 |---|---|---|---|
-| POST | `initiate/` | user | `{phone_number, target_tier, coupon?}` → PENDING `Transaction` + STK push |
-| POST | `confirmation/?secret=…` | PayHero only | callback; upgrades the user (§6) |
-| GET | `status/` | user | latest transaction: `completed` / `failed` / `pending` / `not_found` |
-| POST | `generate-coupon/` | user | mint a 5-char referral coupon (10% off) |
-| GET/POST | `test-stk/`, `debug-headers/` | — | **only routed when `DEBUG=True`** |
+| POST | `initiate/` | user | `{phone_number, target_tier, coupon?}` → PENDING `Transaction` + PayHero prompt. Price is server-side. |
+| POST | `confirmation/?secret=…` | PayHero only | callback; upgrades the user after verification (§6) |
+| GET | `status/` | user | latest payment: `completed` / `pending` / `failed` / `cancelled` / `expired` / `not_found` (read-only) |
+| POST | `generate-coupon/` | user | mint a 5-char referral coupon (10% off, whole shillings) |
+| POST | `mock/complete/` | user | **development/test only** (`PAYMENT_PROVIDER=mock`, never routed in production) |
 
 ### Catalogue & eligibility
 | Method | Path | Purpose |
@@ -220,34 +227,27 @@ recommendation whose code was not in the list sent to the model. The AI only cho
 
 ---
 
-## 6. Payments (PayHero / M-Pesa)
+## 6. Payments (PayHero only)
 
-Code: `backend/apps/subscriptions/` · UI: `frontend/src/pages/app/Subscription.jsx`.
+Full developer guide: **[docs/PAYMENTS.md](./docs/PAYMENTS.md)** (flow, status lifecycle, environments,
+mock payments, verification, rules). Code: `backend/apps/subscriptions/` · UI: `frontend/src/pages/app/Subscription.jsx`.
 
 ```
-Subscription.jsx ── POST initiate/ ──► initiate_payment
-                                         ├─ Transaction(ref_id="PH-XXXXXXXX", PENDING, amount, target_tier, coupon)
-                                         └─ initiate_payhero_stk_push(callback_url = PAYHERO_CALLBACK_URL?secret=…)
-Student phone ◄── STK push ── PayHero
-PayHero ── POST confirmation/?secret=… ──► confirmation
-                                         ├─ 403 unless secret == PAYHERO_CALLBACK_SECRET
-                                         ├─ 404 unless ExternalReference is a Transaction we created
-                                         ├─ already processed? → 200 "Already processed" (no re-apply)
-                                         ├─ success but Amount < txn.amount → FAILED
-                                         └─ SUCCESS → user.subscription_tier = txn.target_tier, record coupon use
-Subscription.jsx ── GET status/ every 3s (gives up after 2 min) ──► payment_status
+Subscription.jsx ── POST initiate/ ──► services.start_payment
+                                         ├─ price from SUBSCRIPTION_PRICES_KES (prod: 199 / 499; elsewhere 1 / 499)
+                                         ├─ Transaction(ref_id="PH-XXXXXXXX", PENDING)
+                                         └─ provider.initiate() → PayHero POST /api/v2/payments (or MockProvider)
+Customer phone ◄── M-Pesa prompt ── PayHero
+PayHero ── POST confirmation/?secret=… ──► views.confirmation → services.apply_payment_outcome
+                                         ├─ 403 bad secret · 400 bad body · 404 unknown reference
+                                         ├─ exact amount match, allowed transition, row lock (duplicates ignored)
+                                         ├─ optional PayHero GET transaction-status (VERIFYING until confirmed)
+                                         └─ SUCCESS → user.subscription_tier = txn.target_tier, coupon use recorded
+Subscription.jsx ── GET status/ every 3s (gives up after 2 min) ──► services.refresh_pending_state
 ```
 
-| Function | What it does |
-|---|---|
-| `get_base_amount` | price per tier: mentor_elite **1 KES (test price)**, scholar_vvip 499 KES |
-| `validate_coupon` / `calculate_discounted_amount` | 10% off with any existing coupon code |
-| `build_callback_url` | appends `?secret=` to `PAYHERO_CALLBACK_URL` |
-| `initiate_payhero_stk_push` | Basic-auth POST to PayHero (30s timeout); returns `{success, status, ...}` or `{success: False, error}` |
-| `payment_status` | reports the newest transaction; self-heals a SUCCESS whose tier wasn't applied |
-| `generate_unique_coupon` | 5 chars, at least one letter from "PROACTED" |
-
-There is no subscription expiry: once upgraded, a tier stays until changed by an admin.
+There is no subscription expiry: once upgraded, a tier stays until changed by an admin
+(`PATCH /api/admin/users/<id>`, staff only).
 
 ---
 
@@ -306,7 +306,8 @@ stderr log in cPanel.
 | Every API call 401 | `[AUTH] Token decode failed` | wrong `SUPABASE_JWT_SECRET` / `SUPABASE_URL`, or the `Authorization` header stripped by the proxy |
 | "AI advisor could not generate…" | `Batch N failed`, `Final advisor node failed` | OpenAI key/credit/timeout |
 | Payments never complete | `Rejected callback with missing/invalid secret` | `PAYHERO_CALLBACK_SECRET` unset or changed between push and callback |
-| Payment start fails | `PayHero is not configured` | missing `PAYHERO_*` vars |
+| Payment start fails (503) | `Provider payhero is not configured` | missing `PAYHERO_*` vars |
+| Payment stuck "pending" | status `VERIFYING` in admin | `PAYHERO_VERIFY_WITH_STATUS_API` on but PayHero's status response not recognised (docs/PAYMENTS.md §7) |
 | Slow prompts | `PROCESSING BATCH` count | very large eligible lists → more OpenAI calls |
 | Rate limits not applied | `Redis not available` at startup | expected without `REDIS_URL` |
 
@@ -314,23 +315,26 @@ stderr log in cPanel.
 
 ## 11. Tests
 
-Run locally against SQLite. **Do not** run `run_tests.py` as-is: it uses `DATABASE_URL`, which is the production Supabase database.
+`APP_ENV=test` always uses in-memory SQLite, the mock payment provider and no Redis, and
+`manage.py test` refuses to run under any other `APP_ENV`. Nothing can reach production.
 
 ```bash
 cd backend
-# point Django at a throwaway settings module that swaps DATABASES for sqlite3 :memory:
-DATABASE_URL=sqlite:///x SECRET_KEY=test SUPABASE_JWT_SECRET=test OPENAI_API_KEY=sk-test REDIS_URL= \
-  DJANGO_SETTINGS_MODULE=<your sqlite test settings> python manage.py test apps.users.tests.test_payments
+python run_tests.py                                   # every apps/*/tests/test_*.py module
+APP_ENV=test python manage.py test apps.subscriptions.tests.test_payments
 ```
 
-Status on 2026-10-03:
+Pre-existing failures (17 tests; the same test IDs fail on the code before the payment refactor, so they are
+unrelated and deliberately left unchanged):
 
-| Suite | Result |
-|---|---|
-| `users.tests` (auth, admin, payments, prompts) | 34/34 pass |
-| `universities.tests.test_points_calculator`, `test_views`; `utils.tests.test_cache_utils`, `test_redis_config` | pass |
-| `universities.tests.test_api_views`, `test_eligibility_filter` | broken import (`students.models` should be `apps.students.models`) |
-| `universities.tests.test_requirement_parser`, `test_subject_matcher`; `students.tests.*`; `utils.tests.test_integration` | pre-existing failures, not yet triaged |
+| Module | Tests | Cause |
+|---|---|---|
+| `students.test_consumers` | 2 | uses `auth.User` instead of `users.CustomUser` |
+| `students.test_views` | 7 | outdated fixtures (`first_name`, `prompt_text`), nested multipart data, expects 401 not 403 |
+| `universities.test_requirement_parser` | 2 | expected subject normalisation outdated |
+| `universities.test_subject_matcher` | 1 | imports removed `compare_grades` |
+| `utils.test_integration` | 3 | `ProgrammeLevel(code=…)` field no longer exists |
+| `universities.test_api_views`, `test_eligibility_filter` | 1 + 1 | `Subject(max_points=…)` field no longer exists |
 
 ---
 
@@ -338,13 +342,14 @@ Status on 2026-10-03:
 
 Ordered by impact. None of these needed new features to document; they are decisions or follow-ups.
 
-1. **Pricing:** `mentor_elite` costs 1 KES (`subscriptions/views.py#get_base_amount`).
+1. **Pricing display:** prices on the Subscription and landing pages are hard-coded in the frontend (199 / 499); outside production the backend charges 1 KES for Mentor Elite.
 2. **Long requests:** the whole AI pipeline runs inside one Passenger request. With a 60s/1-retry cap per OpenAI call, a large
    Degree list can still take minutes; check the host's request timeout.
 3. **Admin UI calls endpoints that don't exist:** `adminApi.impersonateUser` (`/api/admin/impersonate/<id>`),
    `bulkUpdateSubscriptions` (`/api/admin/subscriptions/bulk`), `getUserActivity` (`/api/admin/users/<id>/activity`) → 404.
 4. **Root admin rule:** user deletion is allowed only for the user with the lowest id, whoever that is.
 5. **Coupons:** any user can mint unlimited coupons, and a coupon can be used on its creator's own purchase.
+   (Discounts are now whole shillings, so coupon payments no longer fail the amount check.)
 6. **Rate limiting** only works with Redis; without it `POST /api/prompts/` relies on the monthly quota alone.
 7. **Inconsistencies:** `_compute_mean_grade_from_subjects` treats `123` as Maths but `calculate_aggregate_points` does not;
    `_fallback_top_recommendations` (unused) reports student points as the cutoff.
@@ -364,3 +369,12 @@ Ordered by impact. None of these needed new features to document; they are decis
 - Removed the unused Safaricom Daraja integration (`MPESA_*` settings, `REQUIRE_MPESA`, `users/utils/mpesa.py`, commented-out
   Daraja views/routes/model). The callback secret is now `PAYHERO_CALLBACK_SECRET`. M-Pesa remains the payment method students
   see, delivered by PayHero; the `mpesa_receipt` column keeps its name.
+
+### Changes made on 2026-10-04 — PayHero-only payment architecture
+- `APP_ENV` environment separation in a single `settings.py`; `dev_settings.py` / `prod_settings.py` removed.
+- Payment code split into `config.py`, `providers.py` (PayHero + mock), `services.py`; `utils.py` removed.
+- New statuses `VERIFYING`, `CANCELLED`, `EXPIRED`; exact amount check; optional PayHero status-API verification.
+- Mock payments for local work (UI buttons, `mock/complete/`, `manage.py mock_payment`); never available in production.
+- Removed: `test-stk/`, `debug-headers/`, `backend/test_initiate_payment.py`, `users/tests.py`, orphan Daraja serializer.
+- Migration `subscriptions.0006_payhero_only_payments` (one new nullable column).
+- Logs no longer contain callback payloads, provider responses or full phone numbers.

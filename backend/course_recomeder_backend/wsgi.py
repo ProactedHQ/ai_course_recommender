@@ -12,5 +12,6 @@ import os
 from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'course_recomeder_backend.settings')
+os.environ.setdefault("APP_ENV", "production")  # web server entry point: production unless told otherwise
 
 application = get_wsgi_application()

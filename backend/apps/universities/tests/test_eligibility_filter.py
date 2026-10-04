@@ -10,7 +10,7 @@ from apps.universities.utils.eligibility_filter import (
     get_eligible_programmes,
     filter_eligible_only
 )
-from students.models import Subject
+from apps.students.models import Subject
 
 
 class EligibilityFilterIntegrationTests(TestCase):

@@ -10,9 +10,8 @@ urlpatterns = [
     path('generate-coupon/', views.generate_my_coupon, name='generate_coupon'),
 ]
 
-# Diagnostic endpoints: only routed when DEBUG=True, never in production.
-if settings.DEBUG:
+# Mock payment completion: never routed in production (the view also refuses unless PAYMENT_PROVIDER=mock).
+if not settings.IS_PRODUCTION:
     urlpatterns += [
-        path('test-stk/', views.test_stk, name='test_stk'),
-        path('debug-headers/', views.debug_headers, name='debug_headers'),
+        path('mock/complete/', views.mock_complete_payment, name='mock_complete_payment'),
     ]

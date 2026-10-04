@@ -21,11 +21,15 @@ from typing import Optional, Tuple
 
 import jwt
 import requests
+from django.conf import settings
 from django.contrib.auth import get_user_model
 from django.utils.translation import gettext_lazy as _
 from rest_framework import authentication, exceptions
 
 logger = logging.getLogger(__name__)
+
+# Production project (public URL; also in the production frontend bundle). Production-only fallback.
+PRODUCTION_SUPABASE_URL = "https://zuoujlipkmoqxrwcrdij.supabase.co"
 
 
 @dataclass
@@ -36,11 +40,19 @@ class _JwksCache:
 _JWKS_CACHE = _JwksCache()
 
 def _get_supabase_url() -> str:
-    url = os.environ.get("SUPABASE_URL")
-    if not url:
-        # Fallback to the production project URL
-        return "https://zuoujlipkmoqxrwcrdij.supabase.co"
-    return url.rstrip("/")
+    """
+    The Supabase project whose tokens this backend accepts (SUPABASE_URL).
+    Production may fall back to the production project; every other environment must name its
+    own project (e.g. "PROACTED KeDira Development") and never silently uses production auth.
+    """
+    url = os.environ.get("SUPABASE_URL", "").strip()
+    if url:
+        return url.rstrip("/")
+    if getattr(settings, "APP_ENV", "production") == "production":
+        return PRODUCTION_SUPABASE_URL
+    raise exceptions.AuthenticationFailed(
+        _(f"SUPABASE_URL is not configured for APP_ENV={settings.APP_ENV}.")
+    )
 
 def _jwks_url() -> str:
     return f"{_get_supabase_url()}/auth/v1/.well-known/jwks.json"
@@ -49,7 +61,7 @@ def _issuer() -> str:
     return f"{_get_supabase_url()}/auth/v1"
 
 def _audience() -> str:
-    return os.environ.get("SUPABASE_JWT_AUDIENCE", "authenticated")
+    return os.environ.get("SUPABASE_JWT_AUDIENCE", "").strip() or "authenticated"
 
 def _get_jwks(max_age_seconds: int = 3600) -> dict:
     """Fetch (and cache for an hour) the Supabase JWKS document."""

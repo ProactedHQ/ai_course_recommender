@@ -16,3 +16,40 @@ db.sqlite3
 media/
 staticfiles/
 landingpage_wireframes/
+
+# --- Local secrets & environment files (never commit) ---
+.env.*
+!.env.example
+!frontend/.env.development
+!frontend/.env.production
+.env.*.local
+*.local
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+*.zip
+*.tar.gz
+*.tgz
+
+# --- Local data ---
+*.sqlite3
+*.sqlite3-journal
+*.db
+
+# --- Logs & caches ---
+*.log
+logs/
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+
+# --- Editors / OS / tooling ---
+.vscode/
+.idea/
+*.swp
+.claude/settings.local.json

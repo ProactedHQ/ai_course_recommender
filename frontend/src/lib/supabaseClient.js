@@ -1,12 +1,30 @@
 /**
  * Supabase client singleton for the frontend.
- * - Uses anon key (safe for browser).
+ * - Uses the public client key (anon / publishable key) - safe for the browser, never a secret.
  * - Handles session persistence + token refresh automatically in SPAs.
+ *
+ * Which project:
+ *   production build (`npm run build`)  -> frontend/.env.production  -> production project
+ *   local dev (`npm run dev`)           -> frontend/.env.development(.local) -> development project
+ * Local development refuses the production project, so developers never sign in to (or create)
+ * real production accounts by accident.
  */
 import { createClient } from '@supabase/supabase-js';
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+// Public project id of the production Supabase project (already in the production bundle).
+const PRODUCTION_SUPABASE_REF = 'zuoujlipkmoqxrwcrdij';
+
+let supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+let supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+if (import.meta.env.MODE === 'development' && supabaseUrl?.includes(PRODUCTION_SUPABASE_REF)) {
+  console.error(
+    'Local development must not use the PRODUCTION Supabase project. Put the development project ' +
+    'URL and public key in frontend/.env.development.local (see docs/PAYMENTS.md, "Development login").'
+  );
+  supabaseUrl = undefined;
+  supabaseAnonKey = undefined;
+}
 
 if (!supabaseUrl || !supabaseAnonKey) {
   console.warn('VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY is missing. Auth will fail.');

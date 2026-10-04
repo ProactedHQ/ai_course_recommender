@@ -24,6 +24,7 @@ from langchain_core.output_parsers import JsonOutputParser
 from pydantic import BaseModel, Field
 import logging
 import json
+import os
 import re
 
 load_dotenv()
@@ -32,7 +33,10 @@ logger = logging.getLogger(__name__)
 
 # LLM setup. The whole graph runs inside one HTTP request on cPanel/Passenger, so each
 # call is capped (timeout seconds, one retry) instead of the SDK default of waiting indefinitely.
-llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.2, max_tokens=3000, timeout=60, max_retries=1)
+# Without OPENAI_API_KEY (e.g. a fresh local checkout) the app still starts; recommendation
+# requests then fail with ADVISOR_FAILURE and the prompt is refunded.
+llm = ChatOpenAI(model="gpt-4o-mini", temperature=0.2, max_tokens=3000, timeout=60, max_retries=1,
+                 api_key=os.environ.get("OPENAI_API_KEY") or "not-configured")
 
 # Structured output definition
 class Recommendation(BaseModel):

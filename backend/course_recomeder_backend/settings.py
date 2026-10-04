@@ -1,16 +1,17 @@
 """
-Django production settings for course_recomeder_backend (cPanel Passenger / WSGI).
+Django settings for course_recomeder_backend - one file for every environment.
 
-Assumptions:
-- API is served at: https://api.proactedai.co.ke
-- Frontend is served at: https://proactedai.co.ke
-- Database is Supabase Postgres via DATABASE_URL (required)
-- Redis caching is Upstash via REDIS_URL (optional; falls back to LocMem)
-- Authentication uses Supabase JWT via SUPABASE_JWT_SECRET
+APP_ENV selects the environment. It must be set explicitly, except by the production web
+server entry points (passenger_wsgi.py / wsgi.py / asgi.py), which default it to production:
+  development  local machine: SQLite unless DATABASE_URL is set, mock payments, DEBUG on
+  test         test runner: in-memory SQLite, mock payments, no Redis, no secrets needed
+  staging      deployed test server: its own DATABASE_URL and secrets, mock payments by default
+  production   api.proactedai.co.ke on cPanel Passenger: all secrets required, PayHero only
 
 Important:
-- Do NOT hardcode secrets in this file.
-- Set environment variables in cPanel "Setup Python App".
+- Do NOT hardcode secrets in this file. Every secret comes from the environment.
+- Production values are set by the project owner on the hosting server, never in git.
+- See docs/PAYMENTS.md and backend/.env.example.
 """
 
 from __future__ import annotations
@@ -30,17 +31,21 @@ sys.path.append(str(BASE_DIR / "apps"))
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
-from utils.redis_config import is_redis_available, get_cache_backend, get_channel_layers
-REDIS_AVAILABLE = is_redis_available()
-
 # -----------------------------------------------------------------------------
 # Environment helpers
 # -----------------------------------------------------------------------------
+# An empty variable (e.g. "NAME=" copied from .env.example) counts as unset and gets the default.
+def env_str(name: str, default: str = "") -> str:
+    return os.environ.get(name, "").strip() or default
+
+def env_int(name: str, default: int) -> int:
+    return int(env_str(name, str(default)))
+
 def env_bool(name: str, default: bool = False) -> bool:
-    return os.environ.get(name, str(default)).strip().lower() in ("1", "true", "yes", "on")
+    return env_str(name, str(default)).lower() in ("1", "true", "yes", "on")
 
 def env_list(name: str, default: str = "") -> list[str]:
-    raw = os.environ.get(name, default)
+    raw = env_str(name, default)
     return [v.strip() for v in raw.split(",") if v.strip()]
 
 def require_env(name: str) -> str:
@@ -50,13 +55,50 @@ def require_env(name: str) -> str:
     return val
 
 # -----------------------------------------------------------------------------
+# Environment
+# -----------------------------------------------------------------------------
+from utils.env_safety import (
+    check_database_url, check_supabase_settings, is_local_url, require_app_env, safe_redis_url,
+)
+
+# No default here: manage.py, scripts and shells must say which environment they are in, so an
+# old .env full of production values cannot be used by accident.
+APP_ENV = require_app_env(os.environ.get("APP_ENV"))
+IS_PRODUCTION = APP_ENV == "production"
+IS_DEPLOYED = APP_ENV in ("staging", "production")  # real servers: secrets required
+
+RUNNING_TESTS = len(sys.argv) > 1 and sys.argv[1] == "test"
+if RUNNING_TESTS and APP_ENV != "test":
+    raise RuntimeError(
+        f"Refusing to run tests with APP_ENV={APP_ENV}: they could touch a real database. "
+        "Run them with APP_ENV=test (see docs/PAYMENTS.md)."
+    )
+
+# development/test only ever talk to a Redis on this machine; a remote REDIS_URL is ignored.
+_redis_url = os.environ.get("REDIS_URL", "")
+if safe_redis_url(APP_ENV, _redis_url) != _redis_url:
+    print(f"Ignoring non-local REDIS_URL in APP_ENV={APP_ENV}.", file=sys.stderr)
+    os.environ["REDIS_URL"] = ""
+if APP_ENV in ("development", "test") and not is_local_url("redis://" + os.environ.get("REDIS_HOST", "127.0.0.1")):
+    os.environ["REDIS_HOST"] = "127.0.0.1"
+
+from utils.redis_config import is_redis_available, get_cache_backend, get_channel_layers
+REDIS_AVAILABLE = False if APP_ENV == "test" else is_redis_available()
+
+# -----------------------------------------------------------------------------
 # Core security / debug
 # -----------------------------------------------------------------------------
-DEBUG = env_bool("DEBUG", False)
+DEBUG = env_bool("DEBUG", APP_ENV == "development")
 
-SECRET_KEY = require_env("SECRET_KEY")
+if IS_DEPLOYED:
+    SECRET_KEY = require_env("SECRET_KEY")
+else:
+    SECRET_KEY = os.environ.get("SECRET_KEY", "").strip() or "django-insecure-local-development-only"
 
-ALLOWED_HOSTS = env_list("ALLOWED_HOSTS", "api.proactedai.co.ke")
+ALLOWED_HOSTS = env_list(
+    "ALLOWED_HOSTS",
+    "api.proactedai.co.ke" if IS_DEPLOYED else "localhost,127.0.0.1,testserver",
+)
 
 # If you're behind a proxy/CDN and see HTTPS redirect loops, uncomment and set properly.
 # SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
@@ -140,19 +182,29 @@ else:
     WSGI_APPLICATION = "course_recomeder_backend.wsgi.application"
 
 # -----------------------------------------------------------------------------
-# Database (required)
+# Database (PostgreSQL in staging/production; SQLite allowed locally)
 # -----------------------------------------------------------------------------
-DATABASE_URL = require_env("DATABASE_URL")
-
-DATABASES = {
-    "default": dj_database_url.parse(
-        DATABASE_URL.split(' ')[0] if ' ' in DATABASE_URL else DATABASE_URL,
-        conn_max_age=int(os.environ.get("DB_CONN_MAX_AGE", "600")),
-    )
-}
-# Supabase: enforce SSL
-DATABASES["default"].setdefault("OPTIONS", {})
-DATABASES["default"]["OPTIONS"].update({"sslmode": "require"})
+if APP_ENV == "test":
+    DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": ":memory:"}}
+else:
+    DATABASE_URL = require_env("DATABASE_URL") if IS_DEPLOYED else os.environ.get("DATABASE_URL", "").strip()
+    check_database_url(APP_ENV, DATABASE_URL)  # development: local only; never production outside it
+    if DATABASE_URL:
+        DATABASES = {
+            "default": dj_database_url.parse(
+                DATABASE_URL.split(' ')[0] if ' ' in DATABASE_URL else DATABASE_URL,
+                conn_max_age=env_int("DB_CONN_MAX_AGE", 600),
+            )
+        }
+        if "postgresql" in DATABASES["default"]["ENGINE"]:
+            # Hosted Postgres (Supabase) requires SSL; a local Postgres usually doesn't have it.
+            DATABASES["default"].setdefault("OPTIONS", {})
+            DATABASES["default"]["OPTIONS"]["sslmode"] = env_str(
+                "DB_SSLMODE", "require" if IS_DEPLOYED else "prefer"
+            )
+    else:
+        # development without DATABASE_URL: a local file, never a shared database
+        DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": BASE_DIR / "db.sqlite3"}}
 
 # -----------------------------------------------------------------------------
 # Auth
@@ -212,7 +264,9 @@ SPECTACULAR_SETTINGS = {
 # -----------------------------------------------------------------------------
 # JWT / Supabase signing secret
 # -----------------------------------------------------------------------------
-SUPABASE_JWT_SECRET = require_env("SUPABASE_JWT_SECRET")
+SUPABASE_JWT_SECRET = require_env("SUPABASE_JWT_SECRET") if IS_DEPLOYED else os.environ.get("SUPABASE_JWT_SECRET", "").strip()
+# development/test: refuse production auth/admin credentials (local login uses the dev project)
+check_supabase_settings(APP_ENV, os.environ.get("SUPABASE_URL", ""), os.environ.get("SUPABASE_SERVICE_ROLE_KEY", ""))
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60),
@@ -230,8 +284,8 @@ CORS_ALLOWED_ORIGINS = [
     "https://www.proactedai.co.ke",
 ]
 
-# Optional local dev override (keep disabled on cPanel unless needed)
-if env_bool("ALLOW_LOCALHOST_CORS", False):
+# Local frontend (Vite) - on by default only in development
+if env_bool("ALLOW_LOCALHOST_CORS", APP_ENV == "development"):
     CORS_ALLOWED_ORIGINS += ["http://localhost:5173"]
 
 # If you ever use cookies/sessions across origins, you would also need:
@@ -256,13 +310,13 @@ X_FRAME_OPTIONS = "DENY"
 SECURE_CONTENT_TYPE_NOSNIFF = True
 SECURE_BROWSER_XSS_FILTER = True
 
-if not DEBUG:
+if IS_DEPLOYED and not DEBUG:
     SECURE_SSL_REDIRECT = True
     SESSION_COOKIE_SECURE = True
     CSRF_COOKIE_SECURE = True
 
     # HSTS
-    SECURE_HSTS_SECONDS = int(os.environ.get("SECURE_HSTS_SECONDS", "31536000"))
+    SECURE_HSTS_SECONDS = env_int("SECURE_HSTS_SECONDS", 31536000)
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
 
@@ -294,7 +348,10 @@ CONTENT_SECURITY_POLICY = {
 # Cache & Channels (Redis if available; otherwise fallback)
 # -----------------------------------------------------------------------------
 
-CACHES = get_cache_backend()
+CACHES = (
+    {"default": {"BACKEND": "django.core.cache.backends.locmem.LocMemCache"}}
+    if APP_ENV == "test" else get_cache_backend()
+)
 
 if REDIS_AVAILABLE:
     CHANNEL_LAYERS = get_channel_layers()
@@ -307,17 +364,45 @@ from utils.logging_config import setup_logging
 LOGGING = setup_logging()
 
 # -----------------------------------------------------------------------------
-# PayHero (env only; the live payment provider used by apps/subscriptions)
+# Payments (apps/subscriptions) - PayHero is the only real provider
 # -----------------------------------------------------------------------------
-# PAYHERO_CALLBACK_URL must point at /api/subscriptions/confirmation/.
-# PAYHERO_CALLBACK_SECRET authenticates the callback: it is appended to the callback
-# URL as ?secret=... when an STK push is started, and checked again when PayHero
-# calls back. If PAYHERO_CALLBACK_SECRET is empty, every callback is rejected.
+# Flow: frontend -> Django initiate -> PayHero -> M-Pesa prompt -> PayHero callback
+#       -> Django verifies -> PostgreSQL. The frontend never sees any of these values.
+from apps.subscriptions.config import (
+    default_payment_provider, subscription_prices_for, validate_payment_settings,
+)
+
+PAYMENT_PROVIDER = env_str("PAYMENT_PROVIDER", default_payment_provider(APP_ENV)).lower()
+if APP_ENV == "test":
+    PAYMENT_PROVIDER = "mock"
+PAYHERO_ALLOW_NON_PRODUCTION = env_bool("PAYHERO_ALLOW_NON_PRODUCTION", False)
+validate_payment_settings(APP_ENV, PAYMENT_PROVIDER, PAYHERO_ALLOW_NON_PRODUCTION)
+
+# Secrets - owner-controlled, supplied by the hosting environment. Empty = payments unavailable.
 PAYHERO_CHANNEL_ID = os.environ.get("PAYHERO_CHANNEL_ID", "").strip()
 PAYHERO_API_USERNAME = os.environ.get("PAYHERO_API_USERNAME", "").strip()
 PAYHERO_API_PASSWORD = os.environ.get("PAYHERO_API_PASSWORD", "").strip()
+# Must point at https://<api-domain>/api/subscriptions/confirmation/
 PAYHERO_CALLBACK_URL = os.environ.get("PAYHERO_CALLBACK_URL", "").strip()
+# Appended to the callback URL as ?secret=... and checked on every callback.
 PAYHERO_CALLBACK_SECRET = os.environ.get("PAYHERO_CALLBACK_SECRET", "").strip()
+
+if not IS_DEPLOYED:
+    # development/test never hold PayHero credentials, whatever a local .env contains.
+    for _name in ("PAYHERO_CHANNEL_ID", "PAYHERO_API_USERNAME", "PAYHERO_API_PASSWORD", "PAYHERO_CALLBACK_SECRET"):
+        globals()[_name] = ""
+
+# After a valid callback, also confirm with PayHero's GET transaction-status before activating
+# a plan. Off until the owner has confirmed the response format with one staging payment.
+PAYHERO_VERIFY_WITH_STATUS_API = env_bool("PAYHERO_VERIFY_WITH_STATUS_API", False)
+
+# Seconds before giving up on PayHero HTTP calls (connect, read)
+PAYHERO_TIMEOUT_SECONDS = (5, env_int("PAYHERO_READ_TIMEOUT", 30))
+
+SUBSCRIPTION_PRICES_KES = subscription_prices_for(APP_ENV)
+PAYMENT_PENDING_TIMEOUT_MINUTES = env_int("PAYMENT_PENDING_TIMEOUT_MINUTES", 15)
+PAYMENT_MAX_ATTEMPTS_PER_WINDOW = 3          # initiate/ calls per user ...
+PAYMENT_ATTEMPT_WINDOW_MINUTES = 5           # ... within this many minutes
 
 CACHE_TTL = {
     'SUBJECTS': 60 * 60 * 24,      # 24 hours

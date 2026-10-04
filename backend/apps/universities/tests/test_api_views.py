@@ -12,7 +12,7 @@ from apps.universities.serializers import (
     StudentGradesSerializer,
     EligibilityRequestSerializer
 )
-from students.models import Subject
+from apps.students.models import Subject
 import json
 
 

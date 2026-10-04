@@ -13,20 +13,21 @@ def run_tests():
     print("  [OK]  KEDIRA SYSTEM TEST SUITE  [OK]")
     print("="*80)
     
-    # Run all tests at once to avoid multiple DB create/delete cycles
-    # and use --noinput to avoid the stale DB prompt
-    print("\n[RUNNING] All suites: Auth, Payments, Prompts, Admin...")
+    # APP_ENV=test => in-memory SQLite + mock payments + no Redis (see settings.py).
+    # It can never reach the production database or PayHero, whatever is in backend/.env.
+    env = dict(os.environ, APP_ENV="test")
+
+    # Every apps/*/tests/test_*.py module (labels are explicit because apps/ is a namespace package)
+    import glob
+    test_targets = sorted(
+        path[:-3].replace(os.sep, ".")
+        for path in glob.glob(os.path.join("apps", "*", "tests", "test_*.py"))
+    )
+    print(f"\n[RUNNING] {len(test_targets)} test modules...")
+
+    cmd = [sys.executable, "manage.py", "test"] + test_targets + ["-v", "2", "--noinput"] + sys.argv[1:]
     
-    test_targets = [
-        "apps.users.tests.test_auth",
-        "apps.users.tests.test_payments",
-        "apps.users.tests.test_admin",
-        "apps.users.tests.test_prompts",
-    ]
-    
-    cmd = [sys.executable, "manage.py", "test"] + test_targets + ["-v", "2", "--noinput", "--keepdb"]
-    
-    result = subprocess.run(cmd)
+    result = subprocess.run(cmd, env=env)
 
     print("\n" + "="*80)
     if result.returncode == 0:

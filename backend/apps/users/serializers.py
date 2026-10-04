@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import CustomUser # SubscriptionTransaction removed
+from .models import CustomUser
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -37,23 +37,3 @@ class RegisterSerializer(serializers.ModelSerializer):
             is_student=validated_data.get('is_student', True)
         )
         return user
-
-class SubscriptionUpgradeSerializer(serializers.Serializer):
-    target_tier = serializers.ChoiceField(choices=CustomUser.SUBSCRIPTION_TIERS)
-    phone_number = serializers.CharField(max_length=15)
-
-    def validate_phone_number(self, value):
-        # Basic validation to ensure it looks like a Kenyan phone number
-        # We'll normalize it in the utility
-        import re
-        if not re.match(r'^(?:254|\+254|0)?(7|1)\d{8}$', value):
-            raise serializers.ValidationError("Please enter a valid M-Pesa phone number.")
-        return value
-
-
-"""
-class SubscriptionTransactionSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = SubscriptionTransaction
-        fields = '__all__'
-"""
