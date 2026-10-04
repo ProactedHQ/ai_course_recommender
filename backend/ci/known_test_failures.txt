@@ -1,0 +1,29 @@
+# Pre-existing legacy test failures (17), recorded 2026-10-04.
+# They fail identically on the code BEFORE the payment/security refactor (verified test-by-test)
+# and are caused by outdated test code, not by application regressions:
+#   students.test_consumers (2)              uses auth.User instead of users.CustomUser
+#   students.test_views (7)                  outdated fixtures (first_name, prompt_text), multipart nested data, 401 vs 403
+#   universities.test_requirement_parser (2) outdated expected subject normalisation
+#   universities.test_subject_matcher (1)    imports removed compare_grades (shows as unittest.loader._FailedTest)
+#   utils.test_integration (3)               ProgrammeLevel(code=...) field no longer exists
+#   universities.test_api_views (1), test_eligibility_filter (1)  Subject(max_points=...) field no longer exists
+#
+# CI (ci/run_backend_suite.py) fails on any failure NOT listed here. When one of these is fixed,
+# CI prints a notice - delete its line. Never add a new failure here to make CI green.
+ERROR apps.students.tests.test_consumers.NotificationConsumerTestCase
+ERROR apps.students.tests.test_consumers.RecommendationConsumerTestCase
+ERROR apps.students.tests.test_views.AcademicResultViewSetTestCase.test_create_academic_result
+ERROR apps.students.tests.test_views.PromptSubmissionViewSetTestCase.test_list_user_submissions
+ERROR apps.students.tests.test_views.StudentProfileViewSetTestCase.test_user_can_only_see_own_profile
+ERROR apps.universities.tests.test_api_views.CheckEligibilityAPITests
+ERROR apps.universities.tests.test_eligibility_filter.EligibilityFilterIntegrationTests
+ERROR apps.utils.tests.test_integration.CacheIntegrationTestCase.test_cache_hit_performance
+ERROR apps.utils.tests.test_integration.CacheIntegrationTestCase.test_cache_invalidation_workflow
+ERROR apps.utils.tests.test_integration.CacheIntegrationTestCase.test_multiple_endpoint_caching
+ERROR unittest.loader._FailedTest.test_subject_matcher
+FAIL apps.students.tests.test_views.PromptSubmissionViewSetTestCase.test_create_submission
+FAIL apps.students.tests.test_views.PromptSubmissionViewSetTestCase.test_rate_limiting
+FAIL apps.students.tests.test_views.PromptSubmissionViewSetTestCase.test_submission_requires_authentication
+FAIL apps.students.tests.test_views.StudentProfileViewSetTestCase.test_profile_requires_authentication
+FAIL apps.universities.tests.test_requirement_parser.NormalizeSubjectNameTests.test_normalize_mathematics
+FAIL apps.universities.tests.test_requirement_parser.ParseClusterRequirementsTests.test_parse_all_four_requirements

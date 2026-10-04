@@ -324,6 +324,13 @@ python run_tests.py                                   # every apps/*/tests/test_
 APP_ENV=test python manage.py test apps.subscriptions.tests.test_payments
 ```
 
+**CI** (`.github/workflows/ci.yml`, on PRs to `main` and pushes to `main`, no secrets, nothing deployed):
+- *Backend tests (Django, APP_ENV=test)* — environment guard (`backend/ci/check_test_environment.py`), the payment/
+  config/env-safety/user tests (must all pass), then the full suite via `backend/ci/run_backend_suite.py`, which fails on
+  any failure not listed in `backend/ci/known_test_failures.txt`.
+- *Frontend lint & build (Vite)* — `npm ci`, ESLint failing only on new violations (existing ones in
+  `frontend/eslint-suppressions.json`), `npm run build`.
+
 Pre-existing failures (17 tests; the same test IDs fail on the code before the payment refactor, so they are
 unrelated and deliberately left unchanged):
 
