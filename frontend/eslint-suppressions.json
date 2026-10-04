@@ -1,0 +1,129 @@
+{
+  "src/components/Navbar.jsx": {
+    "react-hooks/set-state-in-effect": {
+      "count": 1
+    }
+  },
+  "src/components/admin/AdminStatsCard.jsx": {
+    "no-unused-vars": {
+      "count": 1
+    }
+  },
+  "src/components/admin/UserImpersonation.jsx": {
+    "no-unused-vars": {
+      "count": 2
+    }
+  },
+  "src/components/app/PromptHistoryList.jsx": {
+    "no-unused-vars": {
+      "count": 1
+    }
+  },
+  "src/components/app/PromptResult.jsx": {
+    "no-unused-vars": {
+      "count": 1
+    }
+  },
+  "src/components/app/PromptWizard/WizardManager.jsx": {
+    "no-unused-vars": {
+      "count": 1
+    },
+    "react-hooks/set-state-in-effect": {
+      "count": 1
+    }
+  },
+  "src/components/app/ShareCard.jsx": {
+    "react-hooks/purity": {
+      "count": 1
+    }
+  },
+  "src/components/app/ShareModal.jsx": {
+    "no-unused-vars": {
+      "count": 1
+    }
+  },
+  "src/context/AdminThemeContext.jsx": {
+    "react-refresh/only-export-components": {
+      "count": 1
+    }
+  },
+  "src/context/AuthContext.jsx": {
+    "react-refresh/only-export-components": {
+      "count": 1
+    }
+  },
+  "src/context/PromptHistoryContext.jsx": {
+    "no-unused-vars": {
+      "count": 1
+    },
+    "react-refresh/only-export-components": {
+      "count": 1
+    }
+  },
+  "src/context/ToastContext.jsx": {
+    "react-hooks/immutability": {
+      "count": 1
+    },
+    "react-refresh/only-export-components": {
+      "count": 2
+    }
+  },
+  "src/hooks/useAdminData.js": {
+    "no-unused-vars": {
+      "count": 2
+    }
+  },
+  "src/pages/admin/AdminManagement.jsx": {
+    "no-unused-vars": {
+      "count": 3
+    },
+    "react-hooks/immutability": {
+      "count": 1
+    }
+  },
+  "src/pages/admin/Analytics.jsx": {
+    "react-hooks/immutability": {
+      "count": 1
+    }
+  },
+  "src/pages/admin/ChatLogs.jsx": {
+    "react-hooks/immutability": {
+      "count": 1
+    }
+  },
+  "src/pages/admin/SubscriptionManager.jsx": {
+    "react-hooks/immutability": {
+      "count": 1
+    }
+  },
+  "src/pages/admin/UserManagement.jsx": {
+    "react-hooks/immutability": {
+      "count": 1
+    }
+  },
+  "src/pages/app/ProfileSettings.jsx": {
+    "no-unused-vars": {
+      "count": 1
+    }
+  },
+  "src/pages/app/Subscription.jsx": {
+    "no-unused-vars": {
+      "count": 1
+    }
+  },
+  "src/pages/blog/BlogPost.jsx": {
+    "no-unused-vars": {
+      "count": 3
+    }
+  },
+  "src/pages/blog/blogData.js": {
+    "no-unused-vars": {
+      "count": 2
+    }
+  },
+  "src/utils/historyGrouping.js": {
+    "no-unused-vars": {
+      "count": 1
+    }
+  }
+}
