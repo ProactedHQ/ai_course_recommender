@@ -257,7 +257,7 @@ SPECTACULAR_SETTINGS = {
     "SWAGGER_UI_DIST": "SIDECAR",
     "SWAGGER_UI_FAVICON_HREF": "/static/drf_spectacular/logo.png",
     "ENUM_NAME_OVERRIDES": {
-        "CategoryEnum": "students.models.Subject.CATEGORY_CHOICES",
+        "CategoryEnum": "apps.students.models.Subject.CATEGORY_CHOICES",
     },
 }
 
